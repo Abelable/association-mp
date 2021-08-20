@@ -1,0 +1,275 @@
+<import src="/templates/i-youbo-logo/index.wxml" />
+
+<view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">入会申请</view>
+
+<view class="form-wrap" style="margin-top: {{statusBarHeight + 44}}px">
+  <view class="input-wrap">
+    <view class="title">
+      <text class="required-icon">*</text>
+      <text>企业名称</text>
+    </view>
+    <input class="input" type="text" value="{{companyName}}" bindinput="setCompanyName" placeholder="请输入企业名称"/>
+  </view>
+  <view class="input-wrap">
+    <view class="title">
+      <text class="required-icon">*</text>
+      <text>企业简称</text>
+    </view>
+    <input class="input" type="text" bindinput="setAbbreviation" placeholder="请输入企业简称"/>
+  </view>
+  <view class="input-wrap">
+    <view class="title">
+      <text class="required-icon">*</text>
+      <text>企业地址</text>
+    </view>
+    <input class="input" type="text" bindinput="setAddress" placeholder="请输入企业地址"/>
+  </view>
+  <view class="input-wrap">
+    <view class="title">
+      <text class="required-icon">*</text>
+      <text>邮政编码</text>
+    </view>
+    <input class="input" type="number" bindinput="setPostCode" placeholder="请输入邮政编码"/>
+  </view>
+  <view class="input-wrap">
+    <view class="title">
+      <text class="required-icon">*</text>
+      <text>网站（网店）网址</text>
+    </view>
+    <input class="input" type="text" bindinput="setWebsiteUrl" placeholder="请输入网站（网店）网址"/>
+  </view>
+  <view class="input-wrap">
+    <view class="title">
+      <text class="required-icon">*</text>
+      <text>企业员工平均年龄</text>
+    </view>
+    <input class="input" type="number" bindinput="setAverageAge" placeholder="请输入企业员工平均年龄"/>
+  </view>
+  <view class="input-wrap">
+    <view class="title">
+      <text class="required-icon">*</text>
+      <text>统一社会信用代码</text>
+    </view>
+    <input class="input" type="text" bindinput="setCreditCode" placeholder="请输入统一社会信用代码"/>
+  </view>
+  <view class="input-wrap">
+    <view class="title">
+      <text class="required-icon">*</text>
+      <text>ICP备案号</text>
+    </view>
+    <input class="input" type="text" bindinput="setICP" placeholder="请输入ICP备案号"/>
+  </view>
+  <view class="selection-wrap">
+    <view class="title">
+      <text class="required-icon">*</text>
+      <text>企业类型（可多选）</text>
+    </view>
+    <checkbox-group class="selection" bindchange="setCompanyType">
+      <view class="option">
+        <checkbox id="1" value="第三方平台"/>
+        <label class="desc" for="1">第三方平台</label>
+      </view>
+      <view class="option">
+        <checkbox id="2" value="自营平台" />
+        <label class="desc" for="2">自营平台</label>
+      </view>
+      <view class="option">
+        <checkbox id="3" value="非平台" />
+        <label class="desc" for="3">非平台</label>
+      </view>
+    </checkbox-group>
+  </view>
+  <view class="selection-wrap">
+    <view class="title">
+      <text class="required-icon">*</text>
+      <text>网站电子商务类型（可多选）</text>
+    </view>
+    <checkbox-group class="selection" bindchange="setWebsiteType">
+      <view class="option">
+        <checkbox id="4" value="B2B"/>
+        <label class="desc" for="4">B2B</label>
+      </view>
+      <view class="option">
+        <checkbox id="5" value="B2C" />
+        <label class="desc" for="5">B2C</label>
+      </view>
+      <view class="option">
+        <checkbox id="6" value="C2C" />
+        <label class="desc" for="6">C2C</label>
+      </view>
+      <view class="option">
+        <checkbox id="7" value="G2C" />
+        <label class="desc" for="7">G2C</label>
+      </view>
+      <view class="option">
+        <checkbox id="8" value="其他" />
+        <label class="desc" for="8">其他</label>
+      </view>
+    </checkbox-group>
+  </view>
+  <view class="input-wrap">
+    <view class="title">
+      <text class="required-icon">*</text>
+      <text>交易商品（服务）</text>
+    </view>
+    <input class="input" type="text" bindinput="setTradeCommodity" placeholder="请输入交易商品（服务）"/>
+  </view>
+  <view class="input-wrap">
+    <view class="title">
+      <text>注册会员数量（个）</text>
+    </view>
+    <input class="input" type="number" bindinput="setMemberCount" placeholder="请输入注册会员数量"/>
+  </view>
+  <view class="input-wrap">
+    <view class="title">
+      <text>平台网站内经营者数量（个）</text>
+    </view>
+    <input class="input" type="number" bindinput="setOperatorCount" placeholder="请输入平台网站内经营者数量"/>
+  </view>
+  <view class="input-wrap">
+    <view class="title">
+      <text class="required-icon">*</text>
+      <text>上年交易笔数(笔)</text>
+    </view>
+    <input class="input" type="number" bindinput="setTradeCount" placeholder="请输入上年交易笔数"/>
+  </view>
+  <view class="input-wrap">
+    <view class="title">
+      <text class="required-icon">*</text>
+      <text>上年交易额(元)</text>
+    </view>
+    <input class="input" type="number" bindinput="setTradeAmount" placeholder="请输入上年交易额"/>
+  </view>
+  <view class="input-wrap">
+    <view class="title">
+      <text class="required-icon">*</text>
+      <text>负责人姓名</text>
+    </view>
+    <input class="input" type="text" bindinput="setName" placeholder="请输入负责人姓名"/>
+  </view>
+  <view class="input-wrap">
+    <view class="title">
+      <text class="required-icon">*</text>
+      <text>性别</text>
+    </view>
+    <input class="input" type="text" bindinput="setGender" placeholder="请输入性别"/>
+  </view>
+  <view class="input-wrap">
+    <view class="title">
+      <text class="required-icon">*</text>
+      <text>职务</text>
+    </view>
+    <input class="input" type="text" bindinput="setJobTitle" placeholder="请输入职务"/>
+  </view>
+  <view class="input-wrap">
+    <view class="title">
+      <text class="required-icon">*</text>
+      <text>身份证号</text>
+    </view>
+    <input class="input" type="text" bindinput="setIdentityCode" placeholder="请输入身份证号"/>
+  </view>
+  <view class="input-wrap">
+    <view class="title">
+      <text class="required-icon">*</text>
+      <text>学历</text>
+    </view>
+    <input class="input" type="text" bindinput="setEducation" placeholder="请输入学历"/>
+  </view>
+  <view class="input-wrap">
+    <view class="title">
+      <text class="required-icon">*</text>
+      <text>政治面貌</text>
+    </view>
+    <input class="input" type="text" bindinput="setpPliticalStatus" placeholder="请输入政治面貌"/>
+  </view>
+  <view class="input-wrap">
+    <view class="title">
+      <text class="required-icon">*</text>
+      <text>手机</text>
+    </view>
+    <input class="input" type="number" bindinput="setTel" placeholder="请输入手机"/>
+  </view>
+  <view class="input-wrap">
+    <view class="title">
+      <text class="required-icon">*</text>
+      <text>邮箱</text>
+    </view>
+    <input class="input" type="text" bindinput="setEmail" placeholder="请输入邮箱"/>
+  </view>
+  <view class="input-wrap">
+    <view class="title">
+      <text class="required-icon">*</text>
+      <text>协会联系人姓名</text>
+    </view>
+    <input class="input" type="text" bindinput="setContacterName" placeholder="请输入协会联系人姓名"/>
+  </view>
+  <view class="input-wrap">
+    <view class="title">
+      <text class="required-icon">*</text>
+      <text>职务</text>
+    </view>
+    <input class="input" type="text" bindinput="setContacterJobTitle" placeholder="请输入职务"/>
+  </view>
+  <view class="input-wrap">
+    <view class="title">
+      <text class="required-icon">*</text>
+      <text>手机</text>
+    </view>
+    <input class="input" type="number" bindinput="setContacterTel" placeholder="请输入手机"/>
+  </view>
+  <view class="input-wrap">
+    <view class="title">
+      <text class="required-icon">*</text>
+      <text>邮箱</text>
+    </view>
+    <input class="input" type="text" bindinput="setContacterEmail" placeholder="请输入邮箱"/>
+  </view>
+  
+  <!-- <view class="selection-wrap">
+    <view class="title">
+      <text class="required-icon">*</text>
+      <text>网站电子商务类型</text>
+    </view>
+    <radio-group class="selection">
+      <view class="option">
+        <radio/>
+        <view class="desc">B2B</view>
+      </view>
+      <view class="option">
+        <radio />
+        <view class="desc">其他</view>
+      </view>
+    </radio-group>
+  </view> -->
+</view>
+
+<view class="upload-wrap">
+  <view class="title">
+    <text class="required-icon">*</text>
+    <text>企业营业执照或副本</text>
+  </view>
+  <view class="upload" ontap="uploadLicense">
+    <view wx:if="{{!licenseImg}}">
+      <view class="upload-btn">
+        <image class="upload-icon" src="./images/upload-icon.png" />
+        <view>点击上传</view>
+      </view>
+      <view class="upload-tips">图片大小不能超过10MB</view>
+    </view>
+    <image class="license-img" wx:if="{{licenseImg}}" src="{{licenseImg}}" mode="widthFix" />
+  </view>
+</view>
+
+<view class="submit-btn" ontap="submit">提交</view>
+
+<view class="notice-title">填表须知</view>
+<view class="notice">
+  <view class="notice-detail-title">1.申请入会需如实完整填写此表</view>
+  <view class="notice-detail-title">2.联系方式</view>
+  <view class="notice-detail-content">电话：0571-89769991；</view>
+  <view class="notice-detail-content">邮箱：2264745919@qq.com</view>
+  <view class="notice-detail-content">地址：杭州市莫干山路77号金汇大厦北门 浙江省网商协会</view>
+  <view class="notice-detail-content">邮编：310005</view>
+</view>
+
+<template is="i-youbo-logo" />

@@ -1,0 +1,35 @@
+page {
+  font-family: PingFangSC-Regular, -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
+  background: #f7f7f7;
+}
+
+view, image, scroll-view, navigator, swiper, swiper-item {
+  box-sizing: border-box;
+}
+textarea, input {
+  z-index: 0;
+}
+button {
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  position: static;
+  border: 0;
+  border-radius: 0;
+  font-size: 0;
+  color: transparent;
+  text-align: left;
+}
+button::after {
+  content: '';
+  width: 0;
+  height: 0;
+  display: none;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}

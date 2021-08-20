@@ -1,0 +1,23 @@
+<import src="/templates/i-youbo-logo/index.wxml" />
+
+<image class="bg" style="top: {{statusBarHeight - 50}}px;" src="./images/bg.png" />
+
+<view class="nav-bar {{ navBarVisible ? 'show' : '' }}" style="padding-top: {{statusBarHeight}}px;">浙江省网商协会</view>
+
+<view class="swiper-wrap" style="margin-top: {{statusBarHeight + 54}}px;">
+  <swiper class="swiper" autoplay circular interval="5000" duration="1000" indicator-dots indicator-color="rgba(63, 171, 251, 0.4)" indicator-active-color="#3FABFB">
+    <swiper-item wx:for="{{banner}}" wx:key="index">
+      <image class="banner-img" src="{{item.img}}" ontap="navTo" data-url="{{item.redirect_url}}" />
+    </swiper-item>
+  </swiper>
+</view>
+
+<scroll-view class="menu-wrap {{menuFixed ? 'fixed' : ''}}" style="top: {{statusBarHeight + 44}}px;" scroll-x>
+  <view class="menu-item {{selectedMenuIndex === index ? 'selected' : ''}}" wx:for="{{menuList}}" wx:key="index" ontap="selectMenu" data-index="{{index}}">{{item.title}}</view>
+</scroll-view>
+
+<view class="news-list-wrap {{menuFixed ? 'fixed' : ''}}">
+  <i-news-list wx:for="{{newsList}}" wx:key="index" item="{{item}}" />
+</view>
+
+<template is="i-youbo-logo" wx:if="{{nomore}}" />

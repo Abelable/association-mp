@@ -1,0 +1,167 @@
+@import "/templates/i-youbo-logo/index.wxss";
+
+checkbox {
+  transform: scale(0.8);
+}
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  border: 2rpx solid #327EFF;
+  background: #327EFF;
+}
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  font-size: 50rpx;
+  color: #fff;
+}
+
+radio .wx-radio-input{
+  transform: scale(0.8);
+  border-radius: 3px;
+}
+radio .wx-radio-input.wx-radio-input-checked {
+  border: 2rpx solid #327EFF !important;
+  background: #327EFF !important;
+}
+radio .wx-radio-input.wx-radio-input-checked::before {
+  font-size: 50rpx;
+  color: #fff;
+  background: transparent;
+}
+
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 44px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 44px;
+  box-sizing: initial;
+  z-index: 100;
+  background: linear-gradient(180deg, #3FABFB 0%, #317BFF 100%);
+}
+
+.form-wrap {
+  background: #fff;
+}
+
+.input-wrap, .selection-wrap {
+  padding: 20rpx 30rpx;
+  border-bottom: 2rpx solid #f7f7f7;
+}
+.title {
+  color: #333;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.required-icon {
+  margin-right: 20rpx;
+  color: #FF3838;
+  font-weight: bold;
+}
+.input {
+  margin-top: 20rpx;
+  font-size: 28rpx;
+}
+
+.selection {
+  margin-top: 20rpx;
+}
+.option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24rpx;
+}
+.desc {
+  margin-top: 6rpx;
+  color: #333;
+  font-size: 28rpx;
+  line-height: 1;
+}
+
+.upload-wrap {
+  margin-top: 20rpx;
+  padding: 30rpx;
+  background: #fff;
+}
+.upload {
+  margin-top: 30rpx;
+  font-size: 0;
+  border: 1px dashed #317DFF;
+  border-radius: 4rpx;
+}
+.upload-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20rpx auto;
+  width: 200rpx;
+  height: 50rpx;
+  color: #fff;
+  font-size: 24rpx;
+  border-radius: 8rpx;
+  background: linear-gradient(180deg, #3FABFB 0%, #317BFF 100%);
+}
+.upload-icon {
+  margin-right: 10rpx;
+  width: 28rpx;
+  height: 28rpx;
+}
+.upload-tips {
+  margin-bottom: 20rpx;
+  color: #999;
+  font-size: 24rpx;
+  text-align: center;
+}
+.license-img {
+  width: 100%;
+  border-radius: 4rpx;
+}
+
+.submit-btn {
+  margin: 50rpx 88rpx;
+  height: 96rpx;
+  color: #fff;
+  font-size: 36rpx;
+  font-weight: bold;
+  text-align: center;
+  line-height: 96rpx;
+  border-radius: 48rpx;
+  background: linear-gradient(180deg, #3FABFB 0%, #317BFF 100%);
+}
+
+.notice-title {
+  position: relative;
+  margin-left: 30rpx;
+  color: #333;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.notice-title::after {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 64rpx;
+  height: 8rpx;
+  content: '';
+  background: #408BF1;
+}
+
+.notice {
+  margin-top: 20rpx;
+  padding: 30rpx;
+  padding-top: 1rpx;
+  background: #fff;
+}
+.notice-detail-title {
+  margin-top: 30rpx;
+  color: #333;
+  font-size: 28rpx;
+  font-weight: 500;
+}
+.notice-detail-content {
+  margin-top: 16rpx;
+  color: #666;
+  font-size: 24rpx;
+}
