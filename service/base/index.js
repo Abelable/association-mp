@@ -5,10 +5,7 @@ class Base {
   constructor() {
     switch (env) {
       case 'pro':
-        this.baseUrl = 'https://mms.youboi.com'
-        break
-      case 'beta':
-        this.baseUrl = 'https://beta.mms.youboi.com'
+        this.baseUrl = 'https://api.zjseca.com'
         break
       case 'dev':
         this.baseUrl = 'https://gb.ubo.vip'
