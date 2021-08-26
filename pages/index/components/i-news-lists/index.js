@@ -20,7 +20,7 @@ Component({
   methods: {
     navToNews() {
       wx.navigateTo({
-        url: '/pages/index/subpages/news/index'
+        url: `/pages/index/subpages/news/index?id=${this.properties.item.id}`
       })
     }
   }

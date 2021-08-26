@@ -86,6 +86,7 @@
 
 .news-list-wrap {
   padding: 16rpx 30rpx 1rpx;
+  min-height: calc(100vh - 700rpx);
 }
 .news-list-wrap.fixed {
   padding-top: 104rpx;
