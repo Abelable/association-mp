@@ -14,7 +14,9 @@ Page({
   },
 
   onLoad(options) {
-    this.newsId = options.id 
+    const { id, scene } = options
+    const decodedScene = scene ? decodeURIComponent(scene) : ''
+    this.newsId = id || decodedScene.split('-')[0]
     this.setNewsList()
     this.setData({
       isOldUser: wx.getStorageSync('isOldUser')
@@ -77,7 +79,8 @@ Page({
     const { newsList, curNewsIdx } = this.data
     const { id, img, title } = newsList[curNewsIdx]
     const { path: cover } = await newsService.getImageInfo(img)
-    const { app_code: qrCode } = await newsService.share(id)
+    const { app_code } = await newsService.share(id)
+    const { path: qrCode } = await newsService.getImageInfo(app_code)
 
     const posterInfo = {
       bgUrl: posterBgUrl, 
