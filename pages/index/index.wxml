@@ -13,7 +13,9 @@
 </view>
 
 <scroll-view class="menu-wrap {{menuFixed ? 'fixed' : ''}}" style="top: {{statusBarHeight + 44}}px;" scroll-x>
-  <view class="menu-item {{selectedMenuIndex === index ? 'selected' : ''}}" wx:for="{{menuList}}" wx:key="index" ontap="selectMenu" data-index="{{index}}">{{item.title}}</view>
+  <view class="menu {{menuList.length < 4 ? 'space-around' : ''}}">
+    <view class="menu-item {{selectedMenuIndex === index ? 'selected' : ''}}" wx:for="{{menuList}}" wx:key="index" ontap="selectMenu" data-index="{{index}}">{{item.title}}</view>
+  </view>
 </scroll-view>
 
 <view class="news-list-wrap {{menuFixed ? 'fixed' : ''}}">
