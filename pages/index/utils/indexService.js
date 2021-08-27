@@ -12,6 +12,10 @@ class IndexService extends BaseService {
   async getNewsList(class_id, page, page_size = 10) {
     return await this.get({ url: `${this.baseUrl}/api/v1/article/article-list`, data: { class_id, page, page_size }, loadingTitle: '加载中...' })
   }
+
+  async checkArticle(article_id) {
+    return await this.post({ url: `${this.baseUrl}/api/v1/article/article-look`, data: { article_id } })
+  }
 }
 
 export default IndexService

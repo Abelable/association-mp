@@ -15,13 +15,15 @@ Page({
     nomore: false
   },
 
-  async onLoad() {
-    this.setBanner()
-    await this.setMenuList()
+  async onShow() {
+    if (!this.data.menuList.length) {
+      this.setBanner()
+      await this.setMenuList()
+      this.setMenuTop()
+    }
     this.setNewsList(true)
-    this.setMenuTop()
   },
-
+  
   selectMenu(e) {
     this.setData({ 
       selectedMenuIndex: Number(e.currentTarget.dataset.index)

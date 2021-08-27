@@ -1,8 +1,10 @@
+import IndexService from '../../utils/indexService'
+
 Component({
   properties: {
     item: {
       type: Object,
-      bserver(info) {
+      observer(info) {
         const { virtual_like, actual_like, virtual_look, actual_look } = info || {}
         this.setData({
           praiseCount: Number(virtual_like) + Number(actual_like),
@@ -22,6 +24,9 @@ Component({
       wx.navigateTo({
         url: `/pages/index/subpages/news/index?id=${this.properties.item.id}`
       })
+      if (wx.getStorageSync('openid')) {
+        new IndexService().checkArticle(this.properties.item.id)
+      }
     }
   }
 })
