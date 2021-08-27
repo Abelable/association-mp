@@ -130,7 +130,7 @@ Page({
   onShareAppMessage() {
     const { newsList, curNewsIdx } = this.data 
     const { id, title, img } = newsList[curNewsIdx]
-    const imageUrl = `${img}?x-oss-process=image/crop,x_16`
+    const imageUrl = `${img}?x-oss-process=image/resize,m_fill,h_180,w_180`
     const path = `/pages/index/subpages/news/index?id=${id}`
     return { path, title, imageUrl }
   }
