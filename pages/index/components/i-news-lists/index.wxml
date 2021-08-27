@@ -2,7 +2,7 @@
   <image class="cover" src="{{item.img}}" mode="aspectFill" />
   <view class="content-wrap">
     <view class="title">{{item.title}}</view>
-    <view class="content">{{item.content}}</view>
+    <rich-text class="content" nodes="{{item.content}}" />
     <view class="user-data-wrap">
       <view class="user-data">
         <image class="user-data-icon" src="./images/scan-icon.png" />
