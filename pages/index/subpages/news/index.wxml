@@ -23,14 +23,14 @@
 <view class="mask {{posterModalVisible ? 'dark' : ''}}" wx:if="{{sharePopupVisible || posterModalVisible}}" ontap="hideSharePopup" />
 <view class="share-popup {{sharePopupVisible ? 'show' : ''}}">
   <view class="share-btn-wrap">
-    <view class="share-btn" ontap="showPosterModal">
+    <button class="share-btn" ontap="showPosterModal" hover-class="none">
       <image class="share-btn-icon" src="./images/poster-icon.png" />
       <view class="share-btn-desc">生成海报</view>
-    </view>
-    <view class="share-btn">
+    </button>
+    <button class="share-btn" open-type='share' hover-class="none">
       <image class="share-btn-icon" src="./images/wx-icon.png" />
       <view class="share-btn-desc">分享给好友</view>
-    </view>
+    </button>
   </view>
   <view class="cancle-btn" ontap="hideSharePopup">取消</view>
 </view>

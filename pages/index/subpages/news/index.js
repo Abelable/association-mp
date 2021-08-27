@@ -125,5 +125,13 @@ Page({
     this.setData({
       isOldUser: true
     })
+  },
+
+  onShareAppMessage() {
+    const { newsList, curNewsIdx } = this.data 
+    const { id, title, img } = newsList[curNewsIdx]
+    const imageUrl = `${img}?x-oss-process=image/crop,x_16`
+    const path = `/pages/index/subpages/news/index?id=${id}`
+    return { path, title, imageUrl }
   }
 })

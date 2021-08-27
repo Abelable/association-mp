@@ -75,7 +75,8 @@ Page({
     else if (e.scrollTop < (this.menuTop - statusBarHeight - 44) && this.data.menuFixed) this.setData({ menuFixed: false })
   },
 
-  onPullDownRefresh() {
+  async onPullDownRefresh() {
+    await this.setMenuList()
     this.setNewsList(true)
     wx.stopPullDownRefresh()
   },
