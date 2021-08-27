@@ -16,7 +16,7 @@ Component({
 
       this.roundRect(ctx, 15, 17, 32, 32, 16, avatarUrl)
       this.setText(ctx, 14, '#fff', 55, 28, nickName)
-      this.setText(ctx, 12, '#fff', 55, 46, '发现一个商家好去处')
+      this.setText(ctx, 12, '#fff', 55, 46, '发现一篇好文章')
 
       ctx.drawImage(cover, 27, 71, 237, 130)
 

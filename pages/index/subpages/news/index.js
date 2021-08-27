@@ -97,10 +97,18 @@ Page({
   },
 
   showPosterModal() {
-    this.setData({
-      sharePopupVisible: false,
-      posterModalVisible: true
-    })
+    if (!this.data.posterInfo) {
+      wx.showLoading({ title: '海报生成中... ' })
+      setTimeout(() => {
+        this.showPosterModal()
+      }, 1000)
+    } else {
+      wx.hideLoading()
+      this.setData({
+        sharePopupVisible: false,
+        posterModalVisible: true
+      })
+    }
   },
 
   hidePosterModal() {
