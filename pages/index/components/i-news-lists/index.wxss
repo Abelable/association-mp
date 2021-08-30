@@ -32,6 +32,7 @@
   -webkit-box-orient: vertical;
 }
 .content {
+  width: 450rpx;
   color: #666;
   font-size: 24rpx;
   overflow: hidden;

@@ -19,7 +19,7 @@
 </scroll-view>
 
 <view class="news-list-wrap {{menuFixed ? 'fixed' : ''}}">
-  <i-news-list wx:for="{{newsList}}" wx:key="index" item="{{item}}" />
+  <i-news-list wx:for="{{newsList}}" wx:key="index" item="{{item}}" category-id="{{menuList[selectedMenuIndex].id}}" />
 </view>
 
 <template is="i-youbo-logo" wx:if="{{nomore}}" />

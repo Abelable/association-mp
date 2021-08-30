@@ -14,9 +14,10 @@ Page({
   },
 
   onLoad(options) {
-    const { id, scene } = options
+    const { id, categoryId, scene } = options
     const decodedScene = scene ? decodeURIComponent(scene) : ''
     this.newsId = id || decodedScene.split('-')[0]
+    this.categoryId = categoryId || decodedScene.split('-')[1]
     this.setNewsList()
     this.setData({
       isOldUser: wx.getStorageSync('isOldUser')
@@ -32,11 +33,11 @@ Page({
       this.setData({ curNewsIdx })
     }, 200)
     
-    if (curNewsIdx > newsList.length - 3) this.setNewsList(newsList[newsList.length - 1].id)
+    if (curNewsIdx > (newsList.length - 3)) this.setNewsList(newsList[newsList.length - 1].id)
   }, 
 
   async setNewsList(lastId = '') {
-    const list = await newsService.getNewsList(this.newsId, lastId)
+    const list = await newsService.getNewsList(this.categoryId, this.newsId, lastId)
     this.setData({
       newsList: [...this.data.newsList, ...list]
     })
@@ -131,7 +132,7 @@ Page({
     const { newsList, curNewsIdx } = this.data 
     const { id, title, img } = newsList[curNewsIdx]
     const imageUrl = `${img}?x-oss-process=image/resize,m_fill,h_180,w_180`
-    const path = `/pages/index/subpages/news/index?id=${id}`
+    const path = `/pages/index/subpages/news/index?id=${id}&categoryId=${this.categoryId}`
     return { path, title, imageUrl }
   }
 })

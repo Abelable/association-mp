@@ -2,6 +2,7 @@ import IndexService from '../../utils/indexService'
 
 Component({
   properties: {
+    categoryId: '',
     item: {
       type: Object,
       observer(info) {
@@ -10,6 +11,7 @@ Component({
         content = content.replace(/[ | ]*\n/g,'\n') //去除行尾空白
         content = content.replace(/\n[\s| | ]*\r/g,'\n') //去除多余空行
         content = content.replace(/ /ig,'') //去掉 
+        content = content.replace(/&nbsp/g,'')
         this.setData({
           content,
           praiseCount: Number(virtual_like) + Number(actual_like),
@@ -27,11 +29,12 @@ Component({
 
   methods: {
     navToNews() {
+      const { item, categoryId } = this.properties
       wx.navigateTo({
-        url: `/pages/index/subpages/news/index?id=${this.properties.item.id}`
+        url: `/pages/index/subpages/news/index?id=${item.id}&categoryId=${categoryId}`
       })
       if (wx.getStorageSync('openid')) {
-        new IndexService().checkArticle(this.properties.item.id)
+        new IndexService().checkArticle(categoryId, item.id)
       }
     }
   }

@@ -1,8 +1,8 @@
 import BaseService from '../../../../../service/baseService'
 
 class NewsService extends BaseService {
-  async getNewsList(article_id, last_id, limit = 5) {
-    return await this.get({ url: `${this.baseUrl}/api/v1/article/article-info`, data: { article_id, last_id, limit, action: 2 } })
+  async getNewsList(class_id, article_id, last_id, limit = 6) {
+    return await this.get({ url: `${this.baseUrl}/api/v1/article/article-info`, data: { class_id, article_id, last_id, limit, action: 1 } })
   }
 
   async togglePraiseStatus(article_id, type) {
