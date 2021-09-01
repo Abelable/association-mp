@@ -1,16 +1,8 @@
-<swiper style="height: 100vh;" bindchange="onSlide" vertical>
-  <swiper-item wx:for="{{newsList}}" wx:key="index">
-    <block wx:if="{{index > curNewsIdx - 2 && index < curNewsIdx + 2}}">
-      <scroll-view scroll-y style="height: 100vh;">
-        <i-news-detail item="{{item}}" />
-      </scroll-view>
-    </block>
-  </swiper-item>
-</swiper>
+<i-news-detail item="{{newsList[0]}}" />
 
 <view class="btn-wrap">
   <view class="btn" ontap="togglePraise">
-    <image class="icon" src="{{newsList[curNewsIdx].is_like == 1 ? './images/praise-active.png' : './images/praise.png'}}" />
+    <image class="icon" src="{{newsList[0].is_like == 1 ? './images/praise-active.png' : './images/praise.png'}}" />
     <view class="desc">点赞</view>
   </view>
   <view class="btn" ontap="showSharePopup">
@@ -35,8 +27,3 @@
   <view class="cancle-btn" ontap="hideSharePopup">取消</view>
 </view>
 <i-poster-modal wx:if="{{posterModalVisible}}" posterInfo="{{posterInfo}}" bind:hideModal="hidePosterModal"/>
-
-<view class="tips-cover" wx:if="{{!isOldUser}}" ontap="hideTipsCover">
-  <image class="tips-cover-icon" src="./images/tips-icon.png" />
-  <view class="tips-cover-desc">滑动切换下一篇内容</view>
-</view>

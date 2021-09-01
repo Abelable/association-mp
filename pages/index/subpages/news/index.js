@@ -24,18 +24,6 @@ Page({
     })
   },
 
-  onSlide(e) {
-    const curNewsIdx = Number(e.detail.current)
-    const { newsList } = this.data
-
-    this.setCurNewsIdxTimeout && clearTimeout(this.setCurNewsIdxTimeout)
-    this.setCurNewsIdxTimeout = setTimeout(async () => {
-      this.setData({ curNewsIdx })
-    }, 200)
-    
-    if (curNewsIdx > (newsList.length - 3)) this.setNewsList(newsList[newsList.length - 1].id)
-  }, 
-
   async setNewsList(lastId = '') {
     const list = await newsService.getNewsList(this.categoryId, this.newsId, lastId)
     this.setData({
