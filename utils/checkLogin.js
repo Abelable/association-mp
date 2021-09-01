@@ -10,7 +10,7 @@ const login = async () => {
   wx.setStorageSync('openid', open_id)
   wx.setStorageSync('userInfo', userInfo)
   if (is_bind == 0) {
-    baseService.bindUserInfo(userInfo)
+    await baseService.bindUserInfo(userInfo)
   }
 }
 
