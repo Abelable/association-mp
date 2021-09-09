@@ -13,9 +13,9 @@
   <view class="input-wrap">
     <view class="title">
       <text class="required-icon">*</text>
-      <text>网站（app）网址</text>
+      <text>网站（app）名称</text>
     </view>
-    <input class="input" type="text" value="{{websiteUrl}}" bindinput="setWebsiteUrl" placeholder="请输入网站（app）网址"/>
+    <input class="input" type="text" value="{{websiteUrl}}" bindinput="setWebsiteUrl" placeholder="请输入网站（app）名称"/>
   </view>
   <view class="input-wrap">
     <view class="title">
