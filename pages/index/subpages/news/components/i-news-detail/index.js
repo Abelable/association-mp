@@ -1,18 +1,17 @@
 Component({
   properties: {
-    item: Object
+    item: {
+      type: Object,
+      observer(info) {
+        const content = info.content.replace(/<p/g, '<p style="margin-top: 8px;"')
+        this.setData({ content })
+      }
+    }
   },
 
   data: {
     fold: true,
-    htmlSnip: `
-      <p style='margin-top: 30px;'>本次活动以“产业互联，智慧新零售”为主题，聚焦企业在流量获取和流量变现时遇到的难题与解决方法，三位来自京东、有赞、航天云网的讲师为企业分享和答疑解惑。来自会员企业的30余位代表参加沙龙，大家积极交流、讨论分享、畅所欲言，本次活动干货满满，收获颇多。</p>
-      <img style='margin-top: 30px; width: 100%;' src='http://f.hiphotos.baidu.com/image/pic/item/4034970a304e251f503521f5a586c9177e3e53f9.jpg'>
-      <p style='margin-top: 30px;'>本次活动以“产业互联，智慧新零售”为主题，聚焦企业在流量获取和流量变现时遇到的难题与解决方法，三位来自京东、有赞、航天云网的讲师为企业分享和答疑解惑。来自会员企业的30余位代表参加沙龙，大家积极交流、讨论分享、畅所欲言，本次活动干货满满，收获颇多。</p>
-      <p style='margin-top: 30px;'>本次活动以“产业互联，智慧新零售”为主题，聚焦企业在流量获取和流量变现时遇到的难题与解决方法，三位来自京东、有赞、航天云网的讲师为企业分享和答疑解惑。来自会员企业的30余位代表参加沙龙，大家积极交流、讨论分享、畅所欲言，本次活动干货满满，收获颇多。</p>
-      <img style='margin-top: 30px; width: 100%;' src='http://f.hiphotos.baidu.com/image/pic/item/4034970a304e251f503521f5a586c9177e3e53f9.jpg'>
-      <p style='margin-top: 30px;'>本次活动以“产业互联，智慧新零售”为主题，聚焦企业在流量获取和流量变现时遇到的难题与解决方法，三位来自京东、有赞、航天云网的讲师为企业分享和答疑解惑。来自会员企业的30余位代表参加沙龙，大家积极交流、讨论分享、畅所欲言，本次活动干货满满，收获颇多。</p>
-    `
+    content: ''
   },
 
   methods: {
