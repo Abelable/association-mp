@@ -113,7 +113,7 @@ Page({
         return
       }
       if (!websiteUrl) {
-        wx.showToast({ title: '请输入网站（网店）网址', icon: 'none' })
+        wx.showToast({ title: '网站（app）名称', icon: 'none' })
         return
       }
       if (!ICP) {
