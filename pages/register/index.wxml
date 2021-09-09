@@ -13,51 +13,16 @@
   <view class="input-wrap">
     <view class="title">
       <text class="required-icon">*</text>
-      <text>企业简称</text>
+      <text>网站（app）网址</text>
     </view>
-    <input class="input" type="text" bindinput="setAbbreviation" placeholder="请输入企业简称"/>
-  </view>
-  <view class="input-wrap">
-    <view class="title">
-      <text class="required-icon">*</text>
-      <text>企业地址</text>
-    </view>
-    <input class="input" type="text" bindinput="setAddress" placeholder="请输入企业地址"/>
-  </view>
-  <view class="input-wrap">
-    <view class="title">
-      <text class="required-icon">*</text>
-      <text>邮政编码</text>
-    </view>
-    <input class="input" type="number" bindinput="setPostCode" placeholder="请输入邮政编码"/>
-  </view>
-  <view class="input-wrap">
-    <view class="title">
-      <text class="required-icon">*</text>
-      <text>网站（网店）网址</text>
-    </view>
-    <input class="input" type="text" bindinput="setWebsiteUrl" placeholder="请输入网站（网店）网址"/>
-  </view>
-  <view class="input-wrap">
-    <view class="title">
-      <text class="required-icon">*</text>
-      <text>企业员工平均年龄</text>
-    </view>
-    <input class="input" type="number" bindinput="setAverageAge" placeholder="请输入企业员工平均年龄"/>
-  </view>
-  <view class="input-wrap">
-    <view class="title">
-      <text class="required-icon">*</text>
-      <text>统一社会信用代码</text>
-    </view>
-    <input class="input" type="text" bindinput="setCreditCode" placeholder="请输入统一社会信用代码"/>
+    <input class="input" type="text" value="{{websiteUrl}}" bindinput="setWebsiteUrl" placeholder="请输入网站（app）网址"/>
   </view>
   <view class="input-wrap">
     <view class="title">
       <text class="required-icon">*</text>
       <text>ICP备案号</text>
     </view>
-    <input class="input" type="text" bindinput="setICP" placeholder="请输入ICP备案号"/>
+    <input class="input" type="text" value="{{ICP}}" bindinput="setICP" placeholder="请输入ICP备案号"/>
   </view>
   <view class="selection-wrap">
     <view class="title">
@@ -112,117 +77,89 @@
       <text class="required-icon">*</text>
       <text>交易商品（服务）</text>
     </view>
-    <input class="input" type="text" bindinput="setTradeCommodity" placeholder="请输入交易商品（服务）"/>
+    <input class="input" type="text" value="{{tradeCommodity}}" bindinput="setTradeCommodity" placeholder="请输入交易商品（服务）"/>
   </view>
   <view class="input-wrap">
     <view class="title">
       <text>注册会员数量（个）</text>
     </view>
-    <input class="input" type="number" bindinput="setMemberCount" placeholder="请输入注册会员数量"/>
+    <input class="input" type="number" value="{{memberCount}}" bindinput="setMemberCount" placeholder="请输入注册会员数量"/>
   </view>
   <view class="input-wrap">
     <view class="title">
       <text>平台网站内经营者数量（个）</text>
     </view>
-    <input class="input" type="number" bindinput="setOperatorCount" placeholder="请输入平台网站内经营者数量"/>
+    <input class="input" type="number" value="{{operatorCount}}" bindinput="setOperatorCount" placeholder="请输入平台网站内经营者数量"/>
   </view>
   <view class="input-wrap">
     <view class="title">
       <text class="required-icon">*</text>
       <text>上年交易笔数(笔)</text>
     </view>
-    <input class="input" type="number" bindinput="setTradeCount" placeholder="请输入上年交易笔数"/>
+    <input class="input" type="number" value="{{tradeCount}}" bindinput="setTradeCount" placeholder="请输入上年交易笔数"/>
   </view>
   <view class="input-wrap">
     <view class="title">
       <text class="required-icon">*</text>
       <text>上年交易额(元)</text>
     </view>
-    <input class="input" type="number" bindinput="setTradeAmount" placeholder="请输入上年交易额"/>
+    <input class="input" type="number" value="{{tradeAmount}}" bindinput="setTradeAmount" placeholder="请输入上年交易额"/>
   </view>
   <view class="input-wrap">
     <view class="title">
       <text class="required-icon">*</text>
       <text>负责人姓名</text>
     </view>
-    <input class="input" type="text" bindinput="setName" placeholder="请输入负责人姓名"/>
-  </view>
-  <view class="input-wrap">
-    <view class="title">
-      <text class="required-icon">*</text>
-      <text>性别</text>
-    </view>
-    <input class="input" type="text" bindinput="setGender" placeholder="请输入性别"/>
+    <input class="input" type="text" value="{{name}}" bindinput="setName" placeholder="请输入负责人姓名"/>
   </view>
   <view class="input-wrap">
     <view class="title">
       <text class="required-icon">*</text>
       <text>职务</text>
     </view>
-    <input class="input" type="text" bindinput="setJobTitle" placeholder="请输入职务"/>
-  </view>
-  <view class="input-wrap">
-    <view class="title">
-      <text class="required-icon">*</text>
-      <text>身份证号</text>
-    </view>
-    <input class="input" type="text" bindinput="setIdentityCode" placeholder="请输入身份证号"/>
-  </view>
-  <view class="input-wrap">
-    <view class="title">
-      <text class="required-icon">*</text>
-      <text>学历</text>
-    </view>
-    <input class="input" type="text" bindinput="setEducation" placeholder="请输入学历"/>
+    <input class="input" type="text" value="{{jobTitle}}" bindinput="setJobTitle" placeholder="请输入职务"/>
   </view>
   <view class="input-wrap">
     <view class="title">
       <text class="required-icon">*</text>
       <text>政治面貌</text>
     </view>
-    <input class="input" type="text" bindinput="setpPliticalStatus" placeholder="请输入政治面貌"/>
+    <input class="input" type="text" value="{{pliticalStatus}}" bindinput="setpPliticalStatus" placeholder="请输入政治面貌"/>
   </view>
   <view class="input-wrap">
     <view class="title">
       <text class="required-icon">*</text>
       <text>手机</text>
     </view>
-    <input class="input" type="number" bindinput="setTel" placeholder="请输入手机"/>
+    <input class="input" type="number" value="{{tel}}" bindinput="setTel" placeholder="请输入手机"/>
   </view>
   <view class="input-wrap">
     <view class="title">
       <text class="required-icon">*</text>
       <text>邮箱</text>
     </view>
-    <input class="input" type="text" bindinput="setEmail" placeholder="请输入邮箱"/>
+    <input class="input" type="text" value="{{email}}" bindinput="setEmail" placeholder="请输入邮箱"/>
   </view>
   <view class="input-wrap">
     <view class="title">
       <text class="required-icon">*</text>
       <text>协会联系人姓名</text>
     </view>
-    <input class="input" type="text" bindinput="setContacterName" placeholder="请输入协会联系人姓名"/>
+    <input class="input" type="text" value="{{contacterName}}" bindinput="setContacterName" placeholder="请输入协会联系人姓名"/>
   </view>
   <view class="input-wrap">
     <view class="title">
       <text class="required-icon">*</text>
       <text>职务</text>
     </view>
-    <input class="input" type="text" bindinput="setContacterJobTitle" placeholder="请输入职务"/>
+    <input class="input" type="text" value="{{contacterJobTitle}}" bindinput="setContacterJobTitle" placeholder="请输入职务"/>
   </view>
   <view class="input-wrap">
     <view class="title">
       <text class="required-icon">*</text>
       <text>手机</text>
     </view>
-    <input class="input" type="number" bindinput="setContacterTel" placeholder="请输入手机"/>
-  </view>
-  <view class="input-wrap">
-    <view class="title">
-      <text class="required-icon">*</text>
-      <text>邮箱</text>
-    </view>
-    <input class="input" type="text" bindinput="setContacterEmail" placeholder="请输入邮箱"/>
+    <input class="input" type="number" value="{{contacterTel}}" bindinput="setContacterTel" placeholder="请输入手机"/>
   </view>
   
   <!-- <view class="selection-wrap">
@@ -247,16 +184,10 @@
   <view class="title">
     <text class="required-icon">*</text>
     <text>企业营业执照或副本</text>
+    <text class="upload-tips"> 图片大小不能超过10MB</text>
   </view>
-  <view class="upload" ontap="uploadLicense">
-    <view wx:if="{{!licenseImg}}">
-      <view class="upload-btn">
-        <image class="upload-icon" src="./images/upload-icon.png" />
-        <view>点击上传</view>
-      </view>
-      <view class="upload-tips">图片大小不能超过10MB</view>
-    </view>
-    <image class="license-img" wx:if="{{licenseImg}}" src="{{licenseImg}}" mode="widthFix" />
+  <view style="margin-top: 30rpx;">
+    <van-uploader file-list="{{fileList}}" max-count="3" bind:after-read="afterRead" bind:delete="deleteFile" />
   </view>
 </view>
 

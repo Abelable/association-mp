@@ -8,53 +8,30 @@ Page({
   data: {
     statusBarHeight,
     companyName: '', 
-    abbreviation: '', 
-    address: '', 
-    postCode: '', 
     websiteUrl: '', 
-    averageAge: '', 
-    creditCode: '', 
     ICP: '', 
     tradeCommodity: '', 
     tradeCount: '', 
     tradeAmount: '', 
     name: '', 
-    gender: '', 
     jobTitle: '', 
-    identityCode: '', 
-    education: '', 
     politicalStatus: '', 
     tel: '', 
     email: '', 
     contacterName: '', 
     contacterJobTitle: '', 
     contacterTel: '', 
-    contacterEmail: '', 
     licenseImg: '',
     memberCount: '', 
-    operatorCount: ''
+    operatorCount: '',
+    fileList: []
   },
 
   setCompanyName(e) {
     this.companyName = e.detail.value
   },
-  setAbbreviation(e) {
-    this.abbreviation = e.detail.value
-  },
-  setAddress(e) {
-    this.address = e.detail.value
-  },
-  setPostCode(e) {
-    this.postCode = e.detail.value
-  },
   setWebsiteUrl(e) {
     this.websiteUrl = e.detail.value
-  },
-  setAverageAge(e) {
-    this.averageAge = e.detail.value
-  },
-  setCreditCode(e) {
-    this.creditCode = e.detail.value
   },
   setICP(e) {
     this.ICP = e.detail.value
@@ -83,17 +60,8 @@ Page({
   setName(e) {
     this.name = e.detail.value
   },
-  setGender(e) {
-    this.gender = e.detail.value
-  },
   setJobTitle(e) {
     this.jobTitle = e.detail.value
-  },
-  setIdentityCode(e) {
-    this.identityCode = e.detail.value
-  },
-  setEducation(e) {
-    this.education = e.detail.value
   },
   setpPliticalStatus(e) {
     this.politicalStatus = e.detail.value
@@ -113,8 +81,20 @@ Page({
   setContacterTel(e) {
     this.contacterTel = e.detail.value
   },
-  setContacterEmail(e) {
-    this.contacterEmail = e.detail.value
+
+  async afterRead(e) {
+    const { file } = e.detail
+    const licenseImg = await registerService.uploadImg(file.url)
+    this.setData({
+      fileList: [...this.data.fileList, { ...file, url: licenseImg }]
+    })
+  },
+
+  deleteFile(e) {
+    const { index } = e.detail
+    let { fileList } = this.data
+    fileList.splice(index, 1)
+    this.setData({ fileList })
   },
 
   async uploadLicense() {
@@ -125,34 +105,15 @@ Page({
 
   async submit() {
     checkLogin(() => {
-      const { companyName, abbreviation, address, postCode, websiteUrl, averageAge, creditCode, ICP, companyType, websiteType, tradeCommodity, tradeCount, tradeAmount, name, gender, jobTitle, identityCode, education, politicalStatus, tel, email, contacterName, contacterJobTitle, contacterTel, contacterEmail } = this
+      const { companyName, websiteUrl, ICP, companyType, websiteType, tradeCommodity, tradeCount, tradeAmount, name, jobTitle, politicalStatus, tel, email, contacterName, contacterJobTitle, contacterTel } = this
+      const { fileList } = this.data
       
       if (!companyName) {
         wx.showToast({ title: '请输入企业名称', icon: 'none' })
         return
       }
-      if (!abbreviation) {
-        wx.showToast({ title: '请输入企业简称', icon: 'none' })
-        return
-      }
-      if (!address) {
-        wx.showToast({ title: '请输入企业地址', icon: 'none' })
-        return
-      }
-      if (!postCode) {
-        wx.showToast({ title: '请输入邮政编码', icon: 'none' })
-        return
-      }
       if (!websiteUrl) {
         wx.showToast({ title: '请输入网站（网店）网址', icon: 'none' })
-        return
-      }
-      if (!averageAge) {
-        wx.showToast({ title: '请输入企业员工平均年龄', icon: 'none' })
-        return
-      }
-      if (!creditCode) {
-        wx.showToast({ title: '请输入统一社会信用代码', icon: 'none' })
         return
       }
       if (!ICP) {
@@ -183,20 +144,8 @@ Page({
         wx.showToast({ title: '请输入负责人姓名', icon: 'none' })
         return
       }
-      if (!gender) {
-        wx.showToast({ title: '请输入负责人性别', icon: 'none' })
-        return
-      }
       if (!jobTitle) {
         wx.showToast({ title: '请输入负责人职务', icon: 'none' })
-        return
-      }
-      if (!identityCode) {
-        wx.showToast({ title: '请输入负责人身份证号', icon: 'none' })
-        return
-      }
-      if (!education) {
-        wx.showToast({ title: '请输入负责人学历', icon: 'none' })
         return
       }
       if (!politicalStatus) {
@@ -223,16 +172,18 @@ Page({
         wx.showToast({ title: '请输入联系人手机号', icon: 'none' })
         return
       }
-      if (!contacterEmail) {
-        wx.showToast({ title: '请输入联系人邮箱', icon: 'none' })
-        return
-      }
-      if (!this.data.licenseImg) {
+
+      if (!fileList.length) {
         wx.showToast({ title: '请上传企业营业执照或副本', icon: 'none' })
         return
       }
 
-      const content = { companyName, abbreviation, address, postCode, websiteUrl, averageAge, creditCode, ICP, companyType, websiteType, tradeCommodity, tradeCount, tradeAmount, name, gender, jobTitle, identityCode, education, politicalStatus, tel, email, contacterName, contacterJobTitle, contacterTel, contacterEmail, licenseImg: this.data.licenseImg, memberCount: this.memberCount || 0, operatorCount: this.operatorCount || 0 }
+      const licenseImgs = []
+      fileList.forEach(item => {
+        licenseImgs.push(item.url)
+      })
+
+      const content = { companyName, websiteUrl, ICP, companyType, websiteType, tradeCommodity, tradeCount, tradeAmount, name, jobTitle, politicalStatus, tel, email, contacterName, contacterJobTitle, contacterTel, licenseImg: licenseImgs.join(), memberCount: this.memberCount || 0, operatorCount: this.operatorCount || 0 }
       registerService.submitApply(content, () => {
         wx.showToast({ title: '提交成功', icon: 'none' })
         this.resetData()
@@ -245,31 +196,23 @@ Page({
   resetData() {
     this.setData({
       companyName: '', 
-      abbreviation: '', 
-      address: '', 
-      postCode: '', 
       websiteUrl: '', 
-      averageAge: '', 
-      creditCode: '', 
       ICP: '', 
       tradeCommodity: '', 
       tradeCount: '', 
       tradeAmount: '', 
       name: '', 
-      gender: '', 
       jobTitle: '', 
-      identityCode: '', 
-      education: '', 
       politicalStatus: '', 
       tel: '', 
       email: '', 
       contacterName: '', 
       contacterJobTitle: '', 
       contacterTel: '', 
-      contacterEmail: '', 
       licenseImg: '',
       memberCount: '', 
-      operatorCount: ''
+      operatorCount: '',
+      fileList: []
     })
   }
 })
