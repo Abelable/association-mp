@@ -75,6 +75,13 @@
   <view class="input-wrap">
     <view class="title">
       <text class="required-icon">*</text>
+      <text>员工人数和党员人数</text>
+    </view>
+    <input class="input" type="number" value="{{staffCount}}" bindinput="setStaffCount" placeholder="请输入员工人数和党员人数"/>
+  </view>
+  <view class="input-wrap">
+    <view class="title">
+      <text class="required-icon">*</text>
       <text>交易商品（服务）</text>
     </view>
     <input class="input" type="text" value="{{tradeCommodity}}" bindinput="setTradeCommodity" placeholder="请输入交易商品（服务）"/>

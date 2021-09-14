@@ -10,6 +10,7 @@ Page({
     companyName: '', 
     websiteUrl: '', 
     ICP: '', 
+    staffCount: '',
     tradeCommodity: '', 
     tradeCount: '', 
     tradeAmount: '', 
@@ -41,6 +42,9 @@ Page({
   },
   setWebsiteType(e) {
     this.websiteType = e.detail.value.join()
+  },
+  setStaffCount(e) {
+    this.staffCount = e.detail.value
   },
   setTradeCommodity(e) {
     this.tradeCommodity = e.detail.value
@@ -128,6 +132,10 @@ Page({
         wx.showToast({ title: '请选择网站电子商务类型', icon: 'none' })
         return
       }
+      if (!staffCount) {
+        wx.showToast({ title: '请输入员工人数和党员人数', icon: 'none' })
+        return
+      }
       if (!tradeCommodity) {
         wx.showToast({ title: '请输入交易商品（服务）', icon: 'none' })
         return
@@ -183,7 +191,7 @@ Page({
         licenseImgs.push(item.url)
       })
 
-      const content = { companyName, websiteUrl, ICP, companyType, websiteType, tradeCommodity, tradeCount, tradeAmount, name, jobTitle, politicalStatus, tel, email, contacterName, contacterJobTitle, contacterTel, licenseImg: licenseImgs.join(), memberCount: this.memberCount || 0, operatorCount: this.operatorCount || 0 }
+      const content = { companyName, websiteUrl, ICP, companyType, websiteType, staffCount, tradeCommodity, tradeCount, tradeAmount, name, jobTitle, politicalStatus, tel, email, contacterName, contacterJobTitle, contacterTel, licenseImg: licenseImgs.join(), memberCount: this.memberCount || 0, operatorCount: this.operatorCount || 0 }
       registerService.submitApply(content, () => {
         wx.showToast({ title: '提交成功', icon: 'none' })
         this.resetData()
@@ -198,6 +206,7 @@ Page({
       companyName: '', 
       websiteUrl: '', 
       ICP: '', 
+      staffCount: '',
       tradeCommodity: '', 
       tradeCount: '', 
       tradeAmount: '', 

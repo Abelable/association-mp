@@ -19,13 +19,14 @@ class RegisterService extends BaseService {
   }
 
   async submitApply(content, success, fail) {
-    const { companyName, websiteUrl, ICP, companyType, websiteType, tradeCommodity, tradeCount, tradeAmount, name, jobTitle, politicalStatus, tel, email, contacterName, contacterJobTitle, contacterTel, licenseImg, memberCount, operatorCount } = content
+    const { companyName, websiteUrl, ICP, companyType, websiteType, staffCount, tradeCommodity, tradeCount, tradeAmount, name, jobTitle, politicalStatus, tel, email, contacterName, contacterJobTitle, contacterTel, licenseImg, memberCount, operatorCount } = content
     const applyContent = [
       { "title": '企业名称', "name": 'company_name', "value": companyName },
       { "title": '网站（网店）网址', "name": 'website_url', "value": websiteUrl },
       { "title": 'ICP备案号', "name": 'ICP', "value": ICP },
       { "title": '企业类型', "name": 'company_type', "value": companyType },
       { "title": '网站电子商务类型', "name": 'website_type', "value": websiteType },
+      { "title": '员工人数和党员人数', "name": 'staff_count', "value": staffCount },
       { "title": '交易商品（服务）', "name": 'trade_commodity', "value": tradeCommodity },
       { "title": '上年交易笔数', "name": 'trade_count', "value": tradeCount },
       { "title": '上年交易额', "name": 'trade_amount', "value": tradeAmount },
