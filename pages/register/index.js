@@ -46,6 +46,9 @@ Page({
   setStaffCount(e) {
     this.staffCount = e.detail.value
   },
+  setGangCount(e) {
+    this.gangCount = e.detail.value
+  },
   setTradeCommodity(e) {
     this.tradeCommodity = e.detail.value
   },
@@ -109,7 +112,7 @@ Page({
 
   async submit() {
     checkLogin(() => {
-      const { companyName, websiteUrl, ICP, companyType, websiteType, tradeCommodity, tradeCount, tradeAmount, name, jobTitle, politicalStatus, tel, email, contacterName, contacterJobTitle, contacterTel } = this
+      const { companyName, websiteUrl, ICP, companyType, websiteType, staffCount, gangCount, tradeCommodity, tradeCount, tradeAmount, name, jobTitle, politicalStatus, tel, email, contacterName, contacterJobTitle, contacterTel } = this
       const { fileList } = this.data
       
       if (!companyName) {
@@ -133,7 +136,11 @@ Page({
         return
       }
       if (!staffCount) {
-        wx.showToast({ title: '请输入员工人数和党员人数', icon: 'none' })
+        wx.showToast({ title: '请输入员工人数', icon: 'none' })
+        return
+      }
+      if (!gangCount) {
+        wx.showToast({ title: '请输入党员人数', icon: 'none' })
         return
       }
       if (!tradeCommodity) {
@@ -191,7 +198,7 @@ Page({
         licenseImgs.push(item.url)
       })
 
-      const content = { companyName, websiteUrl, ICP, companyType, websiteType, staffCount, tradeCommodity, tradeCount, tradeAmount, name, jobTitle, politicalStatus, tel, email, contacterName, contacterJobTitle, contacterTel, licenseImg: licenseImgs.join(), memberCount: this.memberCount || 0, operatorCount: this.operatorCount || 0 }
+      const content = { companyName, websiteUrl, ICP, companyType, websiteType, staffCount, gangCount, tradeCommodity, tradeCount, tradeAmount, name, jobTitle, politicalStatus, tel, email, contacterName, contacterJobTitle, contacterTel, licenseImg: licenseImgs.join(), memberCount: this.memberCount || 0, operatorCount: this.operatorCount || 0 }
       registerService.submitApply(content, () => {
         wx.showToast({ title: '提交成功', icon: 'none' })
         this.resetData()

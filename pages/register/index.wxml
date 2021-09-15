@@ -75,9 +75,16 @@
   <view class="input-wrap">
     <view class="title">
       <text class="required-icon">*</text>
-      <text>员工人数和党员人数</text>
+      <text>员工人数</text>
     </view>
-    <input class="input" type="number" value="{{staffCount}}" bindinput="setStaffCount" placeholder="请输入员工人数和党员人数"/>
+    <input class="input" type="number" value="{{staffCount}}" bindinput="setStaffCount" placeholder="请输入员工人数"/>
+  </view>
+  <view class="input-wrap">
+    <view class="title">
+      <text class="required-icon">*</text>
+      <text>党员人数</text>
+    </view>
+    <input class="input" type="number" value="{{gangCount}}" bindinput="setGangCount" placeholder="请输入党员人数"/>
   </view>
   <view class="input-wrap">
     <view class="title">
