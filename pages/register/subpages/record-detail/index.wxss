@@ -32,17 +32,17 @@ radio .wx-radio-input.wx-radio-input-checked::before {
   left: 0;
   display: flex;
   align-items: center;
-  padding-left: 15px;
-  padding-right: 75px;
-  width: calc(100vw - 90px);
+  padding-left: 10px;
+  padding-right: 30px;
+  width: calc(100vw - 40px);
   height: 44px;
   box-sizing: initial;
   background: linear-gradient(180deg, #3FABFB 0%, #317BFF 100%);
   z-index: 100;
 }
-.record {
-  color: #fff;
-  font-size: 15px;
+.back-icon {
+  width: 20px;
+  height: 20px;
 }
 .nav-bar-title {
   flex: 1;
@@ -50,6 +50,13 @@ radio .wx-radio-input.wx-radio-input-checked::before {
   font-size: 18px;
   font-weight: bold;
   text-align: center;
+}
+
+.tips {
+  padding: 20rpx;
+  color: #fff;
+  font-size: 28rpx;
+  background: #FF5959;
 }
 
 .form-wrap {

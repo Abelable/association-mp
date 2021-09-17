@@ -18,7 +18,7 @@ class RegisterService extends BaseService {
     if (res.statusCode === 200 && res.data.code === 1001) return res.data.data[0]
   }
 
-  async submitApply(content, success, fail) {
+  async submitApply(content, success, fail, id = '') {
     const { companyName, websiteUrl, ICP, companyType, websiteType, staffCount, gangCount, tradeCommodity, tradeCount, tradeAmount, name, jobTitle, politicalStatus, tel, email, contacterName, contacterJobTitle, contacterTel, licenseImg, memberCount, operatorCount } = content
     const applyContent = [
       { "title": '企业名称', "name": 'company_name', "value": companyName },
@@ -43,7 +43,19 @@ class RegisterService extends BaseService {
       { "title": '注册会员数量', "name": 'member_count', "value": memberCount },
       { "title": '平台网站内经营者数量', "name": 'operator_count', "value": operatorCount }
     ]
-    return await this.post({ url: `${this.baseUrl}/api/v1/enter-apply/apply`, data: { title: '入会申请', apply_content_json: JSON.stringify(applyContent) }, loadingTitle: '提交中...', success, fail })
+    if (id) {
+      return await this.post({ url: `${this.baseUrl}/api/v1/enter-apply/update-apply`, data: { title: '入会申请', id, apply_content_json: JSON.stringify(applyContent) }, loadingTitle: '提交中...', success, fail })
+    } else {
+      return await this.post({ url: `${this.baseUrl}/api/v1/enter-apply/apply`, data: { title: '入会申请', apply_content_json: JSON.stringify(applyContent) }, loadingTitle: '提交中...', success, fail })
+    }
+  }
+
+  async getApplyList(page, page_size = 10) {
+    return await this.get({ url: `${this.baseUrl}/api/v1/enter-apply/list-apply`, data: { page, page_size }, loadingTitle: '加载中...' })
+  }
+
+  async getApplyDetail(id) {
+    return await this.get({ url: `${this.baseUrl}/api/v1/enter-apply/info-apply`, data: { id }, loadingTitle: '加载中...' })
   }
 }
 

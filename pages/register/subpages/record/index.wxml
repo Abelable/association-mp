@@ -1,0 +1,37 @@
+<import src="/templates/i-youbo-logo/index.wxml" />
+
+<view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">
+  <image class="back-icon" ontap="navBack" src="/images/back.png" />
+  <view class="title">申请记录</view>
+</view>
+
+<view class="record-list" style="padding: {{statusBarHeight + 54}}px 10px 0; min-height: calc(100vh - {{statusBarHeight + 44}}px);">
+  <view wx:if="{{list.length}}">
+    <view class="record-item" wx:for="{{list}}" wx:key="index">
+      <view class="header">
+        <view class="company-name">{{item.company_name}}</view>
+        <view class="status {{item.is_deal == 1 ? 'done' : (item.is_deal == 1 ? 'reject' : '')}}">{{item.is_deal == 0 ? '等待审核' : (item.is_deal == 1 ? '已审核' : '驳回审核')}}</view>
+      </view>
+      <view class="content">
+        <view class="info-list">
+          <view class="label">企业代表人：</view>
+          <view class="info">{{item.name}}</view>
+        </view>
+        <view class="info-list">
+          <view class="label">联系方式：</view>
+          <view class="info">{{item.mobile}}</view>
+        </view>
+      </view>
+      <view class="footer">
+        <view class="time">{{item.time}}</view>
+        <view class="btn" ontap="check" data-id="{{item.id}}">{{item.is_deal == 0 ? '修改' : (item.is_deal == 1 ? '查看' : '查看驳回原因')}}</view>
+      </view>
+    </view>
+  </view>
+  <view wx:else class="empty-illus">
+    <image class="illus" src="/images/empty-illus.png" />
+    <view>暂无申请记录</view>
+  </view>
+</view>
+
+<template is="i-youbo-logo" />

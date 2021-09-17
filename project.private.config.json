@@ -23,6 +23,18 @@
           "pathName": "pages/index/subpages/news/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "申请记录",
+          "pathName": "pages/register/subpages/record/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "编辑入会申请",
+          "pathName": "pages/register/subpages/record-detail/index",
+          "query": "",
+          "scene": null
         }
       ]
     }

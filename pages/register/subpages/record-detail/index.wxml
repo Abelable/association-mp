@@ -1,0 +1,176 @@
+<import src="/templates/i-youbo-logo/index.wxml" />
+
+<view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">
+  <image class="back-icon" ontap="navBack" src="/images/back.png" />
+  <view class="nav-bar-title">入会申请</view>
+</view>
+
+<view style="margin-top: {{statusBarHeight + 44}}px">
+  <view class="tips" wx:if="{{status == 2}}">驳回原因：{{rejectMark}}</view>
+
+  <view class="form-wrap" >
+    <view class="input-wrap">
+      <view class="title">
+        <text class="required-icon">*</text>
+        <text>企业名称</text>
+      </view>
+      <input class="input" type="text" value="{{companyName}}" bindinput="setCompanyName" placeholder="请输入企业名称"/>
+    </view>
+    <view class="input-wrap">
+      <view class="title">
+        <text class="required-icon">*</text>
+        <text>网站（app）名称</text>
+      </view>
+      <input class="input" type="text" value="{{websiteUrl}}" bindinput="setWebsiteUrl" placeholder="请输入网站（app）名称"/>
+    </view>
+    <view class="input-wrap">
+      <view class="title">
+        <text class="required-icon">*</text>
+        <text>ICP备案号</text>
+      </view>
+      <input class="input" type="text" value="{{ICP}}" bindinput="setICP" placeholder="请输入ICP备案号"/>
+    </view>
+    <view class="selection-wrap">
+      <view class="title">
+        <text class="required-icon">*</text>
+        <text>企业类型（可多选）</text>
+      </view>
+      <checkbox-group class="selection" bindchange="setCompanyType">
+        <view class="option" wx:for="{{companyTypeOptions}}" wx:key="index">
+          <checkbox id="{{item.id}}" value="{{item.name}}" checked="{{item.checked}}" />
+          <label class="desc" for="{{item.id}}">{{item.name}}</label>
+        </view>
+      </checkbox-group>
+    </view>
+    <view class="selection-wrap">
+      <view class="title">
+        <text class="required-icon">*</text>
+        <text>网站电子商务类型（可多选）</text>
+      </view>
+      <checkbox-group class="selection" bindchange="setWebsiteType">
+        <view class="option" wx:for="{{websiteTypeOptions}}" wx:key="index">
+          <checkbox id="{{item.id}}" value="{{item.name}}" checked="{{item.checked}}"/>
+          <label class="desc" for="{{item.id}}">{{item.name}}</label>
+        </view>
+      </checkbox-group>
+    </view>
+    <view class="input-wrap">
+      <view class="title">
+        <text class="required-icon">*</text>
+        <text>员工人数</text>
+      </view>
+      <input class="input" type="number" value="{{staffCount}}" bindinput="setStaffCount" placeholder="请输入员工人数"/>
+    </view>
+    <view class="input-wrap">
+      <view class="title">
+        <text class="required-icon">*</text>
+        <text>党员人数</text>
+      </view>
+      <input class="input" type="number" value="{{gangCount}}" bindinput="setGangCount" placeholder="请输入党员人数"/>
+    </view>
+    <view class="input-wrap">
+      <view class="title">
+        <text class="required-icon">*</text>
+        <text>交易商品（服务）</text>
+      </view>
+      <input class="input" type="text" value="{{tradeCommodity}}" bindinput="setTradeCommodity" placeholder="请输入交易商品（服务）"/>
+    </view>
+    <view class="input-wrap">
+      <view class="title">
+        <text>注册会员数量（个）</text>
+      </view>
+      <input class="input" type="number" value="{{memberCount}}" bindinput="setMemberCount" placeholder="请输入注册会员数量"/>
+    </view>
+    <view class="input-wrap">
+      <view class="title">
+        <text>平台网站内经营者数量（个）</text>
+      </view>
+      <input class="input" type="number" value="{{operatorCount}}" bindinput="setOperatorCount" placeholder="请输入平台网站内经营者数量"/>
+    </view>
+    <view class="input-wrap">
+      <view class="title">
+        <text class="required-icon">*</text>
+        <text>上年交易笔数(笔)</text>
+      </view>
+      <input class="input" type="number" value="{{tradeCount}}" bindinput="setTradeCount" placeholder="请输入上年交易笔数"/>
+    </view>
+    <view class="input-wrap">
+      <view class="title">
+        <text class="required-icon">*</text>
+        <text>上年交易额(元)</text>
+      </view>
+      <input class="input" type="number" value="{{tradeAmount}}" bindinput="setTradeAmount" placeholder="请输入上年交易额"/>
+    </view>
+    <view class="input-wrap">
+      <view class="title">
+        <text class="required-icon">*</text>
+        <text>负责人姓名</text>
+      </view>
+      <input class="input" type="text" value="{{name}}" bindinput="setName" placeholder="请输入负责人姓名"/>
+    </view>
+    <view class="input-wrap">
+      <view class="title">
+        <text class="required-icon">*</text>
+        <text>职务</text>
+      </view>
+      <input class="input" type="text" value="{{jobTitle}}" bindinput="setJobTitle" placeholder="请输入职务"/>
+    </view>
+    <view class="input-wrap">
+      <view class="title">
+        <text class="required-icon">*</text>
+        <text>政治面貌</text>
+      </view>
+      <input class="input" type="text" value="{{politicalStatus}}" bindinput="setPoliticalStatus" placeholder="请输入政治面貌"/>
+    </view>
+    <view class="input-wrap">
+      <view class="title">
+        <text class="required-icon">*</text>
+        <text>手机</text>
+      </view>
+      <input class="input" type="number" value="{{tel}}" bindinput="setTel" placeholder="请输入手机"/>
+    </view>
+    <view class="input-wrap">
+      <view class="title">
+        <text class="required-icon">*</text>
+        <text>邮箱</text>
+      </view>
+      <input class="input" type="text" value="{{email}}" bindinput="setEmail" placeholder="请输入邮箱"/>
+    </view>
+    <view class="input-wrap">
+      <view class="title">
+        <text class="required-icon">*</text>
+        <text>协会联系人姓名</text>
+      </view>
+      <input class="input" type="text" value="{{contacterName}}" bindinput="setContacterName" placeholder="请输入协会联系人姓名"/>
+    </view>
+    <view class="input-wrap">
+      <view class="title">
+        <text class="required-icon">*</text>
+        <text>职务</text>
+      </view>
+      <input class="input" type="text" value="{{contacterJobTitle}}" bindinput="setContacterJobTitle" placeholder="请输入职务"/>
+    </view>
+    <view class="input-wrap">
+      <view class="title">
+        <text class="required-icon">*</text>
+        <text>手机</text>
+      </view>
+      <input class="input" type="number" value="{{contacterTel}}" bindinput="setContacterTel" placeholder="请输入手机"/>
+    </view>
+  </view>
+  
+  <view class="upload-wrap">
+    <view class="title">
+      <text class="required-icon">*</text>
+      <text>企业营业执照或副本</text>
+      <text class="upload-tips"> 图片大小不能超过10MB</text>
+    </view>
+    <view style="margin-top: 30rpx;">
+      <van-uploader file-list="{{fileList}}" max-count="3" bind:after-read="afterRead" bind:delete="deleteFile" />
+    </view>
+  </view>
+  
+  <view class="submit-btn" wx:if="{{status !== 1}}" ontap="submit">修改</view>
+  
+  <template is="i-youbo-logo" />
+</view>

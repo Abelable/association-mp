@@ -1,6 +1,9 @@
 <import src="/templates/i-youbo-logo/index.wxml" />
 
-<view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">入会申请</view>
+<view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">
+  <view class="record" ontap="navToRecord">申请记录</view>
+  <view class="nav-bar-title">入会申请</view>
+</view>
 
 <view class="form-wrap" style="margin-top: {{statusBarHeight + 44}}px">
   <view class="input-wrap">

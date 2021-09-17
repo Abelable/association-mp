@@ -28,6 +28,12 @@ Page({
     fileList: []
   },
 
+  navToRecord() {
+    checkLogin(() => {
+      wx.navigateTo({ url: './subpages/record/index' })
+    })
+  },
+
   setCompanyName(e) {
     this.companyName = e.detail.value
   },
