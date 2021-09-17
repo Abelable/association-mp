@@ -43,7 +43,6 @@ Page({
     let companyName, 
         websiteUrl, 
         ICP, 
-        
         staffCount,
         gangCount,
         tradeCommodity, 
