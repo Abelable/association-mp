@@ -11,7 +11,7 @@ class RegisterService extends BaseService {
       data: { 'file[content]': _filePath },
       header: { 
         "content-type": 'application/x-www-form-urlencoded',
-        "token": 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJPbmxpbmUgSldUIEJ1aWxkZXIiLCJhdWQiOiJodHRwczpcL1wvd3d3LnlvdWJvMi5jbiIsInN1YiI6Impyb2NrZXRAZXhhbXBsZS5jb20iLCJleHAiOjE2MzE3NzI4NDIsInVzZXJfaWQiOjk3MzI5NTV9.HQaX6mXk8xqONdVpKX-ySPL7hBXH6ZJQ1kIWRKlrTdY'
+        "token": 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJPbmxpbmUgSldUIEJ1aWxkZXIiLCJhdWQiOiJodHRwczpcL1wvd3d3LnlvdWJvMi5jbiIsInN1YiI6Impyb2NrZXRAZXhhbXBsZS5jb20iLCJleHAiOjE2MzQ0NjExMDUsInVzZXJfaWQiOjk3MzI5NTV9.mJKe945G5bxVNFL7FeWys7V7ouSYtfho921a81Y4w64'
       }
     })
     wx.hideLoading()

@@ -10,7 +10,7 @@
     <view class="record-item" wx:for="{{list}}" wx:key="index">
       <view class="header">
         <view class="company-name">{{item.company_name}}</view>
-        <view class="status {{item.is_deal == 1 ? 'done' : (item.is_deal == 1 ? 'reject' : '')}}">{{item.is_deal == 0 ? '等待审核' : (item.is_deal == 1 ? '已审核' : '驳回审核')}}</view>
+        <view class="status {{item.is_deal == 1 ? 'done' : (item.is_deal == 2 ? 'reject' : '')}}">{{item.is_deal == 0 ? '等待审核' : (item.is_deal == 1 ? '已审核' : '驳回审核')}}</view>
       </view>
       <view class="content">
         <view class="info-list">
