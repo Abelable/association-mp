@@ -1,17 +1,16 @@
 Component({
   properties: {
-    item: {
-      type: Object,
-      observer(info) {
-        const content = info.content.replace(/<p/g, '<p style="margin-top: 8px;"')
-        this.setData({ content })
-      }
-    }
+    item: Object
   },
 
   data: {
     fold: true,
-    content: ''
+  },
+
+  lifetimes: {
+    attached() {
+      wx.showLoading({ title: '加载中...' })
+    }
   },
 
   methods: {
@@ -19,6 +18,10 @@ Component({
       this.setData({
         fold: false
       })
+    },
+
+    load() {
+      wx.hideLoading()
     }
   }
 })

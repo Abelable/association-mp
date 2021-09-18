@@ -4,6 +4,6 @@
 <view class="news-detail">
   <view class="title">{{item.title}}</view>
   <view class="time">{{TIME.transform(item.updated_at).year + '-' + TIME.transform(item.updated_at).month + '-' + TIME.transform(item.updated_at).date + ' ' + TIME.transform(item.updated_at).hours + ':' + TIME.transform(item.updated_at).minutes}}</view>
-  <rich-text nodes="{{content}}" space="nbsp" />
+  <mp-html content="{{item.content}}" bind:ready="load" />
   <template is="i-youbo-logo" />
 </view>
