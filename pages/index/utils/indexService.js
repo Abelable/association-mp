@@ -9,7 +9,7 @@ class IndexService extends BaseService {
     return await this.get({ url: `${this.baseUrl}/api/v1/article/category-list` })
   }
 
-  async getNewsList(class_id, page, page_size = 10) {
+  async getNewsList(class_id, page, page_size = 5) {
     return await this.get({ url: `${this.baseUrl}/api/v1/article/article-list`, data: { class_id, page, page_size }, loadingTitle: '加载中...' })
   }
 

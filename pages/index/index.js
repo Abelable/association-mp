@@ -26,7 +26,8 @@ Page({
   
   selectMenu(e) {
     this.setData({ 
-      selectedMenuIndex: Number(e.currentTarget.dataset.index)
+      selectedMenuIndex: Number(e.currentTarget.dataset.index),
+      newsList: []
     }, () => {
       this.setNewsList(true)
     })
@@ -83,5 +84,7 @@ Page({
 
   onReachBottom() {
     this.setNewsList()
-  }
+  },
+  
+  onShareAppMessage() {}
 })
