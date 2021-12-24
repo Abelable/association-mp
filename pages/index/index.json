@@ -3,6 +3,6 @@
   "navigationBarTextStyle": "white",
   "enablePullDownRefresh": true,
   "usingComponents": {
-    "i-news-list": "./components/i-news-lists/index"
+    "i-news-list": "./components/i-news-list/index"
   }
 }
