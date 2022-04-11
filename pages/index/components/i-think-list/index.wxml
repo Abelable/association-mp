@@ -1,0 +1,17 @@
+<view class="think-list">
+  <view class="think-item" wx:for="{{list}}" wx:key="index" ontap="navTo" data-id="{{item.id}}">
+    <image class="avatar" src="{{item.head_img}}" mode="aspectFill" lazy-load />
+    <view class="content-wrap">
+      <view class="name-wrap">
+        <view class="name">{{item.name}}</view>
+        <view class="title">{{item.title}}</view>
+      </view>
+      <view class="honor">{{item.honor}}</view>
+      <view class="field">{{item.field}}</view>
+    </view>
+  </view>
+  <view class="more-btn" ontap="checkMore">
+    <text>查看更多</text>
+    <image class="down-arrow" src="../../images/down-arrow.png" />
+  </view>
+</view>

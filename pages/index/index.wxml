@@ -35,6 +35,11 @@
     <view class="title">法律汇编</view>
   </view>
   <i-low-list list="{{lowList}}"/>
+
+  <view class="title-wrap">
+    <view class="title">网商智库</view>
+  </view>
+  <i-think-list list="{{thinkList}}"/>
   
   <template is="i-youbo-logo" wx:if="{{nomore}}" />
 </view>
