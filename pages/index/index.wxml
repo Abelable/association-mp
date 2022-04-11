@@ -21,16 +21,25 @@
       </swiper-item>
     </swiper>
   </view>
+
+  <view class="title-wrap">
+    <view class="title">网商课堂</view>
+    <view class="more-btn">
+      <text>查看全部</text>
+      <image class="right-arrow" src="./images/right-arrow.png" />
+    </view>
+  </view>
+  <i-course-list list="{{courseList}}" />
+
+  <view class="title-wrap">
+    <view class="title">法律汇编</view>
+  </view>
   
-  <scroll-view class="menu-wrap {{menuFixed ? 'fixed' : ''}}" style="top: {{statusBarHeight + 44}}px;" scroll-x>
+  <!-- <scroll-view class="menu-wrap {{menuFixed ? 'fixed' : ''}}" style="top: {{statusBarHeight + 44}}px;" scroll-x>
     <view class="menu {{menuList.length < 4 ? 'space-around' : ''}}">
       <view class="menu-item {{selectedMenuIndex === index ? 'selected' : ''}}" wx:for="{{menuList}}" wx:key="index" ontap="selectMenu" data-index="{{index}}">{{item.title}}</view>
     </view>
-  </scroll-view>
-  
-  <view class="news-list-wrap {{menuFixed ? 'fixed' : ''}}">
-    <i-news-list list="{{newsList}}" category-id="{{menuList[selectedMenuIndex].id || ''}}" />
-  </view>
+  </scroll-view> -->
   
   <template is="i-youbo-logo" wx:if="{{nomore}}" />
 </view>

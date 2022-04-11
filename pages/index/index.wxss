@@ -76,6 +76,38 @@
   border-radius: 12rpx;
 }
 
+.title-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30rpx;
+}
+.title {
+  position: relative;
+  color: #333;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.title::after {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  content: "";
+  width: 64rpx;
+  height: 8rpx;
+  background: #408BF1;
+}
+.more-btn {
+  display: flex;
+  align-items: center;
+  color: #408BF1;
+  font-size: 28rpx;
+}
+.right-arrow {
+  width: 32rpx;
+  height: 32rpx;
+}
+
 .menu-wrap {
   height: 88rpx;
 }
