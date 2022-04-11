@@ -1,15 +1,6 @@
-<view class="course-list">
-  <view class="course-item" wx:for="{{list}}" wx:key="index" ontap="navToNews" data-id="{{item.id}}">
-    <view class="cover-wrap">
-      <image class="cover" src="{{item.media_url + '?x-oss-process=video/snapshot,t_0,f_jpg,w_200,h_140,m_fast'}}" mode="aspectFill" lazy-load />
-      <view class="duration">4:22</view>
-    </view>
-    <view class="content-wrap">
-      <view class="title">{{item.title}}</view>
-      <view class="author-info">
-        <image class="avatar" src="{{item.user_avatar}}" />
-        <view class="name">{{item.user_name}}</view>
-      </view>
-    </view>
+<scroll-view class="low-list" scroll-x>
+  <view class="low-item" wx:for="{{list}}" wx:key="index" ontap="navToN" data-id="{{item.id}}">
+    <image class="cover" src="{{item.image}}" mode="aspectFill" lazy-load />
+    <view class="title">{{item.title}}</view>
   </view>
-</view>
+</scroll-view>

@@ -3,6 +3,7 @@
   "navigationBarTextStyle": "white",
   "enablePullDownRefresh": true,
   "usingComponents": {
-    "i-course-list": "./components/i-course-list/index"
+    "i-course-list": "./components/i-course-list/index",
+    "i-low-list": "./components/i-low-list/index"
   }
 }

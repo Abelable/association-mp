@@ -9,6 +9,7 @@ Page({
     navBarVisible: false,
     banner: [],
     courseList: [{}, {}, {}],
+    lowList: [{}, {}, {}],
     selectedMenuIndex: 0,
     nomore: false
   },
@@ -34,13 +35,7 @@ Page({
   },
 
   async onPullDownRefresh() {
-    await this.setMenuList()
-    this.setNewsList(true)
     wx.stopPullDownRefresh()
-  },
-
-  onReachBottom() {
-    this.setNewsList()
   },
   
   onShareAppMessage() {}

@@ -34,12 +34,7 @@
   <view class="title-wrap">
     <view class="title">法律汇编</view>
   </view>
-  
-  <!-- <scroll-view class="menu-wrap {{menuFixed ? 'fixed' : ''}}" style="top: {{statusBarHeight + 44}}px;" scroll-x>
-    <view class="menu {{menuList.length < 4 ? 'space-around' : ''}}">
-      <view class="menu-item {{selectedMenuIndex === index ? 'selected' : ''}}" wx:for="{{menuList}}" wx:key="index" ontap="selectMenu" data-index="{{index}}">{{item.title}}</view>
-    </view>
-  </scroll-view> -->
+  <i-low-list list="{{lowList}}"/>
   
   <template is="i-youbo-logo" wx:if="{{nomore}}" />
 </view>
