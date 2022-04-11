@@ -4,22 +4,33 @@
 
 <view class="nav-bar {{ navBarVisible ? 'show' : '' }}" style="padding-top: {{statusBarHeight}}px;">浙江省网商协会</view>
 
-<view class="swiper-wrap" style="margin-top: {{statusBarHeight + 54}}px;">
-  <swiper class="swiper" autoplay circular interval="5000" duration="1000" indicator-dots indicator-color="rgba(63, 171, 251, 0.4)" indicator-active-color="#3FABFB">
-    <swiper-item wx:for="{{banner}}" wx:key="index">
-      <image class="banner-img" src="{{item.img}}" ontap="navTo" data-url="{{item.redirect_url}}" />
-    </swiper-item>
-  </swiper>
-</view>
-
-<scroll-view class="menu-wrap {{menuFixed ? 'fixed' : ''}}" style="top: {{statusBarHeight + 44}}px;" scroll-x>
-  <view class="menu {{menuList.length < 4 ? 'space-around' : ''}}">
-    <view class="menu-item {{selectedMenuIndex === index ? 'selected' : ''}}" wx:for="{{menuList}}" wx:key="index" ontap="selectMenu" data-index="{{index}}">{{item.title}}</view>
+<view class="container" style="margin-top: {{statusBarHeight + 54}}px;">
+  <view class="search-bar">
+    <view class="search-type">
+      <text>网商课堂</text>
+      <image class="down-arrow" src="./images/down-arrow.png" />
+    </view>
+    <view class="search-placeholder">这里可以搜索到您所要</view>
+    <view class="search-btn">搜索</view>
   </view>
-</scroll-view>
-
-<view class="news-list-wrap {{menuFixed ? 'fixed' : ''}}">
-  <i-news-list list="{{newsList}}" category-id="{{menuList[selectedMenuIndex].id}}" />
+  
+  <view class="swiper-wrap">
+    <swiper class="swiper custom-dots" autoplay circular interval="5000" duration="1000" indicator-dots>
+      <swiper-item wx:for="{{banner}}" wx:key="index">
+        <image class="banner-img" src="{{item.img}}" ontap="navTo" data-url="{{item.redirect_url}}" />
+      </swiper-item>
+    </swiper>
+  </view>
+  
+  <scroll-view class="menu-wrap {{menuFixed ? 'fixed' : ''}}" style="top: {{statusBarHeight + 44}}px;" scroll-x>
+    <view class="menu {{menuList.length < 4 ? 'space-around' : ''}}">
+      <view class="menu-item {{selectedMenuIndex === index ? 'selected' : ''}}" wx:for="{{menuList}}" wx:key="index" ontap="selectMenu" data-index="{{index}}">{{item.title}}</view>
+    </view>
+  </scroll-view>
+  
+  <view class="news-list-wrap {{menuFixed ? 'fixed' : ''}}">
+    <i-news-list list="{{newsList}}" category-id="{{menuList[selectedMenuIndex].id || ''}}" />
+  </view>
+  
+  <template is="i-youbo-logo" wx:if="{{nomore}}" />
 </view>
-
-<template is="i-youbo-logo" wx:if="{{nomore}}" />
