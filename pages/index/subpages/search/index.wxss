@@ -109,3 +109,8 @@
 .container {
   padding: 30rpx;
 }
+.title {
+  color: #333;
+  font-size: 32rpx;
+  font-weight: bold;
+}

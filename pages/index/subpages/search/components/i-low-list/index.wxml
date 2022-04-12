@@ -1,0 +1,19 @@
+<view class="low-list">
+  <view class="low-item" wx:for="{{list}}" wx:key="index" ontap="navTo" data-id="{{item.id}}">
+    <image class="cover" src="{{item.head_img}}" mode="aspectFill" lazy-load />
+    <view class="content-wrap">
+      <view class="title">{{item.title}}</view>
+      <view class="content">{{item.content}}</view>
+      <view class="data">
+        <view class="view-count">
+          <image class="icon" src="./images/view.png" />
+          <span></span>
+        </view>
+        <view class="praise-count">
+          <image class="icon" src="./images/praise.png" />
+          <span></span>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

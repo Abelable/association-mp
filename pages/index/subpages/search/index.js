@@ -9,7 +9,9 @@ Page({
     curMenuIdx: 0,
     keyword: '',
     historyKeywords: ['三只松鼠坚果大礼包', '华为手表', '资生堂', '变啦健康', '口红', '手机iphone XS MAX', '最多显示最新的十个'],
-    searchStatus: false
+    searchStatus: false,
+    lowList: [{}, {}, {}],
+    thinkList: [{}, {}, {}]
   },
 
   onLoad() {},

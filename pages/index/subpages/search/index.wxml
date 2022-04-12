@@ -25,5 +25,8 @@
 </view>
 
 <view class="container" wx:if="{{searchStatus}}" style="margin-top: {{statusBarHeight + 88}}px;">
-  
+  <view class="title">法律汇编</view>
+  <i-low-list list="{{lowList}}" />
+  <view class="title" style="margin-top: 30rpx;">网商智库</view>
+  <i-think-list list="{{thinkList}}" />
 </view>
