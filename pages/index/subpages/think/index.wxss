@@ -5,7 +5,7 @@ page {
   background: #fff;
 }
 
-.low-list {
+.think-list {
   position: relative;
   padding: 0 30rpx 160rpx;
   min-height: 100vh;

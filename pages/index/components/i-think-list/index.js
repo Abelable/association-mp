@@ -10,6 +10,10 @@ Component({
         url: `/pages/index/subpages/news/index?id=${id}`
       })
     },
-    checkMore() {}
+    checkMore() {
+      wx.navigateTo({
+        url: "/pages/index/subpages/think/index"
+      })
+    }
   }
 })

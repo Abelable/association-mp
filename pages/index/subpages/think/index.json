@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "网商智库",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "i-think-item": "../../components/i-think-item/index"
+  }
+}
