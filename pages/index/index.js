@@ -13,7 +13,7 @@ Page({
     thinkList: []
   },
 
-  onShow() {
+  onLoad() {
     this.setBanner()
     this.setCourseList()
     this.setLowList()
