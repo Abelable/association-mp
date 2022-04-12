@@ -15,6 +15,7 @@ Page({
     const { id, scene } = options
     const decodedScene = scene ? decodeURIComponent(scene) : ''
     this.id = id || decodedScene.split('-')[0]
+    this.setInfo()
   },
 
   async setInfo() {

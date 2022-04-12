@@ -17,6 +17,7 @@
 }
 .time {
   margin-top: 6rpx;
+  margin-bottom: 40rpx;
   color: #999;
   font-size: 24rpx;
 }
