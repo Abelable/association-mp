@@ -8,12 +8,14 @@
 .low-item {
   display: inline-block;
   width: 220rpx;
+  height: 330rpx;
   margin-right: 20rpx;
 }
 .cover {
   width: 220rpx;
   height: 250rpx;
   border-radius: 8rpx;
+  background: #f9f9f9;
 }
 .title {
   margin-top: 12rpx;

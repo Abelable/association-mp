@@ -7,8 +7,8 @@
     <view class="content-wrap">
       <view class="title">{{item.title}}</view>
       <view class="author-info">
-        <image class="avatar" src="{{item.user_avatar}}" />
-        <view class="name">{{item.user_name}}</view>
+        <image class="avatar" src="{{item.author ? item.author.head_img : ''}}" />
+        <view class="name">{{item.author ? item.author.author_name : ''}}</view>
       </view>
     </view>
   </view>

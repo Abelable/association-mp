@@ -1,0 +1,45 @@
+<import src="/templates/i-youbo-logo/index.wxml" />
+
+<image class="bg" style="top: {{statusBarHeight - 50}}px;" src="./images/bg.png" />
+
+<view class="nav-bar {{ navBarVisible ? 'show' : '' }}" style="padding-top: {{statusBarHeight}}px;">浙江省网商协会</view>
+
+<view class="container" style="margin-top: {{statusBarHeight + 44}}px;">
+  <view class="search-bar">
+    <view class="search-type">
+      <text>网商课堂</text>
+      <image class="down-arrow" src="./images/down-arrow.png" />
+    </view>
+    <view class="search-placeholder">这里可以搜索到您所要</view>
+    <view class="search-btn">搜索</view>
+  </view>
+  
+  <view class="swiper-wrap">
+    <swiper class="swiper custom-dots" autoplay circular interval="5000" duration="1000" indicator-dots>
+      <swiper-item wx:for="{{banner}}" wx:key="index">
+        <image class="banner-img" src="{{item.img}}" ontap="navTo" data-url="{{item.redirect_url}}" />
+      </swiper-item>
+    </swiper>
+  </view>
+
+  <view class="title-wrap">
+    <view class="title">网商课堂</view>
+    <view class="more-btn">
+      <text>查看全部</text>
+      <image class="right-arrow" src="./images/right-arrow.png" />
+    </view>
+  </view>
+  <i-course-list list="{{courseList}}" />
+
+  <view class="title-wrap">
+    <view class="title">法律汇编</view>
+  </view>
+  <i-low-list list="{{lowList}}"/>
+
+  <view class="title-wrap">
+    <view class="title">网商智库</view>
+  </view>
+  <i-think-list list="{{thinkList}}"/>
+  
+  <template is="i-youbo-logo" wx:if="{{nomore}}" />
+</view>

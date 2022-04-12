@@ -6,8 +6,8 @@
         <view class="name">{{item.name}}</view>
         <view class="title">{{item.title}}</view>
       </view>
-      <view class="honor">{{item.honor}}</view>
-      <view class="field">{{item.field}}</view>
+      <view class="honor">曾获荣誉：{{item.honor}}</view>
+      <view class="field">领域：{{item.field}}</view>
     </view>
   </view>
   <view class="more-btn" ontap="checkMore">
