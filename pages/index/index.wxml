@@ -40,6 +40,6 @@
     <view class="title">网商智库</view>
   </view>
   <i-think-list list="{{thinkList}}"/>
-  
-  <template is="i-youbo-logo" wx:if="{{nomore}}" />
 </view>
+
+<template is="i-youbo-logo" />
