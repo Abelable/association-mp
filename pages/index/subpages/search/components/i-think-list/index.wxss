@@ -1,5 +1,4 @@
 .think-list {
-  margin-top: 20rpx;
   padding: 0 20rpx;
   background: #FFFFFF;
   border-radius: 12rpx;

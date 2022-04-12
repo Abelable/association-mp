@@ -1,0 +1,6 @@
+<template name="i-empty-illus">
+  <view class="empty-illus">
+    <image style="width: 290rpx; height: 290rpx;" src="https://img.ubo.vip/mp/mine/fans-no-data.png" />
+    <view>{{desc}}</view>
+  </view>
+</template>

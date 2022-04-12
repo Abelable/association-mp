@@ -1,3 +1,5 @@
+@import "/templates/i-empty-illus/index.wxss";
+
 .nav-bar-wrap {
   position: fixed;
   top: 0;
@@ -110,7 +112,13 @@
   padding: 30rpx;
 }
 .title {
+  margin-bottom: 20rpx;
   color: #333;
   font-size: 32rpx;
   font-weight: bold;
+}
+
+.empty-illus-wrap {
+  margin: 240rpx auto 0;
+  width: fit-content;
 }

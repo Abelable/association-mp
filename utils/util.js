@@ -23,7 +23,10 @@ const debounce = (fn, delay) => {
   }
 }
 
+const unique = arr => Array.from(new Set(arr))
+
 module.exports = {
   formatTime,
-  debounce
+  debounce,
+  unique
 }
