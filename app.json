@@ -3,6 +3,7 @@
     "pages/index/index",
     "pages/index/subpages/news/index",
     "pages/index/subpages/intro/index",
+    "pages/index/subpages/search/index",
     "pages/register/index",
     "pages/register/subpages/record/index",
     "pages/register/subpages/record-detail/index"
