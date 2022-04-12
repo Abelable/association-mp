@@ -1,0 +1,50 @@
+.low-item {
+  display: flex;
+  padding: 20rpx 0;
+}
+.cover {
+  width: 176rpx;
+  height: 124rpx;
+  border-radius: 8rpx;
+  background: #f9f9f9;
+}
+.content-wrap {
+  margin-left: 16rpx;
+  flex: 1;
+}
+.title, .content {
+  overflow: hidden;
+  white-space: normal;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.title {
+  color: #333;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.content {
+  margin-top: 8rpx;
+  color: #666;
+  font-size: 24rpx;
+}
+.data {
+  display: flex;
+  align-items: center;
+}
+.view-count, .praise-count {
+  display: flex;
+  align-items: center;
+  color: #666;
+  font-size: 24rpx;
+}
+.praise-count {
+  margin-left: 20rpx;
+}
+.icon {
+  margin-right: 8rpx;
+  width: 32rpx;
+  height: 32rpx;
+}

@@ -1,3 +1,6 @@
 {
-  "component": true
+  "component": true,
+  "usingComponents": {
+    "i-low-item": "../../../../components/i-low-item/index"
+  }
 }

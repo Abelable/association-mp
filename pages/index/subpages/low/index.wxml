@@ -1,0 +1,9 @@
+<import src="/templates/i-empty-illus/index.wxml"/>
+
+<view class="low-list">
+  <i-low-item wx:for="{{lowList}}" wx:key="index" item="{{item}}" />
+</view>
+
+<view class="empty-illus-wrap" wx:if="{{!lowList.length}}">
+  <template is="i-empty-illus" data="{{desc: '暂无列表'}}" />
+</view>

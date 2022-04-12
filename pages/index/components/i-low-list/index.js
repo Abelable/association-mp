@@ -5,9 +5,9 @@ Component({
 
   methods: {
     navTo(e) {
-      const { id } = e.currentTarget.dataset
+      const { id, name } = e.currentTarget.dataset.low
       wx.navigateTo({
-        url: `/pages/index/subpages/news/index?id=${id}`
+        url: `/pages/index/subpages/low/index?id=${id}&title=${name}`
       })
     }
   }

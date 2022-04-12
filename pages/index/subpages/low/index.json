@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "i-low-item": "../../components/i-low-item/index"
+  }
+}

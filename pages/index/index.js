@@ -32,7 +32,7 @@ Page({
   },
 
   async setLowList() {
-    const lowList = await indexService.getLowList()
+    const lowList = await indexService.getLowCateList()
     this.setData({ lowList })
   },
 

@@ -1,0 +1,14 @@
+@import "/templates/i-empty-illus/index.wxss";
+
+page {
+  background: #fff;
+}
+
+.low-list {
+  padding: 0 30rpx;
+}
+
+.empty-illus-wrap {
+  margin: 240rpx auto 0;
+  width: fit-content;
+}

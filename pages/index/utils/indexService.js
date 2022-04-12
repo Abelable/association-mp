@@ -9,8 +9,12 @@ class IndexService extends BaseService {
     return await this.get({ url: `${this.baseUrl}/api/v1/class-room/list`, data: { page, page_size } })
   }
 
-  async getLowList() {
+  async getLowCateList() {
     return await this.post({ url: `${this.baseUrl}/api/v1/legal/category-list` })
+  }
+
+  async getLowList(category_id, title) {
+    return await this.post({ url: `${this.baseUrl}/api/v1/legal/list`, data: { title, category_id } })
   }
 
   async getThinkList(page, page_size = 10, name = '', field = '') {
