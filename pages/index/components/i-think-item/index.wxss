@@ -1,0 +1,38 @@
+.think-item {
+  display: flex;
+  padding: 20rpx 0;
+}
+.avatar {
+  width: 84rpx;
+  height: 84rpx;
+  border-radius: 50%;
+  background: #f9f9f9;
+}
+.content-wrap {
+  margin-left: 20rpx;
+  flex: 1;
+}
+.name-wrap {
+  display: flex;
+  align-items: baseline;
+}
+.name {
+  color: #333;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.title {
+  margin-left: 10rpx;
+  color: #333;
+  font-size: 24rpx;
+}
+.honor {
+  margin-top: 10rpx;
+  color: #333;
+  font-size: 24rpx;
+}
+.field {
+  margin-top: 10rpx;
+  color: #999;
+  font-size: 24rpx;
+}

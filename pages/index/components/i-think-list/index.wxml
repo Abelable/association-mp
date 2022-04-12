@@ -1,14 +1,6 @@
 <view class="think-list">
-  <view class="think-item" wx:for="{{list}}" wx:key="index" ontap="navTo" data-id="{{item.id}}">
-    <image class="avatar" src="{{item.head_img}}" mode="aspectFill" lazy-load />
-    <view class="content-wrap">
-      <view class="name-wrap">
-        <view class="name">{{item.name}}</view>
-        <view class="title">{{item.title}}</view>
-      </view>
-      <view class="honor">曾获荣誉：{{item.honor}}</view>
-      <view class="field">领域：{{item.field}}</view>
-    </view>
+  <view class="think-item" wx:for="{{list}}" wx:key="index">
+    <i-think-item item="{{item}}" />
   </view>
   <view class="more-btn" ontap="checkMore">
     <text>查看更多</text>

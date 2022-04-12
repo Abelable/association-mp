@@ -1,3 +1,6 @@
 {
-  "component": true
+  "component": true,
+  "usingComponents": {
+    "i-think-item": "../../../../components/i-think-item/index"
+  }
 }

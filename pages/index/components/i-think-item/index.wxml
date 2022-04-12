@@ -1,0 +1,11 @@
+<view class="think-item" ontap="navTo">
+  <image class="avatar" src="{{item.head_img}}" mode="aspectFill" lazy-load />
+  <view class="content-wrap">
+    <view class="name-wrap">
+      <view class="name">{{item.name}}</view>
+      <view class="title">{{item.title}}</view>
+    </view>
+    <view class="honor">曾获荣誉：{{item.honor}}</view>
+    <view class="field">领域：{{item.field}}</view>
+  </view>
+</view>
