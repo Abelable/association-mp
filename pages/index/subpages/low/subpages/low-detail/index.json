@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "浙江省网商协会",
+  "usingComponents": {
+    "i-poster-modal": "./components/i-poster-modal/index"
+  }
+}

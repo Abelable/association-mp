@@ -6,7 +6,7 @@ Component({
   methods: {
     navTo() {
       wx.navigateTo({
-        url: `/pages/index/subpages/news/index?id=${this.properties.item.id}`
+        url: `/pages/index/subpages/low/subpages/low-detail/index?id=${this.properties.item.id}`
       })
     }
   }

@@ -1,4 +1,4 @@
-<wxs module="TIME" src="../../../../utils/filters/time.wxs" />
+<wxs module="TIME" src="/utils/filters/time.wxs" />
 <import src="/templates/i-youbo-logo/index.wxml" />
 
 <view class="news-detail">

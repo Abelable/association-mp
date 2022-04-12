@@ -1,0 +1,5 @@
+<view class="poster-modal">
+  <image class="close-icon" ontap="hideModal" src="./images/close-icon.png" />
+  <canvas class="poster" canvas-id="poster" />
+  <button class="save-btn" ontap='save' hover-class="none">保存图片</button>
+</view>

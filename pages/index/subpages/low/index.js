@@ -1,4 +1,4 @@
-import IndexService from '../../utils/indexService'
+import LowService from './utils/lowService'
 
 Page({
   data: {
@@ -8,7 +8,7 @@ Page({
   async onLoad(options) {
     const { id, title } = options
     wx.setNavigationBarTitle({ title })
-    const lowList = await new IndexService().getLowList(id, title) || []
+    const lowList = await new LowService().getLowList(id, title) || []
     this.setData({ lowList })
   }
 })
