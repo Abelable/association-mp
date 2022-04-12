@@ -21,7 +21,7 @@ Page({
   },
 
   async setBanner() {
-    const introItem = { img: 'https://img.ubo.vip/mp/association/intro-banner.png', redirect_url: '/pages/index/subpages/intro/index' }
+    const introItem = { img: 'https://img.ubo.vip/mp/association/intro-banner.png', redirect_url: '/pages/common/intro/index' }
     const banner = await indexService.getBanner() || []
     this.setData({ banner: [...banner, introItem] })
   },
