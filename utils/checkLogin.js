@@ -15,9 +15,7 @@ const login = async () => {
 }
 
 const checkLogin = async (fn) => {
-  if (!wx.getStorageSync('openid')) {
-    await login()
-  }
+  if (!wx.getStorageSync('openid')) await login()
   fn()
 }
 
