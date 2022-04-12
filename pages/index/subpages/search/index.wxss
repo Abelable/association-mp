@@ -1,17 +1,15 @@
-page {
-  background: #fff;
-}
-.nav-bar {
+.nav-bar-wrap {
   position: fixed;
   top: 0;
   width: 100%;
-  display: flex;
-  align-items: center;
-  height: 44px;
-  box-sizing: initial;
   background: #fff;
   box-shadow: 0 -2rpx 2rpx 0 rgba(0,0,0,0.05);
   z-index: 100;
+}
+.nav-bar {
+  display: flex;
+  align-items: center;
+  height: 44px;
 }
 .back-icon {
   padding-left: 15px;
@@ -40,7 +38,7 @@ page {
   font-size: 13px;
 }
 .clear-icon {
-  padding: 0 5px;
+  padding: 0 10px;
   width: 16px;
   height: 16px;
   box-sizing: initial;
@@ -51,6 +49,61 @@ page {
   font-size: 14px;
   font-weight: bold;
   border-left: 1px solid #F0F0F0;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 44px;
+}
+.menu-item {
+  width: 80px;
+  height: 28px;
+  color: #333;
+  font-size: 12px;
+  text-align: center;
+  line-height: 28px;
+  background: #F8F8F8;
+  border-radius: 2px;
+}
+.menu-item.active {
+  color: #fff;
+  background: #408BF1;
+}
+
+.search-history {
+  padding: 30rpx;
+  background: #fff;
+  height: 100vh;
+}
+.history-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #333;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.delete-icon {
+  width: 32rpx;
+  height: 32rpx;
+}
+.keyword-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 40rpx;
+}
+.keyword {
+  margin-right: 20rpx;
+  margin-bottom: 30rpx;
+  padding: 0 26rpx;
+  height: 60rpx;
+  color: #333;
+  font-size: 24rpx;
+  line-height: 60rpx;
+  background: #F8F8F8;
+  border-radius: 4rpx;
 }
 
 .container {
