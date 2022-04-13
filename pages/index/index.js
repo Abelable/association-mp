@@ -8,15 +8,13 @@ Page({
     statusBarHeight,
     navBarVisible: false,
     banner: [],
-    courseList: [],
-    lowList: [],
+    lowCateList: [],
     thinkList: []
   },
 
   onLoad() {
     this.setBanner()
-    this.setCourseList()
-    this.setLowList()
+    this.setLowCateList()
     this.setThinkList()
   },
 
@@ -31,9 +29,9 @@ Page({
     this.setData({ courseList })
   },
 
-  async setLowList() {
-    const lowList = await indexService.getLowCateList()
-    this.setData({ lowList })
+  async setLowCateList() {
+    const lowCateList = await indexService.getLowCateList(1)
+    this.setData({ lowCateList })
   },
 
   async setThinkList() {
@@ -44,6 +42,12 @@ Page({
   navTo(e) {
     const { url } = e.currentTarget.dataset
     wx.navigateTo({ url })
+  },
+
+  checkMore() {
+    wx.navigateTo({
+      url: '/pages/index/subpages/low-cate/index'
+    })
   },
 
   onPageScroll(e) {

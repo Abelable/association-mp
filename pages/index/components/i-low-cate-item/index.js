@@ -1,11 +1,11 @@
 Component({
   properties: {
-    list: Array
+    item: Object
   },
 
   methods: {
-    navTo(e) {
-      const { id, name } = e.currentTarget.dataset.low
+    navTo() {
+      const { id, name } = this.properties.item
       wx.navigateTo({
         url: `/pages/index/subpages/low/index?id=${id}&title=${name}`
       })

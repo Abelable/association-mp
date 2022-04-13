@@ -24,12 +24,12 @@
 
   <view class="title-wrap">
     <view class="title">法律汇编</view>
-    <view class="more-btn">
+    <view class="more-btn" ontap="checkMore">
       <text>查看全部</text>
       <image class="right-arrow" src="./images/right-arrow.png" />
     </view>
   </view>
-  <i-low-list list="{{lowList}}"/>
+  <i-low-cate-list list="{{lowCateList}}"/>
 
   <view class="title-wrap">
     <view class="title">网商智库</view>

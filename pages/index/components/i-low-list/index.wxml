@@ -1,6 +1,0 @@
-<scroll-view class="low-list" scroll-x>
-  <view class="low-item" wx:for="{{list}}" wx:key="index" ontap="navTo" data-low="{{item}}">
-    <image class="cover" src="{{item.image}}" mode="aspectFill" lazy-load />
-    <view class="title">{{item.name}}</view>
-  </view>
-</scroll-view>

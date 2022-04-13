@@ -1,0 +1,4 @@
+<view class="low-cate-item" ontap="navTo">
+  <image class="cover" src="{{item.image}}" mode="aspectFill" lazy-load />
+  <view class="title">{{item.name}}</view>
+</view>

@@ -1,0 +1,5 @@
+<scroll-view class="low-cate-list" scroll-x>
+  <view class="low-cate-item" wx:for="{{list}}" wx:key="index">
+    <i-low-cate-item item="{{item}}" />
+  </view>
+</scroll-view>

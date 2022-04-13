@@ -4,6 +4,7 @@
     "pages/index/subpages/search/index",
     "pages/index/subpages/low/index",
     "pages/index/subpages/low/subpages/low-detail/index",
+    "pages/index/subpages/low-cate/index",
     "pages/index/subpages/think/index",
     "pages/register/index",
     "pages/register/subpages/record/index",

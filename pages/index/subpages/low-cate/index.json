@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "法律汇编",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "i-low-cate-item": "../../components/i-low-cate-item/index"
+  }
+}

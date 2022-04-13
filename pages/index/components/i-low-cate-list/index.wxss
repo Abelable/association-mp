@@ -1,0 +1,11 @@
+.low-cate-list {
+  margin-top: 20rpx;
+  padding: 20rpx;
+  white-space: nowrap;
+  background: #FFFFFF;
+  border-radius: 12rpx;
+}
+.low-cate-item {
+  display: inline-block;
+  margin-right: 20rpx;
+}

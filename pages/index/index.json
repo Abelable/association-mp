@@ -3,7 +3,7 @@
   "navigationBarTextStyle": "white",
   "enablePullDownRefresh": true,
   "usingComponents": {
-    "i-low-list": "./components/i-low-list/index",
+    "i-low-cate-list": "./components/i-low-cate-list/index",
     "i-think-list": "./components/i-think-list/index"
   }
 }
