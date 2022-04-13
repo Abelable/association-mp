@@ -95,9 +95,9 @@
   <view class="input-wrap">
     <view class="title">
       <text class="required-icon">*</text>
-      <text>手机</text>
+      <text>手机号</text>
     </view>
-    <input class="input" type="number" value="{{tel}}" bindinput="setTel" placeholder="请输入手机"/>
+    <input class="input" type="number" value="{{tel}}" bindinput="setTel" placeholder="请输入手机号"/>
   </view>
   <view class="input-wrap">
     <view class="title">
@@ -116,9 +116,9 @@
   <view class="input-wrap">
     <view class="title">
       <text class="required-icon">*</text>
-      <text>手机</text>
+      <text>手机号</text>
     </view>
-    <input class="input" type="number" value="{{contacterTel}}" bindinput="setContacterTel" placeholder="请输入手机"/>
+    <input class="input" type="number" value="{{contacterTel}}" bindinput="setContacterTel" placeholder="请输入手机号"/>
   </view>
 </view>
 
