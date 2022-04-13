@@ -10,6 +10,7 @@
       <text>法律汇编</text>
       <image class="down-arrow" src="./images/down-arrow.png" />
     </view> -->
+    <image class="search-icon" src="https://img.ubo.vip/mp/index/search/index-search.png" />
     <view class="search-placeholder">这里可以搜索到您所要</view>
     <view class="search-btn">搜索</view>
   </navigator>

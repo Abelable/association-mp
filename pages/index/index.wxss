@@ -38,21 +38,13 @@
   background: #FFFFFF;
   border-radius: 8rpx;
 }
-.search-type {
-  display: flex;
-  align-items: center;
-  padding: 0 20rpx;
-  color: #333;
-  font-size: 26rpx;
-  font-weight: bold;
-}
-.down-arrow {
-  margin-left: 4rpx;
-  width: 24rpx;
-  height: 24rpx;
+.search-icon {
+  margin-left: 20rpx;
+  margin-right: 15rpx;
+  width: 30rpx;
+  height: 30rpx;
 }
 .search-placeholder {
-  margin-left: 20rpx;
   flex: 1;
   color: #999;
   font-size: 26rpx;
