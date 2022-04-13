@@ -1,7 +1,6 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/index/subpages/news/index",
     "pages/index/subpages/search/index",
     "pages/index/subpages/low/index",
     "pages/index/subpages/low/subpages/low-detail/index",

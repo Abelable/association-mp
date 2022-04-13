@@ -4,8 +4,10 @@
 <view class="news-detail">
   <view class="title">{{info.title}}</view>
   <view class="time">{{TIME.transform(info.updated_at).year + '-' + TIME.transform(info.updated_at).month + '-' + TIME.transform(info.updated_at).date + ' ' + TIME.transform(info.updated_at).hours + ':' + TIME.transform(info.updated_at).minutes}}</view>
-  <mp-html content="{{info.content}}" bind:ready="load" />
-  <template is="i-youbo-logo" />
+  <mp-html content="{{info.content || ''}}" bind:ready="load" />
+  <view class="youbo-logo-wrap">
+    <template is="i-youbo-logo" />
+  </view>
 </view>
 
 <view class="btn-wrap">

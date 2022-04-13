@@ -13,8 +13,8 @@ class LowService extends IndexService {
     return await this.get({ url: `${this.baseUrl}/api/v1/legal/detail`, data: { id } })
   }
 
-  async share(article_id) {
-    return await this.post({ url: `${this.baseUrl}/api/v1/share/mini-share`, data: { article_id, type: 1 } })
+  async share({ type = 2, article_id = '', legal_id = ''}) {
+    return await this.post({ url: `${this.baseUrl}/api/v1/share/mini-share`, data: { type, article_id, legal_id } })
   }
 }
 

@@ -1,9 +1,0 @@
-<wxs module="TIME" src="/utils/filters/time.wxs" />
-<import src="/templates/i-youbo-logo/index.wxml" />
-
-<view class="news-detail">
-  <view class="title">{{item.title}}</view>
-  <view class="time">{{TIME.transform(item.updated_at).year + '-' + TIME.transform(item.updated_at).month + '-' + TIME.transform(item.updated_at).date + ' ' + TIME.transform(item.updated_at).hours + ':' + TIME.transform(item.updated_at).minutes}}</view>
-  <mp-html content="{{item.content}}" bind:ready="load" />
-  <template is="i-youbo-logo" />
-</view>

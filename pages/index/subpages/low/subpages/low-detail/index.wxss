@@ -1,7 +1,8 @@
 @import "/templates/i-youbo-logo/index.wxss";
 
 .news-detail {
-  padding: 10rpx 32rpx;
+  padding: 10rpx 32rpx 160rpx;
+  min-height: 100vh;
   background: #fff;
 }
 .news-detail.fold {
@@ -20,6 +21,11 @@
   margin-bottom: 40rpx;
   color: #999;
   font-size: 24rpx;
+}
+.youbo-logo-wrap {
+  position: absolute;
+  bottom: 10rpx;
+  width: calc(100vw -  60rpx);
 }
 
 .fold-mask {

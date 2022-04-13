@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "浙江省网商协会",
-  "usingComponents": {
-    "i-news-detail": "./components/i-news-detail/index",
-    "i-poster-modal": "./components/i-poster-modal/index"
-  }
-}

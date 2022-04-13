@@ -16,11 +16,16 @@ Page({
     const decodedScene = scene ? decodeURIComponent(scene) : ''
     this.id = id || decodedScene.split('-')[0]
     this.setInfo()
+    wx.showLoading({ title: '加载中...' })
   },
 
   async setInfo() {
     const info = await lowService.getLowDetail(this.id)
     this.setData({ info })
+  },
+
+  load() {
+    wx.hideLoading()
   },
 
   async togglePraise() {
@@ -56,10 +61,9 @@ Page({
       getApp().globalData.posterAvatarUrl = path
     }
 
-    const { newsList, curNewsIdx } = this.data
-    const { id, img, title } = newsList[curNewsIdx]
-    const { path: cover } = await lowService.getImageInfo(img)
-    const { app_code } = await lowService.share(id)
+    const { id, image, title } = this.data.info
+    const { path: cover } = await lowService.getImageInfo(image)
+    const { app_code } = await lowService.share({ legal_id: id })
     const { path: qrCode } = await lowService.getImageInfo(app_code)
 
     const posterInfo = {
@@ -101,8 +105,8 @@ Page({
   },
 
   onShareAppMessage() {
-    const img = ''
-    const imageUrl = `${img}?x-oss-process=image/resize,m_fill,h_180,w_180`
+    const { image, title } = this.data.info
+    const imageUrl = `${image}?x-oss-process=image/resize,m_fill,h_180,w_180`
     const path = `/pages/index/subpages/low/subpages/low-detail/index?id=${this.id}`
     return { path, title, imageUrl }
   }

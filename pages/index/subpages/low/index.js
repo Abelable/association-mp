@@ -8,7 +8,12 @@ Page({
   async onLoad(options) {
     const { id, title } = options
     wx.setNavigationBarTitle({ title })
-    const lowList = await new LowService().getLowList(id, title) || []
+    this.id = id
+    this.title = title
+  },
+
+  async onShow() {
+    const lowList = await new LowService().getLowList(this.id, this.title) || []
     this.setData({ lowList })
   }
 })
