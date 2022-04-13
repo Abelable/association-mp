@@ -76,12 +76,15 @@ radio .wx-radio-input.wx-radio-input-checked::before {
 }
 
 .selection {
+  display: flex;
+  flex-wrap: wrap;
   margin-top: 20rpx;
 }
 .option {
   display: flex;
   align-items: center;
   margin-bottom: 24rpx;
+  margin-right: 50rpx;
 }
 .desc {
   margin-top: 6rpx;

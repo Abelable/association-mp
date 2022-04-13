@@ -33,47 +33,29 @@
       <text>企业类型（可多选）</text>
     </view>
     <checkbox-group class="selection" bindchange="setCompanyType">
-      <view class="option">
-        <checkbox id="1" value="第三方平台"/>
-        <label class="desc" for="1">第三方平台</label>
-      </view>
-      <view class="option">
-        <checkbox id="2" value="自营平台" />
-        <label class="desc" for="2">自营平台</label>
-      </view>
-      <view class="option">
-        <checkbox id="3" value="非平台" />
-        <label class="desc" for="3">非平台</label>
+      <view 
+        class="option" 
+        wx:for="{{['网络销售类平台', '生活服务类平台', '社交娱乐类平台', '信息资讯类平台', '金融服务类平台', '计算机应用类平台', '其它类']}}"
+        wx:key="index"
+        >
+        <checkbox id="{{index + 1}}" value="{{item}}"/>
+        <label class="desc" for="{{index + 1}}">{{item}}</label>
       </view>
     </checkbox-group>
   </view>
-  <view class="selection-wrap">
+  <view class="input-wrap">
     <view class="title">
       <text class="required-icon">*</text>
-      <text>网站电子商务类型（可多选）</text>
+      <text>上年度GMV（元）</text>
     </view>
-    <checkbox-group class="selection" bindchange="setWebsiteType">
-      <view class="option">
-        <checkbox id="4" value="B2B"/>
-        <label class="desc" for="4">B2B</label>
-      </view>
-      <view class="option">
-        <checkbox id="5" value="B2C" />
-        <label class="desc" for="5">B2C</label>
-      </view>
-      <view class="option">
-        <checkbox id="6" value="C2C" />
-        <label class="desc" for="6">C2C</label>
-      </view>
-      <view class="option">
-        <checkbox id="7" value="G2C" />
-        <label class="desc" for="7">G2C</label>
-      </view>
-      <view class="option">
-        <checkbox id="8" value="其他" />
-        <label class="desc" for="8">其他</label>
-      </view>
-    </checkbox-group>
+    <input class="input" type="number" value="{{tradeAmount}}" bindinput="setTradeAmount" placeholder="请输入上年度GMV"/>
+  </view>
+  <view class="input-wrap">
+    <view class="title">
+      <text class="required-icon">*</text>
+      <text>上年度营收（元）</text>
+    </view>
+    <input class="input" type="number" value="{{revenue}}" bindinput="setRevenue" placeholder="请输入上年度营收"/>
   </view>
   <view class="input-wrap">
     <view class="title">
@@ -92,42 +74,9 @@
   <view class="input-wrap">
     <view class="title">
       <text class="required-icon">*</text>
-      <text>交易商品（服务）</text>
+      <text>企业负责人姓名</text>
     </view>
-    <input class="input" type="text" value="{{tradeCommodity}}" bindinput="setTradeCommodity" placeholder="请输入交易商品（服务）"/>
-  </view>
-  <view class="input-wrap">
-    <view class="title">
-      <text>注册会员数量（个）</text>
-    </view>
-    <input class="input" type="number" value="{{memberCount}}" bindinput="setMemberCount" placeholder="请输入注册会员数量"/>
-  </view>
-  <view class="input-wrap">
-    <view class="title">
-      <text>平台网站内经营者数量（个）</text>
-    </view>
-    <input class="input" type="number" value="{{operatorCount}}" bindinput="setOperatorCount" placeholder="请输入平台网站内经营者数量"/>
-  </view>
-  <view class="input-wrap">
-    <view class="title">
-      <text class="required-icon">*</text>
-      <text>上年交易笔数(笔)</text>
-    </view>
-    <input class="input" type="number" value="{{tradeCount}}" bindinput="setTradeCount" placeholder="请输入上年交易笔数"/>
-  </view>
-  <view class="input-wrap">
-    <view class="title">
-      <text class="required-icon">*</text>
-      <text>上年交易额(元)</text>
-    </view>
-    <input class="input" type="number" value="{{tradeAmount}}" bindinput="setTradeAmount" placeholder="请输入上年交易额"/>
-  </view>
-  <view class="input-wrap">
-    <view class="title">
-      <text class="required-icon">*</text>
-      <text>负责人姓名</text>
-    </view>
-    <input class="input" type="text" value="{{name}}" bindinput="setName" placeholder="请输入负责人姓名"/>
+    <input class="input" type="text" value="{{name}}" bindinput="setName" placeholder="请输入企业负责人姓名"/>
   </view>
   <view class="input-wrap">
     <view class="title">
@@ -153,13 +102,6 @@
   <view class="input-wrap">
     <view class="title">
       <text class="required-icon">*</text>
-      <text>邮箱</text>
-    </view>
-    <input class="input" type="text" value="{{email}}" bindinput="setEmail" placeholder="请输入邮箱"/>
-  </view>
-  <view class="input-wrap">
-    <view class="title">
-      <text class="required-icon">*</text>
       <text>协会联系人姓名</text>
     </view>
     <input class="input" type="text" value="{{contacterName}}" bindinput="setContacterName" placeholder="请输入协会联系人姓名"/>
@@ -178,23 +120,6 @@
     </view>
     <input class="input" type="number" value="{{contacterTel}}" bindinput="setContacterTel" placeholder="请输入手机"/>
   </view>
-  
-  <!-- <view class="selection-wrap">
-    <view class="title">
-      <text class="required-icon">*</text>
-      <text>网站电子商务类型</text>
-    </view>
-    <radio-group class="selection">
-      <view class="option">
-        <radio/>
-        <view class="desc">B2B</view>
-      </view>
-      <view class="option">
-        <radio />
-        <view class="desc">其他</view>
-      </view>
-    </radio-group>
-  </view> -->
 </view>
 
 <view class="upload-wrap">

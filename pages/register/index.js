@@ -11,20 +11,16 @@ Page({
     websiteUrl: '', 
     ICP: '', 
     staffCount: '',
-    tradeCommodity: '', 
-    tradeCount: '', 
-    tradeAmount: '', 
+    tradeAmount: '',
+    revenue: '',
     name: '', 
     jobTitle: '', 
     politicalStatus: '', 
     tel: '', 
-    email: '', 
     contacterName: '', 
     contacterJobTitle: '', 
     contacterTel: '', 
     licenseImg: '',
-    memberCount: '', 
-    operatorCount: '',
     fileList: []
   },
 
@@ -46,29 +42,17 @@ Page({
   setCompanyType(e) {
     this.companyType = e.detail.value.join()
   },
-  setWebsiteType(e) {
-    this.websiteType = e.detail.value.join()
-  },
   setStaffCount(e) {
     this.staffCount = e.detail.value
   },
   setGangCount(e) {
     this.gangCount = e.detail.value
   },
-  setTradeCommodity(e) {
-    this.tradeCommodity = e.detail.value
-  },
-  setMemberCount(e) {
-    this.memberCount = e.detail.value
-  },
-  setOperatorCount(e) {
-    this.operatorCount = e.detail.value
-  },
-  setTradeCount(e) {
-    this.tradeCount = e.detail.value
-  },
   setTradeAmount(e) {
     this.tradeAmount = e.detail.value
+  },
+  setRevenue(e) {
+    this.revenue = e.detail.value
   },
   setName(e) {
     this.name = e.detail.value
@@ -81,9 +65,6 @@ Page({
   },
   setTel(e) {
     this.tel = e.detail.value
-  },
-  setEmail(e) {
-    this.email = e.detail.value
   },
   setContacterName(e) {
     this.contacterName = e.detail.value
@@ -118,7 +99,7 @@ Page({
 
   async submit() {
     checkLogin(() => {
-      const { companyName, websiteUrl, ICP, companyType, websiteType, staffCount, gangCount, tradeCommodity, tradeCount, tradeAmount, name, jobTitle, politicalStatus, tel, email, contacterName, contacterJobTitle, contacterTel } = this
+      const { companyName, websiteUrl, ICP, companyType, staffCount, gangCount, tradeAmount, revenue, name, jobTitle, politicalStatus, tel, contacterName, contacterJobTitle, contacterTel } = this
       const { fileList } = this.data
       
       if (!companyName) {
@@ -137,8 +118,12 @@ Page({
         wx.showToast({ title: '请选择企业类型', icon: 'none' })
         return
       }
-      if (!websiteType) {
-        wx.showToast({ title: '请选择网站电子商务类型', icon: 'none' })
+      if (!tradeAmount) {
+        wx.showToast({ title: '请输入上年度GMV', icon: 'none' })
+        return
+      }
+      if (!revenue) {
+        wx.showToast({ title: '请输入上年度应收', icon: 'none' })
         return
       }
       if (!staffCount) {
@@ -147,18 +132,6 @@ Page({
       }
       if (!gangCount) {
         wx.showToast({ title: '请输入党员人数', icon: 'none' })
-        return
-      }
-      if (!tradeCommodity) {
-        wx.showToast({ title: '请输入交易商品（服务）', icon: 'none' })
-        return
-      }
-      if (!tradeCount) {
-        wx.showToast({ title: '请输入上年交易笔数', icon: 'none' })
-        return
-      }
-      if (!tradeAmount) {
-        wx.showToast({ title: '请输入上年交易额', icon: 'none' })
         return
       }
       if (!name) {
@@ -175,10 +148,6 @@ Page({
       }
       if (!tel) {
         wx.showToast({ title: '请输入负责人手机号', icon: 'none' })
-        return
-      }
-      if (!email) {
-        wx.showToast({ title: '请输入负责人邮箱', icon: 'none' })
         return
       }
       if (!contacterName) {
@@ -204,7 +173,7 @@ Page({
         licenseImgs.push(item.url)
       })
 
-      const content = { companyName, websiteUrl, ICP, companyType, websiteType, staffCount, gangCount, tradeCommodity, tradeCount, tradeAmount, name, jobTitle, politicalStatus, tel, email, contacterName, contacterJobTitle, contacterTel, licenseImg: licenseImgs.join(), memberCount: this.memberCount || 0, operatorCount: this.operatorCount || 0 }
+      const content = { companyName, websiteUrl, ICP, companyType, staffCount, gangCount, tradeAmount, revenue, name, jobTitle, politicalStatus, tel, contacterName, contacterJobTitle, contacterTel, licenseImg: licenseImgs.join() }
       registerService.submitApply(content, () => {
         wx.showToast({ title: '提交成功', icon: 'none' })
         this.resetData()
@@ -220,20 +189,16 @@ Page({
       websiteUrl: '', 
       ICP: '', 
       staffCount: '',
-      tradeCommodity: '', 
-      tradeCount: '', 
-      tradeAmount: '', 
+      tradeAmount: '',
+      revenue: '',
       name: '', 
       jobTitle: '', 
       politicalStatus: '', 
       tel: '', 
-      email: '', 
       contacterName: '', 
       contacterJobTitle: '', 
       contacterTel: '', 
       licenseImg: '',
-      memberCount: '', 
-      operatorCount: '',
       fileList: []
     })
   }
