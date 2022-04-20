@@ -5,6 +5,10 @@ class IndexService extends BaseService {
     return await this.get({ url: `${this.baseUrl}/api/v1/article/banner-list` })
   }
 
+  async getCourseList(page, page_size = 10) {
+    return await this.get({ url: `${this.baseUrl}/api/v1/class-room/list`, data: { page, page_size } })
+  }
+
   async getLowCateList(page, page_size = 20) {
     return await this.get({ url: `${this.baseUrl}/api/v1/legal/category-list`, data: { page, page_size } })
   }

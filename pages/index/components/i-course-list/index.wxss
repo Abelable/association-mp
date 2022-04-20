@@ -1,0 +1,72 @@
+.course-list {
+  margin-top: 20rpx;
+  padding: 0 20rpx;
+  background: #FFFFFF;
+  border-radius: 12rpx;
+}
+.course-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #F0F0F0;
+}
+.course-item:last-child {
+  border-bottom: none;
+}
+.cover-wrap {
+  position: relative;
+  width: 200rpx;
+  height: 140rpx;
+  border-radius: 8rpx;
+  background: #f9f9f9;
+}
+.cover {
+  width: 200rpx;
+  height: 140rpx;
+  border-radius: 8rpx;
+}
+.duration {
+  position: absolute;
+  right: 14rpx;
+  bottom: 10rpx;
+  padding: 0 6rpx;
+  height: 28rpx;
+  color: #FFFFFF;
+  font-size: 10px;
+  line-height: 28rpx;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 4rpx;
+}
+.content-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 16rpx;
+  flex: 1;
+  height: 140rpx;
+}
+.title {
+  color: #333;
+  font-size: 30rpx;
+  font-weight: bold;
+  overflow: hidden;
+  white-space: normal;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.author-info {
+  display: flex;
+  align-items: center;
+}
+.avatar {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+}
+.name {
+  margin-left: 8rpx;
+  color: #666;
+  font-size: 24rpx;
+}

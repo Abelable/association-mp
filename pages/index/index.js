@@ -17,6 +17,7 @@ Page({
       title: '加载中...'
     })
     await this.setBanner()
+    await this.setCourseList()
     await this.setLowCateList()
     await this.setThinkList()
     wx.hideLoading()
@@ -26,6 +27,11 @@ Page({
     const introItem = { img: 'https://img.ubo.vip/mp/association/intro-banner.png', redirect_url: '/pages/common/intro/index' }
     const banner = await indexService.getBanner() || []
     this.setData({ banner: [...banner, introItem] })
+  },
+
+  async setCourseList() {
+    const courseList = await indexService.getCourseList(1, 3)
+    this.setData({ courseList })
   },
 
   async setLowCateList() {
