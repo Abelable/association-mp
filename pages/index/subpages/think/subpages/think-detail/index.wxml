@@ -11,10 +11,9 @@
   </view>
   <view class="time">{{TIME.transform(info.updated_at).year + '-' + TIME.transform(info.updated_at).month + '-' + TIME.transform(info.updated_at).date + ' ' + TIME.transform(info.updated_at).hours + ':' + TIME.transform(info.updated_at).minutes}}</view>
   <mp-html content="{{info.content || ''}}" bind:ready="load" />
-  <view class="youbo-logo-wrap">
-    <template is="i-youbo-logo" />
-  </view>
 </view>
+
+<template is="i-youbo-logo" />
 
 <view class="btn-wrap">
   <view class="btn" ontap="togglePraise">

@@ -22,11 +22,6 @@
   color: #999;
   font-size: 24rpx;
 }
-.youbo-logo-wrap {
-  position: absolute;
-  bottom: 10rpx;
-  width: calc(100vw -  60rpx);
-}
 
 .fold-mask {
   position: absolute;
