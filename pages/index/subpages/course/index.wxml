@@ -1,0 +1,16 @@
+<import src="/templates/i-empty-illus/index.wxml"/>
+<import src="/templates/i-youbo-logo/index.wxml" />
+
+<view class="low-list">
+  <i-low-item wx:for="{{lowList}}" wx:key="index" item="{{item}}" />
+
+  <view class="empty-illus-wrap" wx:if="{{!lowList.length}}">
+    <template is="i-empty-illus" data="{{desc: '暂无列表'}}" />
+  </view>
+
+  <view class="youbo-logo-wrap">
+    <template is="i-youbo-logo" />
+  </view>
+</view>
+
+

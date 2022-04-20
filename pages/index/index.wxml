@@ -19,14 +19,14 @@
     </swiper>
   </view>
 
-  <view class="title-wrap">
+  <view class="title-wrap" wx:if="{{courseList.length}}">
     <view class="title">网商课堂</view>
     <view class="more-btn">
       <text>查看全部</text>
       <image class="right-arrow" src="./images/right-arrow.png" />
     </view>
   </view>
-  <i-course-list list="{{courseList}}" />
+  <i-course-list wx:if="{{courseList.length}}" list="{{courseList}}" />
 
   <view class="title-wrap" wx:if="{{lowCateList.length}}">
     <view class="title">法律汇编</view>

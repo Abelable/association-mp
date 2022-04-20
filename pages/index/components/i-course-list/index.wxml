@@ -1,15 +1,5 @@
 <view class="course-list">
-  <view class="course-item" wx:for="{{list}}" wx:key="index" ontap="navTo" data-id="{{item.id}}">
-    <view class="cover-wrap">
-      <image class="cover" src="{{item.cover_img}}" mode="aspectFill" lazy-load />
-      <view class="duration">{{item.duration}}</view>
-    </view>
-    <view class="content-wrap">
-      <view class="title">{{item.title}}</view>
-      <view class="author-info">
-        <image class="avatar" src="{{item.author ? item.author.head_img : ''}}" />
-        <view class="name">{{item.author ? item.author.author_name : ''}}</view>
-      </view>
-    </view>
+  <view class="course-item" wx:for="{{list}}" wx:key="index">
+    <i-course-item item="{{item}}"/>
   </view>
 </view>

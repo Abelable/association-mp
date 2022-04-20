@@ -1,0 +1,23 @@
+@import "/templates/i-empty-illus/index.wxss";
+@import "/templates/i-youbo-logo/index.wxss";
+
+page {
+  background: #fff;
+}
+
+.low-list {
+  position: relative;
+  padding: 0 30rpx 160rpx;
+  min-height: 100vh;
+}
+
+.empty-illus-wrap {
+  margin: 240rpx auto 0;
+  width: fit-content;
+}
+
+.youbo-logo-wrap {
+  position: absolute;
+  bottom: 10rpx;
+  width: calc(100vw -  60rpx);
+}

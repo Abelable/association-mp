@@ -2,6 +2,8 @@
   "pages":[
     "pages/index/index",
     "pages/index/subpages/search/index",
+    "pages/index/subpages/course/index",
+    "pages/index/subpages/course/subpages/course-detail/index",
     "pages/index/subpages/low/index",
     "pages/index/subpages/low/subpages/low-detail/index",
     "pages/index/subpages/low-cate/index",

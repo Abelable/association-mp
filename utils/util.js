@@ -27,6 +27,7 @@ const unique = arr => Array.from(new Set(arr))
 
 module.exports = {
   formatTime,
+  formatNumber,
   debounce,
   unique
 }
