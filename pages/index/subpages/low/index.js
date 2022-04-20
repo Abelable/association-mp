@@ -13,7 +13,7 @@ Page({
   },
 
   async onShow() {
-    const lowList = await new LowService().getLowList(this.id, this.title) || []
+    const lowList = await new LowService().getLowList(this.id) || []
     this.setData({ lowList })
   }
 })
