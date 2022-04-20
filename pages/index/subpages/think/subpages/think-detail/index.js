@@ -6,6 +6,7 @@ const thinkService = new ThinkService()
 Page({
   data: {
     info: null,
+    likeStatus: false,
     posterInfo: null,
     sharePopupVisible: false,
     posterModalVisible: false
@@ -16,6 +17,7 @@ Page({
     const decodedScene = scene ? decodeURIComponent(scene) : ''
     this.id = id || decodedScene.split('-')[0]
     this.setInfo()
+    this.setLikeStatus()
     wx.showLoading({ title: '加载中...' })
   },
 
@@ -28,13 +30,35 @@ Page({
     wx.hideLoading()
   },
 
+  setLikeStatus() {
+    const list = wx.getStorageSync('thinkArticleLikeList') || [];
+    if (list.length) {
+      const statusItem = list.find(item => item.id === this.id)
+      if (statusItem && statusItem.status) {
+        this.setData({
+          likeStatus: true
+        })
+      }
+    }
+  },
+
   async togglePraise() {
     checkLogin(() => {
-      const { is_like } = this.data.info
-      const status = is_like == 1 ? 0 : 1
+      const { likeStatus } = this.data
       this.setData({
-        ['info.is_like']: status
+        likeStatus: !likeStatus
       })
+      const list = wx.getStorageSync('thinkArticleLikeList') || [];
+      const curItemIndex = list.findIndex(item => item.id === this.id)
+      if (curItemIndex !== -1) {
+        list[curItemIndex].status = !likeStatus
+      } else {
+        list.push( { id: this.id, status: !likeStatus })
+      }
+      wx.setStorage({
+        key: 'thinkArticleLikeList',
+        data: list
+      });
     })
   },
 

@@ -18,7 +18,7 @@
 
 <view class="btn-wrap">
   <view class="btn" ontap="togglePraise">
-    <image class="icon" src="{{info.is_like == 1 ? './images/praise-active.png' : './images/praise.png'}}" />
+    <image class="icon" src="{{likeStatus ? './images/praise-active.png' : './images/praise.png'}}" />
     <view class="desc">点赞</view>
   </view>
   <view class="btn" ontap="showSharePopup">
