@@ -1,7 +1,7 @@
 import checkLogin from '../../../../../../utils/checkLogin'
-import LowService from '../../utils/lowService'
+import ThinkService from './utils/thinkService'
 
-const lowService = new LowService()
+const thinkService = new ThinkService()
 
 Page({
   data: {
@@ -20,7 +20,7 @@ Page({
   },
 
   async setInfo() {
-    const info = await lowService.getLowDetail(this.id)
+    const info = await thinkService.getThinkDetail(this.id)
     this.setData({ info })
   },
 
@@ -30,12 +30,11 @@ Page({
 
   async togglePraise() {
     checkLogin(() => {
-      const { id, is_like } = this.data.info
+      const { is_like } = this.data.info
       const status = is_like == 1 ? 0 : 1
       this.setData({
         ['info.is_like']: status
       })
-      lowService.toggleLowPraiseStatus(id, status)
     })
   },
 
@@ -51,20 +50,20 @@ Page({
   async setPosterInfo() {
     let { posterBgUrl, posterAvatarUrl } = getApp().globalData
     if (!posterBgUrl) {
-      const { path } = await lowService.getImageInfo('https://img.ubo.vip/mp/association/bg.png')
+      const { path } = await thinkService.getImageInfo('https://img.ubo.vip/mp/association/bg.png')
       posterBgUrl = path
       getApp().globalData.posterBgUrl = path
     }
     if (!posterAvatarUrl) {
-      const { path } = await lowService.getImageInfo(wx.getStorageSync('userInfo').avatarUrl)
+      const { path } = await thinkService.getImageInfo(wx.getStorageSync('userInfo').avatarUrl)
       posterAvatarUrl = path
       getApp().globalData.posterAvatarUrl = path
     }
 
     const { id, image, title } = this.data.info
-    const { path: cover } = await lowService.getImageInfo(image)
-    const { app_code } = await lowService.share({ legal_id: id })
-    const { path: qrCode } = await lowService.getImageInfo(app_code)
+    const { path: cover } = await thinkService.getImageInfo(image)
+    const { app_code } = await thinkService.share({ legal_id: id })
+    const { path: qrCode } = await thinkService.getImageInfo(app_code)
 
     const posterInfo = {
       bgUrl: posterBgUrl, 
@@ -107,7 +106,7 @@ Page({
   onShareAppMessage() {
     const { image, title } = this.data.info
     const imageUrl = `${image}?x-oss-process=image/resize,m_fill,h_180,w_180`
-    const path = `/pages/index/subpages/low/subpages/low-detail/index?id=${this.id}`
+    const path = `/pages/index/subpages/think/subpages/think-detail/index?id=${this.id}`
     return { path, title, imageUrl }
   }
 })
