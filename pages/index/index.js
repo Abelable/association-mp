@@ -12,10 +12,14 @@ Page({
     thinkList: []
   },
 
-  onLoad() {
-    this.setBanner()
-    this.setLowCateList()
-    this.setThinkList()
+  async onLoad() {
+    wx.showLoading({
+      title: '加载中...'
+    })
+    await this.setBanner()
+    await this.setLowCateList()
+    await this.setThinkList()
+    wx.hideLoading()
   },
 
   async setBanner() {
@@ -56,9 +60,13 @@ Page({
   },
 
   async onPullDownRefresh() {
-    this.setBanner()
-    this.setLowCateList()
-    this.setThinkList()
+    wx.showLoading({
+      title: '加载中...'
+    })
+    await this.setBanner()
+    await this.setLowCateList()
+    await this.setThinkList()
+    wx.hideLoading()
     wx.stopPullDownRefresh()
   },
   
