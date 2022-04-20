@@ -28,13 +28,8 @@ Page({
     this.setData({ banner: [...banner, introItem] })
   },
 
-  async setCourseList() {
-    const courseList = await indexService.getCourseList(1, 3)
-    this.setData({ courseList })
-  },
-
   async setLowCateList() {
-    const lowCateList = await indexService.getLowCateList(1)
+    const lowCateList = await indexService.getLowCateList(1, 10)
     this.setData({ lowCateList })
   },
 
