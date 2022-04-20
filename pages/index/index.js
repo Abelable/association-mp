@@ -57,8 +57,7 @@ Page({
 
   async onPullDownRefresh() {
     this.setBanner()
-    this.setCourseList()
-    this.setLowList()
+    this.setLowCateList()
     this.setThinkList()
     wx.stopPullDownRefresh()
   },

@@ -1,0 +1,26 @@
+.poster-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.close-icon {
+  margin-left: 270px;
+  width: 20px;
+  height: 20px;
+}
+.poster {
+  margin-top: 10px;
+  width: 290px;
+  height: 416px;
+}
+.save-btn {
+  margin: 25px auto 0;
+  width: 320rpx;
+  height: 36px;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  border-radius: 18px;
+  border: 1px solid #fff;
+}

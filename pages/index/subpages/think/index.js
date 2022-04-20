@@ -20,7 +20,7 @@ Page({
 
   async setThinkList(init= false) {
     if (init) this.page = 0
-    const list = await new IndexService().getThinkList(++this.page) || []
+    const { list } = await new IndexService().getThinkList(++this.page) || []
     this.setData({
       thinkList: init ? list : [...this.data.thinkList, ...list]
     })

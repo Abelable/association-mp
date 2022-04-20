@@ -1,0 +1,39 @@
+<wxs module="TIME" src="/utils/filters/time.wxs" />
+<import src="/templates/i-youbo-logo/index.wxml" />
+
+<view class="news-detail">
+  <view class="title">{{info.title}}</view>
+  <view class="time">{{TIME.transform(info.updated_at).year + '-' + TIME.transform(info.updated_at).month + '-' + TIME.transform(info.updated_at).date + ' ' + TIME.transform(info.updated_at).hours + ':' + TIME.transform(info.updated_at).minutes}}</view>
+  <mp-html content="{{info.content || ''}}" bind:ready="load" />
+  <view class="youbo-logo-wrap">
+    <template is="i-youbo-logo" />
+  </view>
+</view>
+
+<view class="btn-wrap">
+  <view class="btn" ontap="togglePraise">
+    <image class="icon" src="{{info.is_like == 1 ? './images/praise-active.png' : './images/praise.png'}}" />
+    <view class="desc">点赞</view>
+  </view>
+  <view class="btn" ontap="showSharePopup">
+    <image class="icon" src="./images/share.png" />
+    <view class="desc">分享</view>
+  </view>
+</view>
+
+
+<view class="mask {{posterModalVisible ? 'dark' : ''}}" wx:if="{{sharePopupVisible || posterModalVisible}}" ontap="hideSharePopup" />
+<view class="share-popup {{sharePopupVisible ? 'show' : ''}}">
+  <view class="share-btn-wrap">
+    <button class="share-btn" ontap="showPosterModal" hover-class="none">
+      <image class="share-btn-icon" src="./images/poster-icon.png" />
+      <view class="share-btn-desc">生成海报</view>
+    </button>
+    <button class="share-btn" open-type='share' hover-class="none">
+      <image class="share-btn-icon" src="./images/wx-icon.png" />
+      <view class="share-btn-desc">分享给好友</view>
+    </button>
+  </view>
+  <view class="cancle-btn" ontap="hideSharePopup">取消</view>
+</view>
+<i-poster-modal wx:if="{{posterModalVisible}}" posterInfo="{{posterInfo}}" bind:hideModal="hidePosterModal"/>
