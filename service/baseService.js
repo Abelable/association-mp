@@ -8,6 +8,10 @@ class BaseService extends Base {
   async bindUserInfo({ nickName, avatarUrl, gender, city, province, country }) {
     return await this.post({ url: `${this.baseUrl}/api/v1/mini-wx/bind`, data: { nickName, avatarUrl, gender, city, province, country } })
   }
+
+  async share({ type = 2, article_id = '', legal_id = ''}) {
+    return await this.post({ url: `${this.baseUrl}/api/v1/share/mini-share`, data: { type, article_id, legal_id } })
+  }
 }
 
 export default BaseService

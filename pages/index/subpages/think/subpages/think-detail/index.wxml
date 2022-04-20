@@ -2,7 +2,13 @@
 <import src="/templates/i-youbo-logo/index.wxml" />
 
 <view class="news-detail">
-  <view class="title">{{info.title}}</view>
+  <view class="author-info">
+    <image class="avatar" src="{{info.head_img}}" />
+    <view class="name-wrap">
+      <view class="name">{{info.name}}</view>
+      <view class="title">{{info.title}}</view>
+    </view>
+  </view>
   <view class="time">{{TIME.transform(info.updated_at).year + '-' + TIME.transform(info.updated_at).month + '-' + TIME.transform(info.updated_at).date + ' ' + TIME.transform(info.updated_at).hours + ':' + TIME.transform(info.updated_at).minutes}}</view>
   <mp-html content="{{info.content || ''}}" bind:ready="load" />
   <view class="youbo-logo-wrap">
