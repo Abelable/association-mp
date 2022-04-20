@@ -1,7 +1,7 @@
 import checkLogin from '../../../../../../utils/checkLogin'
-import LowService from '../../utils/lowService'
+import courseService from './utils/courseService'
 
-const lowService = new LowService()
+const lowService = new courseService()
 
 Page({
   data: {
@@ -20,7 +20,7 @@ Page({
   },
 
   async setInfo() {
-    const info = await lowService.getLowDetail(this.id)
+    const info = await lowService.getcourseDetail(this.id)
     this.setData({ info })
   },
 
@@ -35,7 +35,7 @@ Page({
       this.setData({
         ['info.is_like']: status
       })
-      lowService.toggleLowPraiseStatus(id, status)
+      lowService.togglecoursePraiseStatus(id, status)
     })
   },
 

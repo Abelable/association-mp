@@ -49,7 +49,13 @@ Page({
     wx.navigateTo({ url })
   },
 
-  checkMore() {
+  checkMoreCourse() {
+    wx.navigateTo({
+      url: '/pages/index/subpages/course/index'
+    })
+  },
+
+  checkMoreLow() {
     wx.navigateTo({
       url: '/pages/index/subpages/low-cate/index'
     })

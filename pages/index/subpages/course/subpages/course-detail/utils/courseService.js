@@ -1,10 +1,6 @@
-import IndexService from '../../../utils/indexService'
+import IndexService from '../../../../../utils/indexService'
 
-class LowService extends IndexService {
-  async getLowList(category_id) {
-    return await this.get({ url: `${this.baseUrl}/api/v1/legal/list`, data: { category_id } })
-  }
-
+class CourseService extends IndexService {
   async toggleLowPraiseStatus(id, action) {
     return await this.post({ url: `${this.baseUrl}/api/v1/legal/like`, data: { id, action } })
   }
@@ -14,4 +10,4 @@ class LowService extends IndexService {
   }
 }
 
-export default LowService
+export default CourseService

@@ -1,8 +1,8 @@
-import LowService from './utils/lowService'
+import IndexService from '../../utils/indexService'
 
 Page({
   data: {
-    lowList: [],
+    courseList: [],
   },
 
   async onLoad(options) {
@@ -12,8 +12,24 @@ Page({
     this.title = title
   },
 
-  async onShow() {
-    const lowList = await new LowService().getLowList(this.id) || []
-    this.setData({ lowList })
+  onLoad() {
+    this.setCourseList(true)
+  },
+  
+  onPullDownRefresh() {
+    this.setCourseList(true)
+    wx.stopPullDownRefresh() 
+  },
+
+  onReachBottom() {
+    this.setCourseList()
+  },
+
+  async setCourseList(init= false) {
+    if (init) this.page = 0
+    const list = await new IndexService().getCourseList(++this.page) || []
+    this.setData({
+      courseList: init ? list : [...this.data.courseList, ...list]
+    })
   }
 })
