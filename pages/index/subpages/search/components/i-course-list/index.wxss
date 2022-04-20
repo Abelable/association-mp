@@ -1,0 +1,11 @@
+.course-list {
+  padding: 0 20rpx;
+  background: #FFFFFF;
+  border-radius: 12rpx;
+}
+.course-item {
+  border-bottom: 1rpx solid #F0F0F0;
+}
+.course-item:last-child {
+  border-bottom: none;
+}

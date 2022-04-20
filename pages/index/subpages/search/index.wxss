@@ -111,6 +111,12 @@
 .container {
   padding: 30rpx;
 }
+.list-wrap {
+  margin-top: 30rpx;
+}
+.list-wrap:first-child {
+  margin-top: 0;
+}
 .title {
   margin-bottom: 20rpx;
   color: #333;

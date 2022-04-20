@@ -6,13 +6,14 @@ const { statusBarHeight } = getApp().globalData
 Page({
   data: {
     statusBarHeight,
-    menuList: ['综合', '法律汇编', '网商智库'],
+    menuList: ['综合', '网商课堂', '法律汇编', '网商智库'],
     curMenuIdx: 0,
     keyword: '',
     historyKeywords: [],
     searchStatus: false,
-    lowList: [{}, {}, {}],
-    thinkList: [{}, {}, {}]
+    courseList: [],
+    lowList: [],
+    thinkList: []
   },
 
   onLoad() {
@@ -48,11 +49,11 @@ Page({
       })
       return
     }
-    const type = curMenuIdx === 0 ? 0 : curMenuIdx + 1
-    const { legal: lowList = [], wisdom_library: thinkList = [] } = await new SearchService().search(type, keyword) || {}
+    const { class_room: courseList = [], legal: lowList = [], wisdom_library: thinkList = [] } = await new SearchService().search(curMenuIdx, keyword) || {}
     this.setData({
-      lowList,
-      thinkList,
+      courseList: curMenuIdx === 0 ? courseList.slice(0, 3) : courseList,
+      lowList: curMenuIdx === 0 ? lowList.slice(0, 3) : lowList,
+      thinkList: curMenuIdx === 0 ? thinkList.slice(0, 3) : thinkList,
       searchStatus: true,
       historyKeywords: unique([...historyKeywords, keyword])
     })
