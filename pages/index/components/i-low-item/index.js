@@ -3,7 +3,7 @@ Component({
     item: {
       type: Object,
       observer(info) {
-        let { content, virtual_like, actual_like, virtual_look, actual_look } = info || {}
+        let { content } = info || {}
         content = content.replace(/<\/?[^>]*>/g,'') //去除HTML tag
         content = content.replace(/[ | ]*\n/g,'\n') //去除行尾空白
         content = content.replace(/\n[\s| | ]*\r/g,'\n') //去除多余空行
