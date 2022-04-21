@@ -1,7 +1,7 @@
 import IndexService from '../../../utils/indexService'
 
 class LowService extends IndexService {
-  async getLowList(category_id, page, page_size = 20) {
+  async getLowList(category_id, page, page_size = 10) {
     return await this.get({ url: `${this.baseUrl}/api/v1/legal/list`, data: { category_id, page, page_size } })
   }
 
