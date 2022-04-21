@@ -54,6 +54,7 @@ Page({
   observeVideo(e) {
     const { limit, info } = this.data
     if (limit && (e.detail.currentTime > info.try_time * 60)) {
+      this.player.exitFullScreen()
       this.player.pause()
       this.showPasswordModal()
     }
