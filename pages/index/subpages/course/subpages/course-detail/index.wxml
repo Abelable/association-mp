@@ -1,10 +1,11 @@
 <wxs module="TIME" src="/utils/filters/time.wxs" />
 <import src="/templates/i-youbo-logo/index.wxml" />
 
+<video class="player" src="{{info.media_url}}" />
 <view class="news-detail">
   <view class="title">{{info.title}}</view>
   <view class="time">{{TIME.transform(info.updated_at).year + '-' + TIME.transform(info.updated_at).month + '-' + TIME.transform(info.updated_at).date + ' ' + TIME.transform(info.updated_at).hours + ':' + TIME.transform(info.updated_at).minutes}}</view>
-  <mp-html content="{{info.content || ''}}" bind:ready="load" />
+  <mp-html content="{{info.introduction || ''}}" bind:ready="load" />
 </view>
 
 <template is="i-youbo-logo" />

@@ -1,7 +1,7 @@
 import checkLogin from '../../../../../../utils/checkLogin'
-import courseService from './utils/courseService'
+import CourseService from './utils/courseService'
 
-const lowService = new courseService()
+const courseService = new CourseService()
 
 Page({
   data: {
@@ -20,7 +20,10 @@ Page({
   },
 
   async setInfo() {
-    const info = await lowService.getcourseDetail(this.id)
+    const info = await courseService.getCourseDetail(this.id)
+    wx.setNavigationBarTitle({
+      title: info.title
+    })
     this.setData({ info })
   },
 
@@ -35,7 +38,6 @@ Page({
       this.setData({
         ['info.is_like']: status
       })
-      lowService.togglecoursePraiseStatus(id, status)
     })
   },
 
@@ -51,20 +53,20 @@ Page({
   async setPosterInfo() {
     let { posterBgUrl, posterAvatarUrl } = getApp().globalData
     if (!posterBgUrl) {
-      const { path } = await lowService.getImageInfo('https://img.ubo.vip/mp/association/bg.png')
+      const { path } = await courseService.getImageInfo('https://img.ubo.vip/mp/association/bg.png')
       posterBgUrl = path
       getApp().globalData.posterBgUrl = path
     }
     if (!posterAvatarUrl) {
-      const { path } = await lowService.getImageInfo(wx.getStorageSync('userInfo').avatarUrl)
+      const { path } = await courseService.getImageInfo(wx.getStorageSync('userInfo').avatarUrl)
       posterAvatarUrl = path
       getApp().globalData.posterAvatarUrl = path
     }
 
     const { id, image, title } = this.data.info
-    const { path: cover } = await lowService.getImageInfo(image)
-    const { app_code } = await lowService.share({ legal_id: id })
-    const { path: qrCode } = await lowService.getImageInfo(app_code)
+    const { path: cover } = await courseService.getImageInfo(image)
+    const { app_code } = await courseService.share({ legal_id: id })
+    const { path: qrCode } = await courseService.getImageInfo(app_code)
 
     const posterInfo = {
       bgUrl: posterBgUrl, 
@@ -107,7 +109,7 @@ Page({
   onShareAppMessage() {
     const { image, title } = this.data.info
     const imageUrl = `${image}?x-oss-process=image/resize,m_fill,h_180,w_180`
-    const path = `/pages/index/subpages/low/subpages/low-detail/index?id=${this.id}`
+    const path = `/pages/index/subpages/course/subpages/course-detail/index?id=${this.id}`
     return { path, title, imageUrl }
   }
 })
