@@ -6,6 +6,7 @@ const courseService = new CourseService()
 Page({
   data: {
     info: null,
+    likeStatus: false,
     posterInfo: null,
     limit: false,
     passwordModalVisible: false,
@@ -60,10 +61,9 @@ Page({
 
   async togglePraise() {
     checkLogin(() => {
-      const { id, is_like } = this.data.info
-      const status = is_like == 1 ? 0 : 1
+      const { likeStatus } = this.data
       this.setData({
-        ['info.is_like']: status
+        likeStatus: !likeStatus
       })
       const list = wx.getStorageSync('courseLikeList') || [];
       const curItemIndex = list.findIndex(item => item.id === this.id)
