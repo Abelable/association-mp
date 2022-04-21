@@ -17,9 +17,22 @@ Page({
     const { id, scene } = options
     const decodedScene = scene ? decodeURIComponent(scene) : ''
     this.id = id || decodedScene.split('-')[0]
-    this.player = wx.createVideoContext('video-player') 
+    this.player = wx.createVideoContext('video-player')
+    this.setLikeStatus()
     this.setInfo()
     wx.showLoading({ title: '加载中...' })
+  },
+
+  setLikeStatus() {
+    const list = wx.getStorageSync('courseLikeList') || [];
+    if (list.length) {
+      const statusItem = list.find(item => item.id === this.id)
+      if (statusItem && statusItem.status) {
+        this.setData({
+          likeStatus: true
+        })
+      }
+    }
   },
 
   async setInfo() {
@@ -52,6 +65,17 @@ Page({
       this.setData({
         ['info.is_like']: status
       })
+      const list = wx.getStorageSync('courseLikeList') || [];
+      const curItemIndex = list.findIndex(item => item.id === this.id)
+      if (curItemIndex !== -1) {
+        list[curItemIndex].status = !likeStatus
+      } else {
+        list.push( { id: this.id, status: !likeStatus })
+      }
+      wx.setStorage({
+        key: 'courseLikeList',
+        data: list
+      });
     })
   },
 
