@@ -17,6 +17,7 @@ Page({
     const { id, scene } = options
     const decodedScene = scene ? decodeURIComponent(scene) : ''
     this.id = id || decodedScene.split('-')[0]
+    this.player = wx.createVideoContext('video-player') 
     this.setInfo()
     wx.showLoading({ title: '加载中...' })
   },
@@ -34,6 +35,14 @@ Page({
 
   load() {
     wx.hideLoading()
+  },
+
+  observeVideo(e) {
+    const { limit, info } = this.data
+    if (limit && (e.detail.currentTime > info.try_time * 60)) {
+      this.player.pause()
+      this.showPasswordModal()
+    }
   },
 
   async togglePraise() {
@@ -67,6 +76,7 @@ Page({
       limit: false,
       passwordModalVisible: false
     })
+    this.player.play()
   },
 
   hidePasswordModal() {

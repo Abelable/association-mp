@@ -2,7 +2,7 @@
 <import src="/templates/i-youbo-logo/index.wxml" />
 
 <view class="player-wrap">
-  <video class="player" src="{{info.media_url}}" />
+  <video id="video-player" class="player" src="{{info.media_url}}" bindtimeupdate="observeVideo" />
   <view class="tips" wx:if="{{info.is_try && limit}}">
     <text>此视频试看{{info.try_time}}分钟，需要</text>
     <text style="color: #408BF1;" ontap="showPasswordModal">输入密码</text>

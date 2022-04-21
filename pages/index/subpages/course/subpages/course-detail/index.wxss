@@ -13,7 +13,7 @@ page {
 }
 .tips {
   position: absolute;
-  bottom: 20px;
+  bottom: 50px;
   padding: 0 20rpx;
   height: 60rpx;
   color: #fff;
