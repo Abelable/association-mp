@@ -86,7 +86,7 @@ Page({
 
     const { id, image, title } = this.data.info
     const { path: cover } = await thinkService.getImageInfo(image)
-    const { app_code } = await thinkService.share({ type: 3, legal_id: id })
+    const { app_code } = await thinkService.share({ type: 3, wisdom_library_id: id })
     const { path: qrCode } = await thinkService.getImageInfo(app_code)
 
     const posterInfo = {

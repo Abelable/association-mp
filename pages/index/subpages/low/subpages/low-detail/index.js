@@ -63,7 +63,7 @@ Page({
 
     const { id, image, title } = this.data.info
     const { path: cover } = await lowService.getImageInfo(image)
-    const { app_code } = await lowService.share({ legal_id: id })
+    const { app_code } = await lowService.share({ type: 2, legal_id: id })
     const { path: qrCode } = await lowService.getImageInfo(app_code)
 
     const posterInfo = {

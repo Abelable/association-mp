@@ -65,7 +65,7 @@ Page({
 
     const { id, image, title } = this.data.info
     const { path: cover } = await courseService.getImageInfo(image)
-    const { app_code } = await courseService.share({ legal_id: id })
+    const { app_code } = await courseService.share({ type: 4, class_room_id: id })
     const { path: qrCode } = await courseService.getImageInfo(app_code)
 
     const posterInfo = {
