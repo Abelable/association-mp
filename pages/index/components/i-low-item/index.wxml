@@ -6,11 +6,11 @@
     <view class="data">
       <view class="view-count">
         <image class="icon" src="./images/view.png" />
-        <span>{{item.views + item.virtual_views}}</span>
+        <span>{{views}}</span>
       </view>
       <view class="praise-count">
         <image class="icon" src="./images/praise.png" />
-        <span>{{item.likes + item.virtual_likes}}</span>
+        <span>{{likes}}</span>
       </view>
     </view>
   </view>

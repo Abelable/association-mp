@@ -3,7 +3,7 @@ Component({
     item: {
       type: Object,
       observer(info) {
-        let { content } = info || {}
+        let { content, views, virtual_views, likes, virtual_likes } = info || {}
         content = content.replace(/<\/?[^>]*>/g,'') //去除HTML tag
         content = content.replace(/[ | ]*\n/g,'\n') //去除行尾空白
         content = content.replace(/\n[\s| | ]*\r/g,'\n') //去除多余空行
@@ -12,13 +12,19 @@ Component({
         content = content.replace(/&rdquo;/g, '”')
         content = content.replace(/&lsquo;/g, '’')
         content = content.replace(/&rsquo;/g, '’')
-        this.setData({ content })
+        this.setData({ 
+          content,
+          views: Number(views) + Number(virtual_views),
+          likes: Number(likes) + Number(virtual_likes)
+        })
       }
     }
   },
 
   data: {
-    content: ''
+    content: '',
+    views: 0,
+    likes: 0
   },
 
   methods: {
