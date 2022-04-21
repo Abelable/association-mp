@@ -7,6 +7,8 @@ Page({
   data: {
     info: null,
     posterInfo: null,
+    limit: false,
+    passwordModalVisible: false,
     sharePopupVisible: false,
     posterModalVisible: false
   },
@@ -24,7 +26,10 @@ Page({
     wx.setNavigationBarTitle({
       title: info.title
     })
-    this.setData({ info })
+    this.setData({ 
+      info,
+      limit: !!info.is_try
+    })
   },
 
   load() {
@@ -38,6 +43,35 @@ Page({
       this.setData({
         ['info.is_like']: status
       })
+    })
+  },
+
+  showTips() {
+    wx.showModal({
+      title: '温馨提示',
+      showCancel: false,
+      content: '请您联系：（0571）-12311312           工作时间：工作日 9:00-18:00',
+      confirmText: '我知道了',
+      confirmColor: '#114CEE',
+    });
+  },
+
+  showPasswordModal() {
+    this.setData({
+      passwordModalVisible: true
+    })
+  },
+
+  romoveLimit() {
+    this.setData({
+      limit: false,
+      passwordModalVisible: false
+    })
+  },
+
+  hidePasswordModal() {
+    this.setData({
+      passwordModalVisible: false
     })
   },
 

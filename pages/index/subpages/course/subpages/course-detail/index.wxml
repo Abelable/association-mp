@@ -3,11 +3,11 @@
 
 <view class="player-wrap">
   <video class="player" src="{{info.media_url}}" />
-  <view class="tips" wx:if="{{info.is_try}}">
+  <view class="tips" wx:if="{{info.is_try && limit}}">
     <text>此视频试看{{info.try_time}}分钟，需要</text>
-    <text style="color: #408BF1;">输入密码</text>
+    <text style="color: #408BF1;" ontap="showPasswordModal">输入密码</text>
     <text>继续。</text>
-    <text style="color: #408BF1;">如何获得密码？</text>
+    <text style="color: #408BF1;" ontap="showTips">如何获得密码？</text>
   </view>
 </view>
 <view class="detail">
@@ -39,7 +39,8 @@
 </view>
 
 
-<view class="mask {{posterModalVisible ? 'dark' : ''}}" wx:if="{{sharePopupVisible || posterModalVisible}}" ontap="hideSharePopup" />
+<view class="mask {{posterModalVisible ? 'dark' : ''}}" wx:if="{{passwordModalVisible || sharePopupVisible || posterModalVisible}}" ontap="hideSharePopup" />
+<i-password-modal wx:if="{{passwordModalVisible}}" courseId="{{info.id}}" bind:pass="romoveLimit" bind:hide="hidePasswordModal" />
 <view class="share-popup {{sharePopupVisible ? 'show' : ''}}">
   <view class="share-btn-wrap">
     <button class="share-btn" ontap="showPosterModal" hover-class="none">

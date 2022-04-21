@@ -1,0 +1,26 @@
+<view class='container'>
+  <view class="title">
+    <text>请输入密码继续观看视频</text>
+    <image class="close-icon" ontap="hide" src="./images/close.png" />
+  </view>
+
+  <view class='pay-box' ontap="setFocus">
+    <view class='password-box' wx:for="{{6}}" wx:key="index">
+      <view class="cursor" wx:if="{{(pwd.length === index) && isFocus}}"></view>
+      <view class="input-black-dot" wx:if="{{pwd.length > index}}"></view>
+    </view>
+  </view>
+
+  <view class="error-tips">{{errorTips}}</view>
+
+  <input
+    class='hidden-input' 
+    value="{{pwd}}"
+    focus="{{isFocus}}" 
+    bindinput="setPwd" 
+    bindfocus="onFocus" 
+    bindblur="onBlur"
+    maxlength="6" 
+    type="number" 
+    />
+</view>

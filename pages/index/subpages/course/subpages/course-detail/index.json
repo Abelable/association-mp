@@ -2,6 +2,7 @@
   "navigationBarTitleText": "浙江省网商协会",
   "usingComponents": {
     "mp-html": "mp-html",
+    "i-password-modal": "./components/i-password-modal/index",
     "i-poster-modal": "./components/i-poster-modal/index"
   }
 }
