@@ -2,9 +2,18 @@
 <import src="/templates/i-youbo-logo/index.wxml" />
 
 <video class="player" src="{{info.media_url}}" />
-<view class="news-detail">
+<view class="detail">
+  <view class="label">简介</view>
+  <view class="author-info">
+    <image class="avatar" src="{{info ? info.author.head_img : ''}}" />
+    <view class="name">{{info ? info.author.author_name : ''}}</view>
+    <view class="author-tag">作者</view>
+  </view>
   <view class="title">{{info.title}}</view>
-  <view class="time">{{TIME.transform(info.updated_at).year + '-' + TIME.transform(info.updated_at).month + '-' + TIME.transform(info.updated_at).date + ' ' + TIME.transform(info.updated_at).hours + ':' + TIME.transform(info.updated_at).minutes}}</view>
+  <view class="time">发布时间：{{TIME.transform(info.updated_at).year + '-' + TIME.transform(info.updated_at).month + '-' + TIME.transform(info.updated_at).date + ' ' + TIME.transform(info.updated_at).hours + ':' + TIME.transform(info.updated_at).minutes}}</view>
+  <view class="tags" wx:if="{{info.tags.length}}">
+    <view class="tag" wx:for="{{info.tags}}" wx:key="index">{{item}}</view>
+  </view>
   <mp-html content="{{info.introduction || ''}}" bind:ready="load" />
 </view>
 

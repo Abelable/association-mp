@@ -40,6 +40,13 @@
           "name": "搜索",
           "pathName": "pages/index/subpages/search/index",
           "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "网商课堂",
+          "pathName": "pages/index/subpages/course/subpages/course-detail/index",
+          "query": "id=17",
           "scene": null,
           "launchMode": "default"
         }
