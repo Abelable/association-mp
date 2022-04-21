@@ -1,7 +1,15 @@
 <wxs module="TIME" src="/utils/filters/time.wxs" />
 <import src="/templates/i-youbo-logo/index.wxml" />
 
-<video class="player" src="{{info.media_url}}" />
+<view class="player-wrap">
+  <video class="player" src="{{info.media_url}}" />
+  <view class="tips" wx:if="{{info.is_try}}">
+    <text>此视频试看{{info.try_time}}分钟，需要</text>
+    <text style="color: #408BF1;">输入密码</text>
+    <text>继续。</text>
+    <text style="color: #408BF1;">如何获得密码？</text>
+  </view>
+</view>
 <view class="detail">
   <view class="label">简介</view>
   <view class="author-info">

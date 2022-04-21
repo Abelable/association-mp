@@ -5,8 +5,22 @@ page {
   background: #fff;
 }
 
+.player-wrap {
+  position: relative;
+}
 .player {
   width: 100%;
+}
+.tips {
+  position: absolute;
+  bottom: 20px;
+  padding: 0 20rpx;
+  height: 60rpx;
+  color: #fff;
+  font-size: 24rpx;
+  line-height: 60rpx;
+  border-radius: 0 30rpx 30rpx 0;
+  background: rgba(0, 0, 0, 0.8);
 }
 
 .detail {
