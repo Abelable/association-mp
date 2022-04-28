@@ -45,7 +45,7 @@ Page({
   },
 
   navTo(e) {
-    const { link_type, article_id, redirect_url, title } = this.data.banner[e.currentTarget.dataset.index]
+    const { link_type, article_id, redirect_url } = this.data.banner[e.currentTarget.dataset.index]
     switch (link_type) {
       case 0:
         wx.navigateTo({ url: '/pages/common/intro/index' })
@@ -60,7 +60,7 @@ Page({
         wx.navigateTo({ url: `/pages/index/subpages/think/subpages/think-detail/index?id=${article_id}` })
         break;
       case 4:
-        wx.navigateTo({ url: `/pages/common/webview/index?url=${redirect_url.replace("?", "&")}&title=${title}` })
+        wx.navigateTo({ url: `/pages/common/webview/index?url=${redirect_url.replace("?", "&")}` })
         break;
     }
   },

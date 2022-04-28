@@ -4,8 +4,7 @@ Page({
   },
 
   onLoad(options) {
-    let { url, title, ...rest } = options
-    wx.setNavigationBarTitle({ title })
+    let { url, ...rest } = options
     for (let key in rest) {
       url += `${url.indexOf('?') === -1 ? '?' : '&'}${key}=${rest[key]}`
     }
