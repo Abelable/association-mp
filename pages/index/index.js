@@ -24,7 +24,7 @@ Page({
   },
 
   async setBanner() {
-    const introItem = { img: 'https://img.ubo.vip/mp/association/intro-banner.png', redirect_url: '/pages/common/intro/index' }
+    const introItem = { img: 'https://img.ubo.vip/mp/association/intro-banner.png', link_type: 0 }
     const banner = await indexService.getBanner() || []
     this.setData({ banner: [...banner, introItem] })
   },
@@ -45,8 +45,24 @@ Page({
   },
 
   navTo(e) {
-    const { url } = e.currentTarget.dataset
-    wx.navigateTo({ url })
+    const { link_type, article_id, redirect_url } = this.data.banner[e.currentTarget.dataset.index]
+    switch (link_type) {
+      case 0:
+        wx.navigateTo({ url: '/pages/common/intro/index' })
+        break;
+      case 1:
+        wx.navigateTo({ url: `/pages/index/subpages/course/subpages/course-detail/index?id=${article_id}` })
+        break;
+      case 2:
+        wx.navigateTo({ url: `/pages/index/subpages/low/subpages/low-detail/index?id=${article_id}` })
+        break;
+      case 3:
+        wx.navigateTo({ url: `/pages/index/subpages/think/subpages/think-detail/index?id=${article_id}` })
+        break;
+      case 4:
+        wx.navigateTo({ url: `/pages/common/webview/index?url=${redirect_url}` })
+        break;
+    }
   },
 
   checkMoreCourse() {

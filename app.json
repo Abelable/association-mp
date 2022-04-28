@@ -12,7 +12,8 @@
     "pages/register/index",
     "pages/register/subpages/record/index",
     "pages/register/subpages/record-detail/index",
-    "pages/common/intro/index"
+    "pages/common/intro/index",
+    "pages/common/webview/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

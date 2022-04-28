@@ -14,7 +14,7 @@
   <view class="swiper-wrap">
     <swiper class="swiper custom-dots" autoplay circular interval="5000" duration="1000" indicator-dots>
       <swiper-item wx:for="{{banner}}" wx:key="index">
-        <image class="banner-img" src="{{item.img}}" ontap="navTo" data-url="{{item.redirect_url}}" />
+        <image class="banner-img" src="{{item.img}}" ontap="navTo" data-index="{{index}}" />
       </swiper-item>
     </swiper>
   </view>
