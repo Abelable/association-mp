@@ -40,7 +40,7 @@ Page({
   },
 
   async setThinkList() {
-    const { list: thinkList } = await indexService.getThinkList(1)
+    const { list: thinkList } = await indexService.getThinkList(1, 3)
     this.setData({ thinkList })
   },
 
