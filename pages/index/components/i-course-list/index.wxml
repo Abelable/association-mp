@@ -1,5 +1,5 @@
 <view class="course-list">
-  <view class="course-item" wx:for="{{list}}" wx:key="{{item.id}}">
+  <view class="course-item" wx:for="{{list}}" wx:key="id">
     <i-course-item item="{{item}}"/>
   </view>
 </view>
