@@ -16,12 +16,12 @@ Page({
     name: '', 
     jobTitle: '', 
     politicalStatus: '', 
-    tel: '', 
     contacterName: '', 
     contacterJobTitle: '', 
     contacterTel: '', 
     licenseImg: '',
-    fileList: []
+    fileList: [],
+    logoList: [],
   },
 
   navToRecord() {
@@ -63,9 +63,6 @@ Page({
   setpPliticalStatus(e) {
     this.politicalStatus = e.detail.value
   },
-  setTel(e) {
-    this.tel = e.detail.value
-  },
   setContacterName(e) {
     this.contacterName = e.detail.value
   },
@@ -84,11 +81,23 @@ Page({
     })
   },
 
+  async afterLogoRead(e) {
+    const { file } = e.detail
+    const logoImg = await registerService.uploadImg(file.url)
+    this.setData({
+      logoList: [{ ...file, url: logoImg }]
+    })
+  },
+
   deleteFile(e) {
     const { index } = e.detail
     let { fileList } = this.data
     fileList.splice(index, 1)
     this.setData({ fileList })
+  },
+
+  deleteLogo() {
+    this.setData({ logoList: [] })
   },
 
   async uploadLicense() {
@@ -99,8 +108,8 @@ Page({
 
   async submit() {
     checkLogin(() => {
-      const { companyName, websiteUrl, ICP, companyType, staffCount, gangCount, tradeAmount, revenue, name, jobTitle, politicalStatus, tel, contacterName, contacterJobTitle, contacterTel } = this
-      const { fileList } = this.data
+      const { companyName, websiteUrl, ICP, companyType, staffCount, gangCount, tradeAmount, revenue, name, jobTitle, politicalStatus, contacterName, contacterJobTitle, contacterTel } = this
+      const { fileList, logoList } = this.data
       
       if (!companyName) {
         wx.showToast({ title: '请输入企业名称', icon: 'none' })
@@ -146,10 +155,6 @@ Page({
         wx.showToast({ title: '请输入负责人政治面貌', icon: 'none' })
         return
       }
-      if (!tel) {
-        wx.showToast({ title: '请输入负责人手机号', icon: 'none' })
-        return
-      }
       if (!contacterName) {
         wx.showToast({ title: '请输入联系人姓名', icon: 'none' })
         return
@@ -173,7 +178,7 @@ Page({
         licenseImgs.push(item.url)
       })
 
-      const content = { companyName, websiteUrl, ICP, companyType, staffCount, gangCount, tradeAmount, revenue, name, jobTitle, politicalStatus, tel, contacterName, contacterJobTitle, contacterTel, licenseImg: licenseImgs.join() }
+      const content = { companyName, websiteUrl, ICP, companyType, staffCount, gangCount, tradeAmount, revenue, name, jobTitle, politicalStatus, contacterName, contacterJobTitle, contacterTel, licenseImg: licenseImgs.join(), apply_content_json: JSON.stringify([{"title":"logo","name":"logo","value": logoList[0].url}]) }
       registerService.submitApply(content, () => {
         wx.showToast({ title: '提交成功', icon: 'none' })
         this.resetData()
@@ -194,7 +199,6 @@ Page({
       name: '', 
       jobTitle: '', 
       politicalStatus: '', 
-      tel: '', 
       contacterName: '', 
       contacterJobTitle: '', 
       contacterTel: '', 

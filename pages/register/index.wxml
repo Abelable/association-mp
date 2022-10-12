@@ -5,7 +5,17 @@
   <view class="nav-bar-title">入会申请</view>
 </view>
 
-<view class="form-wrap" style="margin-top: {{statusBarHeight + 44}}px">
+<view class="upload-wrap" style="margin-top: {{statusBarHeight + 44}}px">
+  <view class="title">
+    <text>企业logo</text>
+    <text class="upload-tips"> 图片大小不能超过10MB</text>
+  </view>
+  <view style="margin-top: 30rpx;">
+    <van-uploader file-list="{{logoList}}" max-count="1" bind:after-read="afterLogoRead" bind:delete="deleteLogo" />
+  </view>
+</view>
+
+<view class="form-wrap">
   <view class="input-wrap">
     <view class="title">
       <text class="required-icon">*</text>
@@ -23,9 +33,9 @@
   <view class="input-wrap">
     <view class="title">
       <text class="required-icon">*</text>
-      <text>ICP备案号</text>
+      <text>信用代码</text>
     </view>
-    <input class="input" type="text" value="{{ICP}}" bindinput="setICP" placeholder="请输入ICP备案号"/>
+    <input class="input" type="text" value="{{ICP}}" bindinput="setICP" placeholder="请输入信用代码"/>
   </view>
   <view class="selection-wrap">
     <view class="title">
@@ -46,14 +56,14 @@
   <view class="input-wrap">
     <view class="title">
       <text class="required-icon">*</text>
-      <text>上年度GMV（元）</text>
+      <text>上年度GMV（亿元）</text>
     </view>
     <input class="input" type="number" value="{{tradeAmount}}" bindinput="setTradeAmount" placeholder="请输入上年度GMV"/>
   </view>
   <view class="input-wrap">
     <view class="title">
       <text class="required-icon">*</text>
-      <text>上年度营收（元）</text>
+      <text>上年度营收（亿元）</text>
     </view>
     <input class="input" type="number" value="{{revenue}}" bindinput="setRevenue" placeholder="请输入上年度营收"/>
   </view>
@@ -71,6 +81,9 @@
     </view>
     <input class="input" type="number" value="{{gangCount}}" bindinput="setGangCount" placeholder="请输入党员人数"/>
   </view>
+</view>
+
+<view class="form-wrap">
   <view class="input-wrap">
     <view class="title">
       <text class="required-icon">*</text>
@@ -92,13 +105,9 @@
     </view>
     <input class="input" type="text" value="{{pliticalStatus}}" bindinput="setpPliticalStatus" placeholder="请输入政治面貌"/>
   </view>
-  <view class="input-wrap">
-    <view class="title">
-      <text class="required-icon">*</text>
-      <text>手机号</text>
-    </view>
-    <input class="input" type="number" value="{{tel}}" bindinput="setTel" placeholder="请输入手机号"/>
-  </view>
+</view>
+
+<view class="form-wrap">
   <view class="input-wrap">
     <view class="title">
       <text class="required-icon">*</text>
@@ -116,9 +125,9 @@
   <view class="input-wrap">
     <view class="title">
       <text class="required-icon">*</text>
-      <text>手机号</text>
+      <text>工作联系方式</text>
     </view>
-    <input class="input" type="number" value="{{contacterTel}}" bindinput="setContacterTel" placeholder="请输入手机号"/>
+    <input class="input" type="number" value="{{contacterTel}}" bindinput="setContacterTel" placeholder="请输入工作联系方式"/>
   </view>
 </view>
 

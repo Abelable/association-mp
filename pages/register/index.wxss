@@ -53,6 +53,7 @@ radio .wx-radio-input.wx-radio-input-checked::before {
 }
 
 .form-wrap {
+  margin-top: 20rpx;
   background: #fff;
 }
 
