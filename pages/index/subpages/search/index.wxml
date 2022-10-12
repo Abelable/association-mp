@@ -24,6 +24,10 @@
   <view class="keyword-list">
     <view class="keyword" wx:for="{{historyKeywords}}" wx:key="index" ontap="selectKeyword" data-keyword="{{item}}">{{item}}</view>
   </view>
+
+  <view class="youbo-logo-wrap">
+    <i-youbo-logo />
+  </view>
 </view>
 
 <view class="container" wx:if="{{searchStatus}}" style="margin-top: {{statusBarHeight + 88}}px;">
@@ -45,4 +49,12 @@
   <view class="empty-illus-wrap" wx:if="{{(curMenuIdx === 0 && !courseList.length && !lowList.length && !thinkList.length) || (curMenuIdx === 1 && !courseList.length) || (curMenuIdx === 2 && !lowList.length) || (curMenuIdx === 3 && !thinkList.length)}}">
     <template is="i-empty-illus" data="{{desc: '暂无相关内容'}}" />
   </view>
+
+  <view class="youbo-logo-wrap">
+    <i-youbo-logo />
+  </view>
+</view>
+
+<view class="youbo-logo-out-wrap" wx:if="{{!searchStatus && !historyKeywords.length}}">
+  <i-youbo-logo />
 </view>
