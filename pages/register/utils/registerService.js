@@ -21,8 +21,9 @@ class RegisterService extends BaseService {
   }
 
   async submitApply(content, success, fail, id = '') {
-    const { companyName, websiteUrl, ICP, companyType, websiteType, staffCount, gangCount, tradeCommodity, tradeCount, tradeAmount, name, jobTitle, politicalStatus, tel, email, contacterName, contacterJobTitle, contacterTel, licenseImg, memberCount, operatorCount } = content
+    const { companyName, websiteUrl, ICP, companyType, websiteType, staffCount, gangCount, tradeCommodity, tradeCount, tradeAmount, name, jobTitle, politicalStatus, tel, email, contacterName, contacterJobTitle, contacterTel, licenseImg, logoImg, memberCount, operatorCount } = content
     const applyContent = [
+      { "title":"logo","name":"logo","value": logoImg },
       { "title": '企业名称', "name": 'company_name', "value": companyName },
       { "title": '网站（app）名称', "name": 'website_url', "value": websiteUrl },
       { "title": 'ICP备案号', "name": 'ICP', "value": ICP },

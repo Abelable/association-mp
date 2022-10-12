@@ -178,7 +178,7 @@ Page({
         licenseImgs.push(item.url)
       })
 
-      const content = { companyName, websiteUrl, ICP, companyType, staffCount, gangCount, tradeAmount, revenue, name, jobTitle, politicalStatus, contacterName, contacterJobTitle, contacterTel, licenseImg: licenseImgs.join(), apply_content_json: JSON.stringify([{"title":"logo","name":"logo","value": logoList[0].url}]) }
+      const content = { companyName, websiteUrl, ICP, companyType, staffCount, gangCount, tradeAmount, revenue, name, jobTitle, politicalStatus, contacterName, contacterJobTitle, contacterTel, licenseImg: licenseImgs.join(), logoImg }
       registerService.submitApply(content, () => {
         wx.showToast({ title: '提交成功', icon: 'none' })
         this.resetData()
@@ -203,7 +203,8 @@ Page({
       contacterJobTitle: '', 
       contacterTel: '', 
       licenseImg: '',
-      fileList: []
+      fileList: [],
+      logoList: []
     })
   }
 })
