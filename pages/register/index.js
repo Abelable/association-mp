@@ -163,8 +163,8 @@ Page({
         wx.showToast({ title: '请输入联系人职务', icon: 'none' })
         return
       }
-      if (!contacterTel) {
-        wx.showToast({ title: '请输入联系人手机号', icon: 'none' })
+      if (!contacterTel || !(/^1[3456789]\d{9}$/.test(this.contacterTel))) {
+        wx.showToast({ title: '请输入正确的工作联系方式', icon: 'none' })
         return
       }
 
@@ -178,7 +178,7 @@ Page({
         licenseImgs.push(item.url)
       })
 
-      const content = { companyName, websiteUrl, ICP, companyType, staffCount, gangCount, tradeAmount, revenue, name, jobTitle, politicalStatus, contacterName, contacterJobTitle, contacterTel, licenseImg: licenseImgs.join(), logoImg }
+      const content = { companyName, websiteUrl, ICP, companyType, staffCount, gangCount, tradeAmount, revenue, name, jobTitle, politicalStatus, contacterName, contacterJobTitle, contacterTel, licenseImg: licenseImgs.join(), logoImg: logoList[0].url  }
       registerService.submitApply(content, () => {
         wx.showToast({ title: '提交成功', icon: 'none' })
         this.resetData()
