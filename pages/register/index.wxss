@@ -1,5 +1,3 @@
-@import "/templates/i-youbo-logo/index.wxss";
-
 checkbox {
   transform: scale(0.8);
 }

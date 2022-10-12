@@ -1,10 +1,8 @@
-<import src="/templates/i-youbo-logo/index.wxml" />
-
 <image class="bg" style="top: {{statusBarHeight - 50}}px;" src="./images/bg.png" />
 
 <view class="nav-bar {{ navBarVisible ? 'show' : '' }}" style="padding-top: {{statusBarHeight}}px;">浙江省网商协会</view>
 
-<view class="container" style="margin-top: {{statusBarHeight + 44}}px;">
+<view class="container" style="margin-top: {{statusBarHeight + 44}}px; min-height: calc(100vh - {{statusBarHeight + 44}}px - 120rpx);">
   <navigator class="search-bar" url="./subpages/search/index" hover-class="none">
     <image class="search-icon" src="https://img.ubo.vip/mp/index/search/index-search.png" />
     <view class="search-placeholder">这里可以搜索到您所要</view>
@@ -43,4 +41,4 @@
   <i-think-list wx:if="{{thinkList.length}}" list="{{thinkList}}"/>
 </view>
 
-<template is="i-youbo-logo" />
+<i-youbo-logo />

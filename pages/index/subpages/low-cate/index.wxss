@@ -1,5 +1,4 @@
 @import "/templates/i-empty-illus/index.wxss";
-@import "/templates/i-youbo-logo/index.wxss";
 
 page {
   background: #fff;

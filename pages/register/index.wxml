@@ -1,5 +1,3 @@
-<import src="/templates/i-youbo-logo/index.wxml" />
-
 <view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">
   <view class="record" ontap="navToRecord">申请记录</view>
   <view class="nav-bar-title">入会申请</view>
@@ -154,4 +152,4 @@
   <view class="notice-detail-content">邮编：310005</view>
 </view>
 
-<template is="i-youbo-logo" />
+<i-youbo-logo />

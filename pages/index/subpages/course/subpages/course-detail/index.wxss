@@ -1,6 +1,3 @@
-@import "/templates/i-youbo-logo/index.wxss";
-
-
 page {
   background: #fff;
 }

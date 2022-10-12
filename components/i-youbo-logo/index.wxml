@@ -1,0 +1,4 @@
+<view class="youbo-logo-wrap" bindtap="navToYouboMp">
+  <image class="youbo-logo" src="/images/youbo-logo.png" />
+  <view class="youbo-logo-tips">有播提供技术支持</view>
+</view>

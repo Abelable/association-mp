@@ -1,5 +1,4 @@
 <wxs module="TIME" src="/utils/filters/time.wxs" />
-<import src="/templates/i-youbo-logo/index.wxml" />
 
 <view class="player-wrap">
   <video id="video-player" class="player" src="{{info.media_url}}" bindtimeupdate="observeVideo" />
@@ -25,7 +24,7 @@
   <mp-html content="{{info.introduction || ''}}" bind:ready="load" />
 </view>
 
-<template is="i-youbo-logo" />
+<i-youbo-logo />
 
 <view class="btn-wrap">
   <view class="btn" ontap="togglePraise">

@@ -13,7 +13,7 @@
     </view>
   
     <view class="youbo-logo-wrap">
-      <template is="i-youbo-logo" />
+      <i-youbo-logo />
     </view>
 </view>
 

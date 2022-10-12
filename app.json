@@ -41,6 +41,9 @@
       }
     ]
   },
+  "usingComponents": {
+    "i-youbo-logo": "/components/i-youbo-logo/index"
+  },
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents"
 }

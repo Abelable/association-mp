@@ -1,5 +1,4 @@
 <import src="/templates/i-empty-illus/index.wxml"/>
-<import src="/templates/i-youbo-logo/index.wxml" />
 
 <view class="course-list">
   <view class="course-item" wx:for="{{courseList}}" wx:key="index">
@@ -11,7 +10,7 @@
   </view>
 
   <view class="youbo-logo-wrap">
-    <template is="i-youbo-logo" />
+    <i-youbo-logo />
   </view>
 </view>
 
