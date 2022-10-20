@@ -9,6 +9,7 @@ Page({
     statusBarHeight,
     companyName: '', 
     companyShortName: '', 
+    region: [],
     websiteUrl: '', 
     ICP: '', 
     staffCount: '',
@@ -37,6 +38,18 @@ Page({
   },
   setCompanyShortName(e) {
     this.companyShortName = e.detail.value
+  },
+  bindRegionChange(e) {
+    const { value, code } = e.detail
+    this.address = {
+      province: value[0],
+      city: value[1],
+      area: value[2],
+      region: [code[2].slice(0, 2), code[2].slice(0, 4), code[2]]
+    }
+    this.setData({
+      region: value
+    })
   },
   setWebsiteUrl(e) {
     this.websiteUrl = e.detail.value
@@ -113,7 +126,7 @@ Page({
 
   async submit() {
     checkLogin(() => {
-      const { companyName, companyShortName, websiteUrl, ICP, companyType, staffCount, gangCount, tradeAmount, revenue, name, jobTitle, politicalStatus, contacterName, contacterJobTitle, contacterTel } = this
+      const { companyName, companyShortName, address, websiteUrl, ICP, companyType, staffCount, gangCount, tradeAmount, revenue, name, jobTitle, politicalStatus, contacterName, contacterJobTitle, contacterTel } = this
       const { fileList, logoList } = this.data
       
       if (!companyName) {
@@ -122,6 +135,10 @@ Page({
       }
       if (!companyShortName) {
         wx.showToast({ title: '请输入企业简称', icon: 'none' })
+        return
+      }
+      if (!address) {
+        wx.showToast({ title: '请选择企业所在地区', icon: 'none' })
         return
       }
       if (!websiteUrl) {
@@ -187,7 +204,7 @@ Page({
         licenseImgs.push(item.url)
       })
 
-      const content = { companyName, companyShortName, websiteUrl, ICP, companyType, staffCount, gangCount, tradeAmount, revenue, name, jobTitle, politicalStatus, contacterName, contacterJobTitle, contacterTel, licenseImg: licenseImgs.join(), logoImg: logoList.length ? logoList[0].url : '' }
+      const content = { companyName, companyShortName, address: JSON.stringify(address), websiteUrl, ICP, companyType, staffCount, gangCount, tradeAmount, revenue, name, jobTitle, politicalStatus, contacterName, contacterJobTitle, contacterTel, licenseImg: licenseImgs.join(), logoImg: logoList.length ? logoList[0].url : '' }
       registerService.submitApply(content, () => {
         wx.showToast({ title: '提交成功', icon: 'none' })
         this.resetData()
@@ -215,7 +232,8 @@ Page({
       contacterTel: '', 
       licenseImg: '',
       fileList: [],
-      logoList: []
+      logoList: [],
+      region: [],
     })
   }
 })

@@ -73,6 +73,13 @@ radio .wx-radio-input.wx-radio-input-checked::before {
   margin-top: 20rpx;
   font-size: 28rpx;
 }
+.region-picker {
+  margin-top: 20rpx;
+  font-size: 28rpx;
+}
+.region-picker.placeholder {
+  color: #999;
+}
 
 .selection {
   display: flex;
