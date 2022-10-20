@@ -21,10 +21,11 @@ class RegisterService extends BaseService {
   }
 
   async submitApply(content, success, fail, id = '') {
-    const { companyName, websiteUrl, ICP, companyType, websiteType, staffCount, gangCount, tradeCommodity, tradeCount, tradeAmount, name, jobTitle, politicalStatus, tel, email, contacterName, contacterJobTitle, contacterTel, licenseImg, logoImg, memberCount, operatorCount } = content
+    const { companyName, companyShortName, websiteUrl, ICP, companyType, websiteType, staffCount, gangCount, tradeCommodity, revenue, tradeAmount, name, jobTitle, politicalStatus, tel, email, contacterName, contacterJobTitle, contacterTel, licenseImg, logoImg, memberCount, operatorCount } = content
     const applyContent = [
       { "title":"logo","name":"logo","value": logoImg },
       { "title": '企业名称', "name": 'company_name', "value": companyName },
+      { "title": '企业简称', "name": 'short_name', "value": companyShortName },
       { "title": '网站（app）名称', "name": 'website_url', "value": websiteUrl },
       { "title": 'ICP备案号', "name": 'ICP', "value": ICP },
       { "title": '企业类型', "name": 'company_type', "value": companyType },
@@ -32,8 +33,8 @@ class RegisterService extends BaseService {
       { "title": '员工人数', "name": 'staff_count', "value": staffCount },
       { "title": '党员人数', "name": 'gang_count', "value": gangCount },
       { "title": '交易商品（服务）', "name": 'trade_commodity', "value": tradeCommodity },
-      { "title": '上年交易笔数', "name": 'trade_count', "value": tradeCount },
-      { "title": '上年交易额', "name": 'trade_amount', "value": tradeAmount },
+      { "title": '上年度营收', "name": 'revenue', "value": revenue },
+      { "title": '上年度GMV', "name": 'trade_amount', "value": tradeAmount },
       { "title": '负责人姓名', "name": '_name', "value": name },
       { "title": '职务', "name": 'job_title', "value": jobTitle },
       { "title": '政治面貌', "name": 'political_status', "value": politicalStatus },

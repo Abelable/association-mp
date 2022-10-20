@@ -8,9 +8,11 @@ Page({
   data: {
     statusBarHeight,
     companyName: '', 
+    companyShortName: '', 
     websiteUrl: '', 
     ICP: '', 
     staffCount: '',
+    gangCount: '',
     tradeAmount: '',
     revenue: '',
     name: '', 
@@ -32,6 +34,9 @@ Page({
 
   setCompanyName(e) {
     this.companyName = e.detail.value
+  },
+  setCompanyShortName(e) {
+    this.companyShortName = e.detail.value
   },
   setWebsiteUrl(e) {
     this.websiteUrl = e.detail.value
@@ -108,11 +113,15 @@ Page({
 
   async submit() {
     checkLogin(() => {
-      const { companyName, websiteUrl, ICP, companyType, staffCount, gangCount, tradeAmount, revenue, name, jobTitle, politicalStatus, contacterName, contacterJobTitle, contacterTel } = this
+      const { companyName, companyShortName, websiteUrl, ICP, companyType, staffCount, gangCount, tradeAmount, revenue, name, jobTitle, politicalStatus, contacterName, contacterJobTitle, contacterTel } = this
       const { fileList, logoList } = this.data
       
       if (!companyName) {
         wx.showToast({ title: '请输入企业名称', icon: 'none' })
+        return
+      }
+      if (!companyShortName) {
+        wx.showToast({ title: '请输入企业简称', icon: 'none' })
         return
       }
       if (!websiteUrl) {
@@ -178,7 +187,7 @@ Page({
         licenseImgs.push(item.url)
       })
 
-      const content = { companyName, websiteUrl, ICP, companyType, staffCount, gangCount, tradeAmount, revenue, name, jobTitle, politicalStatus, contacterName, contacterJobTitle, contacterTel, licenseImg: licenseImgs.join(), logoImg: logoList[0].url  }
+      const content = { companyName, companyShortName, websiteUrl, ICP, companyType, staffCount, gangCount, tradeAmount, revenue, name, jobTitle, politicalStatus, contacterName, contacterJobTitle, contacterTel, licenseImg: licenseImgs.join(), logoImg: logoList.length ? logoList[0].url : '' }
       registerService.submitApply(content, () => {
         wx.showToast({ title: '提交成功', icon: 'none' })
         this.resetData()
@@ -190,10 +199,12 @@ Page({
 
   resetData() {
     this.setData({
-      companyName: '', 
+      companyName: '',
+      companyShortName: '',
       websiteUrl: '', 
       ICP: '', 
       staffCount: '',
+      gangCount: '',
       tradeAmount: '',
       revenue: '',
       name: '', 
