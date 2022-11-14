@@ -22,7 +22,10 @@
       </view>
       <view class="footer">
         <view class="time">{{item.time}}</view>
-        <view class="btn" ontap="check" data-id="{{item.id}}">{{item.is_deal == 0 ? '修改' : (item.is_deal == 1 ? '查看' : '查看驳回原因')}}</view>
+        <view class="btn-wrap">
+          <view class="btn" wx:if="{{item.certificate_status == 1}}" bindtap="checkCertificate" data-url="{{item.url}}">会员证</view>
+          <view class="btn" ontap="check" data-id="{{item.id}}">{{item.is_deal == 0 ? '修改' : (item.is_deal == 1 ? '详情' : '查看驳回原因')}}</view>
+        </view>
       </view>
     </view>
   </view>
@@ -30,6 +33,12 @@
     <image class="illus" src="/images/empty-illus.png" />
     <view>暂无申请记录</view>
   </view>
+</view>
+
+<view class="mask" wx:if="{{certificateModalVisible}}"/>
+<view class="certificate-modal" wx:if="{{certificateModalVisible}}">
+  <image class="certificate" mode="widthFix" src="{{certificate}}" />
+  <view class="download-btn" bindtap="saveImageToPhotosAlbum">点击保存</view>
 </view>
 
 <i-youbo-logo />

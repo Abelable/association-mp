@@ -92,8 +92,12 @@
   color: #999;
   font-size: 28rpx;
 }
+.btn-wrap {
+  display: flex;
+}
 .btn {
-  padding: 0 32rpx;
+  margin-left: 20rpx;
+  padding: 0 24rpx;
   height: 56rpx;
   color: #3382FE;
   font-size: 28rpx;
@@ -111,4 +115,34 @@
 .illus {
   width: 400rpx;
   height: 400rpx;
+}
+
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+.certificate-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.certificate {
+  width: 560rpx;
+}
+.download-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40rpx auto 0;
+  width: 360rpx;
+  height: 80rpx;
+  color: #fff;
+  font-size: 28rpx;
+  border-radius: 40rpx;
+  background: #317BFF;
 }

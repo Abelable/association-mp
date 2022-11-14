@@ -7,7 +7,9 @@ const { statusBarHeight } = getApp().globalData
 Page({
   data: {
     statusBarHeight,
-    list: []
+    list: [],
+    certificate: '',
+    certificateModalVisible: false
   },
 
   navBack() {
@@ -26,6 +28,26 @@ Page({
     })
     this.setData({ 
       list: init ? list : [...this.data.list, ...list]
+    })
+  },
+
+  checkCertificate(e) {
+    this.setData({
+      certificate: e.currentTarget.dataset.url,
+      certificateModalVisible: true
+    })
+  },
+
+  async saveImageToPhotosAlbum() {
+    const { path: filePath } = await registerService.getImageInfo(this.data.certificate)
+    wx.saveImageToPhotosAlbum({
+      filePath,
+      success: () => {
+        this.setData({
+          certificateModalVisible: false
+        })
+        wx.showToast({ title: '成功保存', icon:"success" })
+      }
     })
   },
 
