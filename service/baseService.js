@@ -12,6 +12,10 @@ class BaseService extends Base {
   async share({ type = 1, article_id = '', class_room_id = '', legal_id = '', wisdom_library_id = '' }) {
     return await this.post({ url: `${this.baseUrl}/api/v1/share/mini-share`, data: { type, article_id, class_room_id, legal_id, wisdom_library_id } })
   }
+
+  async getApplyList(page, page_size = 10) {
+    return await this.get({ url: `${this.baseUrl}/api/v1/enter-apply/list-apply`, data: { page, page_size }, loadingTitle: '加载中...' })
+  }
 }
 
 export default BaseService

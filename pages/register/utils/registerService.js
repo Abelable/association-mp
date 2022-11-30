@@ -55,10 +55,6 @@ class RegisterService extends BaseService {
     }
   }
 
-  async getApplyList(page, page_size = 10) {
-    return await this.get({ url: `${this.baseUrl}/api/v1/enter-apply/list-apply`, data: { page, page_size }, loadingTitle: '加载中...' })
-  }
-
   async getApplyDetail(id) {
     return await this.get({ url: `${this.baseUrl}/api/v1/enter-apply/info-apply`, data: { id }, loadingTitle: '加载中...' })
   }

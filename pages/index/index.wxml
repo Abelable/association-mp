@@ -17,6 +17,8 @@
     </swiper>
   </view>
 
+  <image class="member-card" wx:if="{{certificate}}" bindtap="checkCertificate" src="/images/membership_card_illus.png" />
+
   <view class="title-wrap" wx:if="{{courseList.length}}">
     <view class="title">网商课堂</view>
     <view class="more-btn" ontap="checkMoreCourse">
@@ -39,6 +41,12 @@
     <view class="title">网商智库</view>
   </view>
   <i-think-list wx:if="{{thinkList.length}}" list="{{thinkList}}"/>
+</view>
+
+<view class="mask" wx:if="{{certificateModalVisible}}"/>
+<view class="certificate-modal" wx:if="{{certificateModalVisible}}">
+  <image class="certificate" mode="widthFix" src="{{certificate}}" />
+  <view class="download-btn" bindtap="saveImageToPhotosAlbum">点击保存</view>
 </view>
 
 <i-youbo-logo />

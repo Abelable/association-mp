@@ -67,6 +67,14 @@
   border-radius: 12rpx;
 }
 
+.member-card {
+  display: block;
+  margin-top: 30rpx;
+  width: 100%;
+  height: 166rpx;
+  border-radius: 78rpx;
+}
+
 .title-wrap {
   display: flex;
   align-items: center;
@@ -97,4 +105,34 @@
 .right-arrow {
   width: 32rpx;
   height: 32rpx;
+}
+
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+.certificate-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.certificate {
+  width: 560rpx;
+}
+.download-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40rpx auto 0;
+  width: 360rpx;
+  height: 80rpx;
+  color: #fff;
+  font-size: 28rpx;
+  border-radius: 40rpx;
+  background: #317BFF;
 }

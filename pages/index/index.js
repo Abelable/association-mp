@@ -9,7 +9,9 @@ Page({
     navBarVisible: false,
     banner: [],
     lowCateList: [],
-    thinkList: []
+    thinkList: [],
+    certificate: '',
+    certificateModalVisible: false
   },
 
   async onLoad() {
@@ -17,6 +19,7 @@ Page({
       title: '加载中...'
     })
     await this.setBanner()
+    this.getCertificate()
     await this.setCourseList()
     await this.setLowCateList()
     await this.setThinkList()
@@ -92,6 +95,36 @@ Page({
     await this.setThinkList()
     wx.hideLoading()
     wx.stopPullDownRefresh()
+  },
+
+  async getCertificate() {
+    const { list = [] } = await indexService.getApplyList(1, 100) || {}
+    list.map(item => {
+      if (item.certificate_status == 1) {
+        this.setData({
+          certificate: item.url
+        })
+      }
+    })
+  },
+
+  checkCertificate() {
+    this.setData({
+      certificateModalVisible: true
+    })
+  },
+
+  async saveImageToPhotosAlbum() {
+    const { path: filePath } = await indexService.getImageInfo(this.data.certificate)
+    wx.saveImageToPhotosAlbum({
+      filePath,
+      success: () => {
+        this.setData({
+          certificateModalVisible: false
+        })
+        wx.showToast({ title: '成功保存', icon:"success" })
+      }
+    })
   },
   
   onShareAppMessage() {}
