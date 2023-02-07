@@ -19,7 +19,7 @@ Page({
       title: '加载中...'
     })
     await this.setBanner()
-    if (wx.getStorageSync('token')) {
+    if (wx.getStorageSync('openid')) {
       this.getCertificate()
     }
     await this.setCourseList()
