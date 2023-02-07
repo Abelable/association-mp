@@ -1,5 +1,4 @@
 <import src="/templates/i-empty-illus/index.wxml"/>
-<import src="/templates/i-youbo-logo/index.wxml" />
 
 <view class="container">
   <view class="low-cate-list">

@@ -19,7 +19,9 @@ Page({
       title: '加载中...'
     })
     await this.setBanner()
-    this.getCertificate()
+    if (wx.getStorageSync('token')) {
+      this.getCertificate()
+    }
     await this.setCourseList()
     await this.setLowCateList()
     await this.setThinkList()
