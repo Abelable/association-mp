@@ -8,4 +8,5 @@
 .low-cate-item {
   display: inline-block;
   margin-right: 20rpx;
+  vertical-align: top;
 }

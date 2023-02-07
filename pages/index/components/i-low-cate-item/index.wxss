@@ -1,6 +1,5 @@
 .low-cate-item {
   width: 220rpx;
-  height: 330rpx;
 }
 .cover {
   width: 220rpx;
@@ -18,5 +17,4 @@
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
-  line-height: 1;
 }
