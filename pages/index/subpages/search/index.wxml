@@ -37,7 +37,7 @@
   </view>
   
   <view class="list-wrap" wx:if="{{(curMenuIdx === 0 || curMenuIdx === 2) && lowList.length}}">
-    <view class="title" wx:if="{{curMenuIdx === 0 && lowList.length}}">法律汇编</view>
+    <view class="title" wx:if="{{curMenuIdx === 0 && lowList.length}}">政策指南</view>
     <i-low-list list="{{lowList}}" />
   </view>
 

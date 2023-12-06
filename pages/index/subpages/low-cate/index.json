@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "法律汇编",
+  "navigationBarTitleText": "政策指南",
   "enablePullDownRefresh": true,
   "usingComponents": {
     "i-low-cate-item": "../../components/i-low-cate-item/index"

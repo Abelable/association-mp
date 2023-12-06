@@ -6,7 +6,7 @@ const { statusBarHeight } = getApp().globalData
 Page({
   data: {
     statusBarHeight,
-    menuList: ['综合', '网商课堂', '法律汇编', '网商智库'],
+    menuList: ['综合', '网商课堂', '政策指南', '网商智库'],
     curMenuIdx: 0,
     keyword: '',
     historyKeywords: [],
