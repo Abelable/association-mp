@@ -16,9 +16,7 @@ Page({
     gangCount: '',
     tradeAmount: '',
     revenue: '',
-    name: '', 
-    jobTitle: '', 
-    politicalStatus: '', 
+    name: '',
     contacterName: '', 
     contacterJobTitle: '', 
     contacterTel: '', 
@@ -72,15 +70,6 @@ Page({
   setRevenue(e) {
     this.revenue = e.detail.value
   },
-  setName(e) {
-    this.name = e.detail.value
-  },
-  setJobTitle(e) {
-    this.jobTitle = e.detail.value
-  },
-  setpPliticalStatus(e) {
-    this.politicalStatus = e.detail.value
-  },
   setContacterName(e) {
     this.contacterName = e.detail.value
   },
@@ -126,7 +115,7 @@ Page({
 
   async submit() {
     checkLogin(() => {
-      const { companyName, companyShortName, address, websiteUrl, ICP, companyType, staffCount, gangCount, tradeAmount, revenue, name, jobTitle, politicalStatus, contacterName, contacterJobTitle, contacterTel } = this
+      const { companyName, companyShortName, address, websiteUrl, ICP, companyType, staffCount, gangCount, tradeAmount, revenue, contacterName, contacterJobTitle, contacterTel } = this
       const { fileList, logoList } = this.data
       
       if (!companyName) {
@@ -169,18 +158,6 @@ Page({
         wx.showToast({ title: '请输入党员人数', icon: 'none' })
         return
       }
-      if (!name) {
-        wx.showToast({ title: '请输入负责人姓名', icon: 'none' })
-        return
-      }
-      if (!jobTitle) {
-        wx.showToast({ title: '请输入负责人职务', icon: 'none' })
-        return
-      }
-      if (!politicalStatus) {
-        wx.showToast({ title: '请输入负责人政治面貌', icon: 'none' })
-        return
-      }
       if (!contacterName) {
         wx.showToast({ title: '请输入联系人姓名', icon: 'none' })
         return
@@ -204,7 +181,7 @@ Page({
         licenseImgs.push(item.url)
       })
 
-      const content = { companyName, companyShortName, address: JSON.stringify(address), websiteUrl, ICP, companyType, staffCount, gangCount, tradeAmount, revenue, name, jobTitle, politicalStatus, contacterName, contacterJobTitle, contacterTel, licenseImg: licenseImgs.join(), logoImg: logoList.length ? logoList[0].url : '' }
+      const content = { companyName, companyShortName, address: JSON.stringify(address), websiteUrl, ICP, companyType, staffCount, gangCount, tradeAmount, revenue, contacterName, contacterJobTitle, contacterTel, licenseImg: licenseImgs.join(), logoImg: logoList.length ? logoList[0].url : '' }
       registerService.submitApply(content, () => {
         wx.showToast({ title: '提交成功', icon: 'none' })
         this.resetData()
@@ -224,9 +201,6 @@ Page({
       gangCount: '',
       tradeAmount: '',
       revenue: '',
-      name: '', 
-      jobTitle: '', 
-      politicalStatus: '', 
       contacterName: '', 
       contacterJobTitle: '', 
       contacterTel: '', 

@@ -99,30 +99,6 @@
   <view class="input-wrap">
     <view class="title">
       <text class="required-icon">*</text>
-      <text>企业负责人姓名</text>
-    </view>
-    <input class="input" type="text" value="{{name}}" bindinput="setName" placeholder="请输入企业负责人姓名"/>
-  </view>
-  <view class="input-wrap">
-    <view class="title">
-      <text class="required-icon">*</text>
-      <text>职务</text>
-    </view>
-    <input class="input" type="text" value="{{jobTitle}}" bindinput="setJobTitle" placeholder="请输入职务"/>
-  </view>
-  <view class="input-wrap">
-    <view class="title">
-      <text class="required-icon">*</text>
-      <text>政治面貌</text>
-    </view>
-    <input class="input" type="text" value="{{politicalStatus}}" bindinput="setpPliticalStatus" placeholder="请输入政治面貌"/>
-  </view>
-</view>
-
-<view class="form-wrap">
-  <view class="input-wrap">
-    <view class="title">
-      <text class="required-icon">*</text>
       <text>协会联系人姓名</text>
     </view>
     <input class="input" type="text" value="{{contacterName}}" bindinput="setContacterName" placeholder="请输入协会联系人姓名"/>

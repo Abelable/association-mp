@@ -21,7 +21,7 @@ class RegisterService extends BaseService {
   }
 
   async submitApply(content, success, fail, id = '') {
-    const { companyName, companyShortName, address, websiteUrl, ICP, companyType, websiteType, staffCount, gangCount, tradeCommodity, revenue, tradeAmount, name, jobTitle, politicalStatus, tel, email, contacterName, contacterJobTitle, contacterTel, licenseImg, logoImg, memberCount, operatorCount } = content
+    const { companyName, companyShortName, address, websiteUrl, ICP, companyType, websiteType, staffCount, gangCount, tradeCommodity, revenue, tradeAmount, tel, email, contacterName, contacterJobTitle, contacterTel, licenseImg, logoImg, memberCount, operatorCount } = content
     const applyContent = [
       { "title":"logo","name":"logo","value": logoImg },
       { "title": '企业名称', "name": 'company_name', "value": companyName },
@@ -36,9 +36,6 @@ class RegisterService extends BaseService {
       { "title": '交易商品（服务）', "name": 'trade_commodity', "value": tradeCommodity },
       { "title": '上年度营收', "name": 'revenue', "value": revenue },
       { "title": '上年度GMV', "name": 'trade_amount', "value": tradeAmount },
-      { "title": '负责人姓名', "name": '_name', "value": name },
-      { "title": '职务', "name": 'job_title', "value": jobTitle },
-      { "title": '政治面貌', "name": 'political_status', "value": politicalStatus },
       { "title": '手机号', "name": '_mobile', "value": tel },
       { "title": '邮箱', "name": '_email', "value": email },
       { "title": '协会联系人姓名', "name": 'contacter_name', "value": contacterName },
