@@ -12,6 +12,7 @@
     "pages/register/index",
     "pages/register/subpages/record/index",
     "pages/register/subpages/record-detail/index",
+    "pages/register/subpages/collect/index",
     "pages/common/intro/index",
     "pages/common/webview/index"
   ],

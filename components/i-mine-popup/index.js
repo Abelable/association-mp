@@ -15,8 +15,12 @@ Component({
   },
 
   methods: { 
+    navToCollect() {
+      wx.navigateTo({ url: '/pages/register/subpages/collect/index' })
+    },
+
     navToRecord() {
-      wx.navigateTo({ url: './subpages/record/index' })
+      wx.navigateTo({ url: '/pages/register/subpages/record/index' })
     },
 
     hide() {

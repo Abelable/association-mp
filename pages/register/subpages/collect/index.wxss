@@ -1,0 +1,89 @@
+page {
+  background: #fff;
+}
+
+.search-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  width: 100%;
+  background: #fff;
+}
+.search-input-wrap {
+  display: flex;
+  align-items: center;
+  padding: 0 20rpx;
+  flex: 1;
+  height: 80rpx;
+  background: #f8f8f8;
+  border-radius: 12rpx;
+}
+.search-input {
+  font-size: 26rpx;
+}
+.search-btn {
+  margin-left: 30rpx;
+  color: #333;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.content {
+  padding-top: 120rpx;
+  min-height: calc(100vh - 130rpx);
+}
+.collect-list {
+  padding: 0 30rpx;
+  overflow: hidden;
+}
+.collect-item {
+  padding: 20rpx 0;
+  background: #fff;
+  border-radius: 12rpx;
+  border-bottom: 1px solid #F4F5F6;
+}
+.title {
+  color: #333;
+  font-size: 30rpx;
+  font-weight: 550;
+}
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20rpx;
+}
+.time {
+  color: #999;
+  font-size: 24rpx;
+}
+.data-wrap {
+  display: flex;
+  align-items: center;
+}
+.data {
+  display: flex;
+  align-items: center;
+  margin-left: 20rpx;
+  color: #999;
+  font-size: 24rpx;
+}
+.icon {
+  margin-right: 8rpx;
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.empty-illus {
+  margin: 300rpx auto 0;
+  color: #999;
+  font-size: 24rpx;
+  text-align: center;
+}
+.illus {
+  width: 400rpx;
+  height: 400rpx;
+}
