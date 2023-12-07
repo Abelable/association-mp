@@ -1,7 +1,4 @@
 {
   "navigationBarTitleText": "政策指南",
-  "enablePullDownRefresh": true,
-  "usingComponents": {
-    "i-low-cate-item": "../../components/i-low-cate-item/index"
-  }
+  "enablePullDownRefresh": true
 }

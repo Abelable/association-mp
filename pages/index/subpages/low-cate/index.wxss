@@ -26,9 +26,3 @@ page {
   margin: 240rpx auto 0;
   width: fit-content;
 }
-
-.youbo-logo-wrap {
-  position: absolute;
-  bottom: 10rpx;
-  width: calc(100vw -  60rpx);
-}

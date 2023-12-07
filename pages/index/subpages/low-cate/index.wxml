@@ -8,12 +8,8 @@
   </view>
 
   <view class="empty-illus-wrap" wx:if="{{!lowCateList.length}}">
-      <template is="i-empty-illus" data="{{desc: '暂无列表'}}" />
-    </view>
-  
-    <view class="youbo-logo-wrap">
-      <i-youbo-logo />
-    </view>
+    <template is="i-empty-illus" data="{{desc: '暂无列表'}}" />
+  </view>
 </view>
 
 
