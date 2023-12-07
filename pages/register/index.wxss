@@ -38,9 +38,10 @@ radio .wx-radio-input.wx-radio-input-checked::before {
   background: linear-gradient(180deg, #3FABFB 0%, #317BFF 100%);
   z-index: 100;
 }
-.record {
-  color: #fff;
-  font-size: 15px;
+.menu-icon {
+  margin-right: 30px;
+  width: 20px;
+  height: 20px;
 }
 .nav-bar-title {
   flex: 1;

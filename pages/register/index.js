@@ -23,13 +23,10 @@ Page({
     licenseImg: '',
     fileList: [],
     logoList: [],
+    minePopupVisible: false
   },
 
-  navToRecord() {
-    checkLogin(() => {
-      wx.navigateTo({ url: './subpages/record/index' })
-    })
-  },
+  
 
   setCompanyName(e) {
     this.companyName = e.detail.value
@@ -209,5 +206,19 @@ Page({
       logoList: [],
       region: [],
     })
-  }
+  },
+
+  showMinePopup() {
+    checkLogin(() => {
+      this.setData({
+        minePopupVisible: true
+      })
+    })
+  },
+
+  hideMinePopup() {
+    this.setData({
+      minePopupVisible: false
+    })
+  },
 })

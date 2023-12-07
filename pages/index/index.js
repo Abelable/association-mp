@@ -1,3 +1,4 @@
+import checkLogin from '../../utils/checkLogin'
 import IndexService from './utils/indexService'
 
 const indexService = new IndexService()
@@ -11,7 +12,8 @@ Page({
     lowCateList: [],
     thinkList: [],
     certificate: '',
-    certificateModalVisible: false
+    certificateModalVisible: false,
+    minePopupVisible: false
   },
 
   async onLoad() {
@@ -126,6 +128,20 @@ Page({
         })
         wx.showToast({ title: '成功保存', icon:"success" })
       }
+    })
+  },
+
+  showMinePopup() {
+    checkLogin(() => {
+      this.setData({
+        minePopupVisible: true
+      })
+    })
+  },
+
+  hideMinePopup() {
+    this.setData({
+      minePopupVisible: false
     })
   },
   

@@ -1,5 +1,5 @@
 <view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">
-  <view class="record" ontap="navToRecord">申请记录</view>
+  <image class="menu-icon" bindtap="showMinePopup" src="/images/menu.png" />
   <view class="nav-bar-title">入会申请</view>
 </view>
 
@@ -143,3 +143,4 @@
 </view>
 
 <i-youbo-logo />
+<i-mine-popup wx:if="{{minePopupVisible}}" bind:hide="hideMinePopup" />
