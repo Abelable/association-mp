@@ -5,6 +5,10 @@ class LowService extends IndexService {
     return await this.get({ url: `${this.baseUrl}/api/v1/legal/list`, data: { category_id, page, page_size } })
   }
 
+  async toggleLowCollectStatus(id, action) {
+    return await this.post({ url: `${this.baseUrl}/api/v1/legal/collect`, data: { id, action } })
+  }
+
   async toggleLowPraiseStatus(id, action) {
     return await this.post({ url: `${this.baseUrl}/api/v1/legal/like`, data: { id, action } })
   }

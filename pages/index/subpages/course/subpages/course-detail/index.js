@@ -60,23 +60,25 @@ Page({
     }
   },
 
+  async toggleCollect() {
+    checkLogin(() => {
+      const { id, is_collect } = this.data.info
+      const status = is_collect == 1 ? 0 : 1
+      this.setData({
+        ['info.is_collect']: status
+      })
+      courseService.toggleCourseCollectStatus(id, status)
+    })
+  },
+
   async togglePraise() {
     checkLogin(() => {
-      const { likeStatus } = this.data
+      const { id, is_like } = this.data.info
+      const status = is_like == 1 ? 0 : 1
       this.setData({
-        likeStatus: !likeStatus
+        ['info.is_like']: status
       })
-      const list = wx.getStorageSync('courseLikeList') || [];
-      const curItemIndex = list.findIndex(item => item.id === this.id)
-      if (curItemIndex !== -1) {
-        list[curItemIndex].status = !likeStatus
-      } else {
-        list.push( { id: this.id, status: !likeStatus })
-      }
-      wx.setStorage({
-        key: 'courseLikeList',
-        data: list
-      });
+      courseService.toggleCoursePraiseStatus(id, status)
     })
   },
 
