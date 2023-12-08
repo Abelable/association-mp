@@ -1,15 +1,57 @@
 <import src="/templates/i-empty-illus/index.wxml"/>
 
 <view class="container">
-  <view class="low-cate-list">
-    <view class="low-cate-item" wx:for="{{lowCateList}}" wx:key="index">
-      <i-low-cate-item item="{{item}}" />
+  <view class="search-bar">
+    <view class="search-input-wrap">
+      <image class="search-icon" src="/images/search.png" />
+      <input class="search-input" value="{{ searchContent }}" bindinput="setSearchContent" placeholder="请输入您要搜索的内容" />
     </view>
+    <view class="search-btn">搜索</view>
   </view>
 
-  <view class="empty-illus-wrap" wx:if="{{!lowCateList.length}}">
-    <template is="i-empty-illus" data="{{desc: '暂无列表'}}" />
+  <scroll-view class="menu-bar" scroll-x>
+    <view 
+      class="menu-item {{ curMenuIdx === index ? 'active' : '' }}" 
+      wx:for="{{menuList}}" 
+      wx:key="index"
+      bindtap="selectMenu"
+      data-index="{{ index }}"
+    >{{ item }}</view>
+  </scroll-view>
+
+  <view class="main">
+    <scroll-view class="side-bar" scroll-y>
+      <view class="sub-menu-item {{ curSubMenuIdx === index ? 'active' : '' }}" 
+        wx:for="{{subMenuList}}" 
+        wx:key="index"
+        bindtap="selectSubMenu"
+        data-index="{{ index }}"
+      >{{item}}</view>
+    </scroll-view>
+
+    <scroll-view class="content" scroll-y>
+      <view class="article-item" wx:for="{{lowCateList}}" wx:key="index">
+      <view class="title">杭州企业吸纳就业创业担保贷款贴息标准一览杭州企业吸纳就业创业担保贷款贴息标准一览杭州企业吸纳就业创业担保贷款贴息标准一览{{item}}</view>
+      <view class="footer">
+        <view class="time">2023-11-12 13:33</view>
+        <view class="data-wrap">
+          <view class="data">
+            <image class="icon" src="/images/list/views.png" />
+            <view>1322</view>
+          </view>
+          <view class="data">
+            <image class="icon" src="/images/list/praise.png" />
+            <view>9999</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    </scroll-view>
   </view>
+
+  <!-- <view class="empty-illus-wrap" wx:if="{{!lowCateList.length}}">
+    <template is="i-empty-illus" data="{{desc: '暂无列表'}}" />
+  </view> -->
 </view>
 
 

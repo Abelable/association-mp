@@ -4,6 +4,7 @@
   </view>
   <view class="search-btn">搜索</view>
 </view>
+
 <view class="content">
   <view class="collect-list" wx:if="{{list.length}}">
     <view class="collect-item" wx:for="{{list}}" wx:key="index">
