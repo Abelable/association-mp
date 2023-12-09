@@ -1,17 +1,34 @@
 import RegisterService from "../../utils/registerService";
-import { formatTime } from "../../../../utils/util";
+import { debounce, formatTime } from "../../../../utils/util";
 
 const registerService = new RegisterService();
 
 Page({
   data: {
-    list: [
-      1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3,
-    ],
+    curMenuIdx: 0,
+    keywords: "",
+    classList: [],
+    lowList: [],
+    thinkList: [],
   },
 
   onLoad() {
     // this.setList(true)
+  },
+
+  setKeywords: debounce(function (e) {
+    console.log(e);
+    const keywords = e.detail.value;
+    this.setData({ keywords });
+  }),
+
+  clearKeywords() {
+    this.setData({ keywords: "" });
+  },
+
+  selectMenu(e) {
+    const curMenuIdx = Number(e.currentTarget.dataset.index);
+    this.setData({ curMenuIdx });
   },
 
   async setList(init = false) {
@@ -23,6 +40,39 @@ Page({
     });
     this.setData({
       list: init ? list : [...this.data.list, ...list],
+    });
+  },
+
+  async setClassList(init = false) {
+    const { keywords, classList } = this.data;
+    if (init) this.classPage = 0;
+    const { list = [] } =
+      (await registerService.getClassCollectList(keywords, ++this.classPage)) ||
+      {};
+    this.setData({
+      classList: init ? list : [...classList, ...list],
+    });
+  },
+
+  async setLowList(init = false) {
+    const { keywords, lowList } = this.data;
+    if (init) this.lowPage = 0;
+    const { list = [] } =
+      (await registerService.getLowCollectList(keywords, ++this.lowPage)) ||
+      {};
+    this.setData({
+      lowList: init ? list : [...lowList, ...list],
+    });
+  },
+
+  async setThinkList(init = false) {
+    const { keywords, thinkList } = this.data;
+    if (init) this.thinkPage = 0;
+    const { list = [] } =
+      (await registerService.getThinkCollectList(keywords, ++this.thinkPage)) ||
+      {};
+    this.setData({
+      thinkList: init ? list : [...thinkList, ...list],
     });
   },
 

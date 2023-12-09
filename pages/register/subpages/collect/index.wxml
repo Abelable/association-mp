@@ -1,8 +1,22 @@
-<view class="search-bar">
-  <view class="search-input-wrap">
-    <input class="search-input" value="{{ searchContent }}" bindinput="setSearchContent" placeholder="请输入您要搜索的内容" />
+<view class="header">
+  <view class="search-bar">
+    <view class="search-input-wrap">
+      <image class="search-icon" src="/images/search.png" />
+      <input class="search-input" value="{{ keywords }}" bindinput="setKeywords" placeholder="请输入您要搜索的内容" />
+      <image class="clear-icon" wx:if="{{keywords}}" src="https://img.ubo.vip/mp/search/clear-search.png" bindtap="clearKeywords" />
+    </view>
+    <view class="search-btn">搜索</view>
   </view>
-  <view class="search-btn">搜索</view>
+
+  <view class="menu-bar">
+    <view 
+      class="menu-item {{ curMenuIdx === index ? 'active' : '' }}" 
+      wx:for="{{['网商课堂', '政策指南', '网商智库']}}" 
+      wx:key="index" 
+      bindtap="selectMenu" 
+      data-index="{{ index }}"
+    >{{ item }}</view>
+  </view>
 </view>
 
 <view class="content">

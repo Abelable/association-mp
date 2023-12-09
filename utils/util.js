@@ -15,13 +15,13 @@ const formatNumber = n => {
   return n[1] ? n : `0${n}`
 }
 
-const debounce = (fn, delay) => {
-  let timer
-  return () => {
-    if (timer) clearTimeout(timer)
-    timer = setTimeout(fn, delay)
-  }
-}
+export const debounce = (fn, delay = 200) => {
+  let timeout = null;
+  return function () {
+    if (timeout) clearTimeout(timeout);
+    timeout = setTimeout(() => fn.apply(this, arguments), delay);
+  };
+};
 
 const unique = arr => Array.from(new Set(arr))
 

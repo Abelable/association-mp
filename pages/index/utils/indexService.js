@@ -10,7 +10,7 @@ class IndexService extends BaseService {
   }
 
   async getLowCateList(page, page_size = 20) {
-    return await this.get({ url: `${this.baseUrl}/api/v1/legal/category-list`, data: { page, page_size } })
+    return await this.get({ url: `${this.baseUrl}/api/v1/legal/category-list1`, data: { page, page_size } })
   }
   
   async getThinkList(page, page_size = 10, name = '', field = '') {

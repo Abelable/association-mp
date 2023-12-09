@@ -55,6 +55,8 @@ class RegisterService extends BaseService {
   async getApplyDetail(id) {
     return await this.get({ url: `${this.baseUrl}/api/v1/enter-apply/info-apply`, data: { id }, loadingTitle: '加载中...' })
   }
+
+  
 }
 
 export default RegisterService
