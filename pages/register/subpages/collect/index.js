@@ -13,7 +13,7 @@ Page({
   },
 
   onLoad() {
-    // this.setList(true)
+    this.setList(true);
   },
 
   setKeywords: debounce(function (e) {
@@ -28,19 +28,30 @@ Page({
 
   selectMenu(e) {
     const curMenuIdx = Number(e.currentTarget.dataset.index);
-    this.setData({ curMenuIdx });
+    this.setData({ curMenuIdx }, () => {
+      const { classList, lowList, thinkList } = this.data;
+      if (
+        (curMenuIdx === 0 && !classList.length) ||
+        (curMenuIdx === 1 && !lowList.length) ||
+        (curMenuIdx === 2 && !thinkList.length)
+      ) {
+        this.setList(true);
+      }
+    });
   },
 
-  async setList(init = false) {
-    if (init) this.page = 0;
-    const { list = [] } =
-      (await registerService.getApplyList(++this.page)) || {};
-    list.map((item) => {
-      item.time = formatTime(item.created_at);
-    });
-    this.setData({
-      list: init ? list : [...this.data.list, ...list],
-    });
+  setList(init = false) {
+    switch (this.data.curMenuIdx) {
+      case 0:
+        this.setClassList(init);
+        break;
+      case 1:
+        this.setLowList(init);
+        break;
+      case 2:
+        this.setThinkList(init);
+        break;
+    }
   },
 
   async setClassList(init = false) {
@@ -58,8 +69,7 @@ Page({
     const { keywords, lowList } = this.data;
     if (init) this.lowPage = 0;
     const { list = [] } =
-      (await registerService.getLowCollectList(keywords, ++this.lowPage)) ||
-      {};
+      (await registerService.getLowCollectList(keywords, ++this.lowPage)) || {};
     this.setData({
       lowList: init ? list : [...lowList, ...list],
     });
@@ -105,11 +115,11 @@ Page({
   },
 
   onPullDownRefresh() {
-    // this.setList(true);
+    this.setList(true);
     wx.stopPullDownRefresh();
   },
 
   onReachBottom() {
-    // this.setList();
+    this.setList();
   },
 });
