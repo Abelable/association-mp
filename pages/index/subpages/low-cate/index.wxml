@@ -1,3 +1,4 @@
+<wxs module="TIME" src="/utils/filters/time.wxs" />
 <import src="/templates/i-empty-illus/index.wxml"/>
 
 <view class="container">
@@ -16,7 +17,7 @@
       wx:key="index"
       bindtap="selectMenu"
       data-index="{{ index }}"
-    >{{ item }}</view>
+    >{{ item.name }}</view>
   </scroll-view>
 
   <view class="main">
@@ -26,32 +27,39 @@
         wx:key="index"
         bindtap="selectSubMenu"
         data-index="{{ index }}"
-      >{{item}}</view>
+      >{{item.name}}</view>
     </scroll-view>
 
-    <scroll-view class="content" scroll-y>
-      <view class="article-item" wx:for="{{lowCateList}}" wx:key="index">
-      <view class="title">杭州企业吸纳就业创业担保贷款贴息标准一览杭州企业吸纳就业创业担保贷款贴息标准一览杭州企业吸纳就业创业担保贷款贴息标准一览{{item}}</view>
-      <view class="footer">
-        <view class="time">2023-11-12 13:33</view>
-        <view class="data-wrap">
-          <view class="data">
-            <image class="icon" src="/images/list/views.png" />
-            <view>1322</view>
-          </view>
-          <view class="data">
-            <image class="icon" src="/images/list/praise.png" />
-            <view>9999</view>
+    <scroll-view 
+      class="content" 
+      bindrefresherrefresh="refresh" 
+      bindscrolltolower="loadMore" 
+      refresher-triggered="{{ refresherTriggered }}" 
+      scroll-y 
+      refresher-enabled
+    >
+      <view class="article-item" wx:for="{{lowList}}" wx:key="index" bindtap="checkDetail" data-id="{{ item.id }}">
+        <view class="title">{{item.title}}</view>
+        <view class="footer">
+          <view class="time">{{TIME.transform(item.promulgation_time).year + '-' + TIME.transform(item.promulgation_time).month + '-' + TIME.transform(item.promulgation_time).date + ' ' + TIME.transform(item.promulgation_time).hours + ':' + TIME.transform(item.promulgation_time).minutes}}</view>
+          <view class="data-wrap">
+            <view class="data">
+              <image class="icon" src="/images/list/views.png" />
+              <view>{{ item.views }}</view>
+            </view>
+            <view class="data">
+              <image class="icon" src="/images/list/praise.png" />
+              <view>{{  item.likes }}</view>
+            </view>
           </view>
         </view>
       </view>
-    </view>
     </scroll-view>
   </view>
 
-  <!-- <view class="empty-illus-wrap" wx:if="{{!lowCateList.length}}">
+  <view class="empty-illus-wrap" wx:if="{{!lowList.length}}">
     <template is="i-empty-illus" data="{{desc: '暂无列表'}}" />
-  </view> -->
+  </view>
 </view>
 
 

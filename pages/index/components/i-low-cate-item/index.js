@@ -5,9 +5,9 @@ Component({
 
   methods: {
     navTo() {
-      const { id, name } = this.properties.item
+      const { id } = this.properties.item
       wx.navigateTo({
-        url: `/pages/index/subpages/low/index?id=${id}&title=${name}`
+        url: `/pages/index/subpages/low/subpages/low-detail/index?id=${id}`
       })
     }
   }

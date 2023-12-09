@@ -39,29 +39,52 @@ class BaseService extends Base {
 
   async getClassCollectList(keywords, page, page_size = 10) {
     return await this.get({
-      url: `${this.baseUrl}/api/v1/class-room/collect_list`,
+      url: `${this.baseUrl}/api/v1/class-room/collect-list`,
       data: { keywords, page, page_size },
     });
   }
 
   async getLowCollectList(keywords, page, page_size = 10) {
     return await this.get({
-      url: `${this.baseUrl}/api/v1/legal/collect_list1`,
+      url: `${this.baseUrl}/api/v1/legal/collect-list1`,
       data: { keywords, page, page_size },
     });
   }
 
   async getThinkCollectList(keywords, page, page_size = 10) {
     return await this.get({
-      url: `${this.baseUrl}/api/v1/wisdom-library/collect_list`,
+      url: `${this.baseUrl}/api/v1/wisdom-library/collect-list`,
       data: { keywords, page, page_size },
     });
   }
 
-  async getLowList(category_id, sub_category_id, page, page_size = 10) {
+  async getLowCategoryList({ pid = 0, page, page_size = 1000 }) {
+    return await this.get({
+      url: `${this.baseUrl}/api/v1/legal/category-list1`,
+      data: {
+        pid,
+        page,
+        page_size,
+      },
+    });
+  }
+
+  async getLowList({
+    keywords,
+    category_id,
+    sub_category_id,
+    page,
+    page_size = 10,
+  }) {
     return await this.get({
       url: `${this.baseUrl}/api/v1/legal/list1`,
-      data: cleanObject({ category_id, sub_category_id, page, page_size }),
+      data: cleanObject({
+        keywords,
+        category_id,
+        sub_category_id,
+        page,
+        page_size,
+      }),
     });
   }
 }
