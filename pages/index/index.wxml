@@ -34,14 +34,14 @@
   </view>
   <i-course-list wx:if="{{courseList.length}}" list="{{courseList}}" />
 
-  <view class="title-wrap" wx:if="{{lowCateList.length}}">
+  <view class="title-wrap" wx:if="{{lowList.length}}">
     <view class="title">政策指南</view>
     <view class="more-btn" ontap="checkMoreLow">
       <text>查看全部</text>
       <image class="right-arrow" src="./images/right-arrow.png" />
     </view>
   </view>
-  <i-low-cate-list wx:if="{{lowCateList.length}}" list="{{lowCateList}}"/>
+  <i-low-cate-list wx:if="{{lowList.length}}" list="{{lowList}}"/>
 
   <view class="title-wrap" wx:if="{{thinkList.length}}">
     <view class="title">网商智库</view>

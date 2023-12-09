@@ -1,3 +1,4 @@
+import { cleanObject } from "../utils/util";
 import Base from "./base/index";
 
 class BaseService extends Base {
@@ -54,6 +55,13 @@ class BaseService extends Base {
     return await this.get({
       url: `${this.baseUrl}/api/v1/wisdom-library/collect_list`,
       data: { keywords, page, page_size },
+    });
+  }
+
+  async getLowList(category_id, sub_category_id, page, page_size = 10) {
+    return await this.get({
+      url: `${this.baseUrl}/api/v1/legal/list1`,
+      data: cleanObject({ category_id, sub_category_id, page, page_size }),
     });
   }
 }

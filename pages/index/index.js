@@ -9,14 +9,14 @@ Page({
     statusBarHeight,
     navBarVisible: false,
     banner: [],
-    lowCateList: [],
+    lowList: [],
     thinkList: [],
     certificate: '',
     certificateModalVisible: false,
     minePopupVisible: false
   },
 
-  async onLoad() {
+  async onShow() {
     wx.showLoading({
       title: '加载中...'
     })
@@ -25,7 +25,7 @@ Page({
       this.getCertificate()
     }
     await this.setCourseList()
-    await this.setLowCateList()
+    await this.setLowList()
     await this.setThinkList()
     wx.hideLoading()
   },
@@ -41,9 +41,9 @@ Page({
     this.setData({ courseList })
   },
 
-  async setLowCateList() {
-    const lowCateList = await indexService.getLowCateList(1, 10)
-    this.setData({ lowCateList })
+  async setLowList() {
+    const lowList = await indexService.getLowList(1)
+    this.setData({ lowList })
   },
 
   async setThinkList() {
