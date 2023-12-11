@@ -1,3 +1,5 @@
+<wxs module="TIME" src="/utils/filters/time.wxs" />
+
 <view class="header">
   <view class="search-bar">
     <view class="search-input-wrap">
@@ -22,9 +24,9 @@
 <view class="content">
   <view class="collect-list" wx:if="{{curMenuIdx === 0 && classList.length}}">
     <view class="collect-item" wx:for="{{classList}}" wx:key="index">
-      <view class="title">杭州企业吸纳就业创业担保贷款贴息标准一览杭州企业吸纳就业创业担保贷款贴息标准一览杭州企业吸纳就业创业担保贷款贴息标准一览</view>
+      <view class="title">{{ item.title }}</view>
       <view class="footer">
-        <view class="time">2023-11-12 13:33</view>
+        <view class="time">{{TIME.transform(item.updated_at).year + '-' + TIME.transform(item.updated_at).month + '-' + TIME.transform(item.updated_at).date + ' ' + TIME.transform(item.updated_at).hours + ':' + TIME.transform(item.updated_at).minutes}}</view>
         <view class="data-wrap">
           <view class="data">
             <image class="icon" src="/images/list/collected.png" />
@@ -32,11 +34,11 @@
           </view>
           <view class="data">
             <image class="icon" src="/images/list/views.png" />
-            <view>1322</view>
+            <view>{{ item.views }}</view>
           </view>
           <view class="data">
             <image class="icon" src="/images/list/praise.png" />
-            <view>9999</view>
+            <view>{{ item.likes }}</view>
           </view>
         </view>
       </view>
@@ -45,9 +47,9 @@
 
   <view class="collect-list" wx:if="{{curMenuIdx === 1 && lowList.length}}">
     <view class="collect-item" wx:for="{{lowList}}" wx:key="index">
-      <view class="title">杭州企业吸纳就业创业担保贷款贴息标准一览杭州企业吸纳就业创业担保贷款贴息标准一览杭州企业吸纳就业创业担保贷款贴息标准一览</view>
+      <view class="title">{{ item.title }}</view>
       <view class="footer">
-        <view class="time">2023-11-12 13:33</view>
+        <view class="time">{{TIME.transform(item.updated_at).year + '-' + TIME.transform(item.updated_at).month + '-' + TIME.transform(item.updated_at).date + ' ' + TIME.transform(item.updated_at).hours + ':' + TIME.transform(item.updated_at).minutes}}</view>
         <view class="data-wrap">
           <view class="data">
             <image class="icon" src="/images/list/collected.png" />
@@ -55,11 +57,11 @@
           </view>
           <view class="data">
             <image class="icon" src="/images/list/views.png" />
-            <view>1322</view>
+            <view>{{ item.views }}</view>
           </view>
           <view class="data">
             <image class="icon" src="/images/list/praise.png" />
-            <view>9999</view>
+            <view>{{ item.likes }}</view>
           </view>
         </view>
       </view>
@@ -68,9 +70,9 @@
 
   <view class="collect-list" wx:if="{{curMenuIdx === 2 && thinkList.length}}">
     <view class="collect-item" wx:for="{{thinkList}}" wx:key="index">
-      <view class="title">杭州企业吸纳就业创业担保贷款贴息标准一览杭州企业吸纳就业创业担保贷款贴息标准一览杭州企业吸纳就业创业担保贷款贴息标准一览</view>
+      <view class="title">{{ item.title }}</view>
       <view class="footer">
-        <view class="time">2023-11-12 13:33</view>
+        <view class="time">{{TIME.transform(item.updated_at).year + '-' + TIME.transform(item.updated_at).month + '-' + TIME.transform(item.updated_at).date + ' ' + TIME.transform(item.updated_at).hours + ':' + TIME.transform(item.updated_at).minutes}}</view>
         <view class="data-wrap">
           <view class="data">
             <image class="icon" src="/images/list/collected.png" />
@@ -78,11 +80,11 @@
           </view>
           <view class="data">
             <image class="icon" src="/images/list/views.png" />
-            <view>1322</view>
+            <view>{{ item.views }}</view>
           </view>
           <view class="data">
             <image class="icon" src="/images/list/praise.png" />
-            <view>9999</view>
+            <view>{{ item.likes }}</view>
           </view>
         </view>
       </view>
