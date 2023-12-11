@@ -42,6 +42,7 @@
 .menu-bar {
   padding-bottom: 24rpx;
   white-space: nowrap;
+  border-bottom: 1px solid #f4f5f6;
 }
 .menu-item {
   display: inline-block;
