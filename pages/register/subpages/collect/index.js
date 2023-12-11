@@ -122,4 +122,19 @@ Page({
   onReachBottom() {
     this.setList();
   },
+
+  checkClassDetail(e) {
+    const url = `/pages/index/subpages/course/subpages/course-detail/index?id=${e.currentTarget.dataset.id}`;
+    wx.navigateTo({ url });
+  },
+
+  checkLowDetail(e) {
+    const url = `/pages/index/subpages/low/subpages/low-detail/index?id=${e.currentTarget.dataset.id}`;
+    wx.navigateTo({ url });
+  },
+
+  checkThinkDetail(e) {
+    const url = `/pages/index/subpages/think/subpages/think-detail/index?id=${e.currentTarget.dataset.id}`;
+    wx.navigateTo({ url });
+  },
 });

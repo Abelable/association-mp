@@ -23,7 +23,7 @@
 
 <view class="content">
   <view class="collect-list" wx:if="{{curMenuIdx === 0 && classList.length}}">
-    <view class="collect-item" wx:for="{{classList}}" wx:key="index">
+    <view class="collect-item" wx:for="{{classList}}" wx:key="index" bindtap="checkClassDetail" data-id="{{ item.id }}">
       <view class="title">{{ item.title }}</view>
       <view class="footer">
         <view class="time">{{TIME.transform(item.updated_at).year + '-' + TIME.transform(item.updated_at).month + '-' + TIME.transform(item.updated_at).date + ' ' + TIME.transform(item.updated_at).hours + ':' + TIME.transform(item.updated_at).minutes}}</view>
@@ -46,7 +46,7 @@
   </view>
 
   <view class="collect-list" wx:if="{{curMenuIdx === 1 && lowList.length}}">
-    <view class="collect-item" wx:for="{{lowList}}" wx:key="index">
+    <view class="collect-item" wx:for="{{lowList}}" wx:key="index" bindtap="checkLowDetail" data-id="{{ item.id }}">
       <view class="title">{{ item.title }}</view>
       <view class="footer">
         <view class="time">{{TIME.transform(item.updated_at).year + '-' + TIME.transform(item.updated_at).month + '-' + TIME.transform(item.updated_at).date + ' ' + TIME.transform(item.updated_at).hours + ':' + TIME.transform(item.updated_at).minutes}}</view>
@@ -69,7 +69,7 @@
   </view>
 
   <view class="collect-list" wx:if="{{curMenuIdx === 2 && thinkList.length}}">
-    <view class="collect-item" wx:for="{{thinkList}}" wx:key="index">
+    <view class="collect-item" wx:for="{{thinkList}}" wx:key="index" bindtap="checkThinkDetail" data-id="{{ item.id }}">
       <view class="title">{{ item.title }}</view>
       <view class="footer">
         <view class="time">{{TIME.transform(item.updated_at).year + '-' + TIME.transform(item.updated_at).month + '-' + TIME.transform(item.updated_at).date + ' ' + TIME.transform(item.updated_at).hours + ':' + TIME.transform(item.updated_at).minutes}}</view>
