@@ -52,16 +52,32 @@
   <view class="selection-wrap">
     <view class="title">
       <text class="required-icon">*</text>
-      <text>企业类型（可多选）</text>
+      <text>企业类型</text>
     </view>
-    <checkbox-group class="selection" bindchange="setCompanyType">
+    <radio-group class="selection" bindchange="setCompanyType">
       <view 
         class="option" 
-        wx:for="{{['网络销售类平台', '生活服务类平台', '社交娱乐类平台', '信息资讯类平台', '金融服务类平台', '计算机应用类平台', '其它类']}}"
+        wx:for="{{categoryOptions}}"
         wx:key="index"
         >
-        <checkbox id="{{index + 1}}" value="{{item}}"/>
-        <label class="desc" for="{{index + 1}}">{{item}}</label>
+        <radio id="{{item.value}}" value="{{item.value}}"/>
+        <label class="desc" for="{{item.value}}">{{item.text}}</label>
+      </view>
+    </radio-group>
+  </view>
+  <view class="selection-wrap" wx:if="{{categoryOptions[companyType].subOptions}}">
+    <view class="title">
+      <text class="required-icon">*</text>
+      <text>企业二级类型（可多选）</text>
+    </view>
+    <checkbox-group class="selection" bindchange="setCompanySubType">
+      <view 
+        class="option" 
+        wx:for="{{categoryOptions[companyType].subOptions}}"
+        wx:key="index"
+        >
+        <checkbox id="{{index + 1}}" value="{{item.value}}"/>
+        <label class="desc" for="{{index + 1}}">{{item.text}}</label>
       </view>
     </checkbox-group>
   </view>
@@ -82,6 +98,13 @@
   <view class="input-wrap">
     <view class="title">
       <text class="required-icon">*</text>
+      <text>上年度纳税额（亿元）</text>
+    </view>
+    <input class="input" type="number" value="{{taxAmount}}" bindinput="setTaxAmount" placeholder="请输入上年度纳税额"/>
+  </view>
+  <view class="input-wrap">
+    <view class="title">
+      <text class="required-icon">*</text>
       <text>员工人数</text>
     </view>
     <input class="input" type="number" value="{{staffCount}}" bindinput="setStaffCount" placeholder="请输入员工人数"/>
@@ -92,6 +115,20 @@
       <text>党员人数</text>
     </view>
     <input class="input" type="number" value="{{gangCount}}" bindinput="setGangCount" placeholder="请输入党员人数"/>
+  </view>
+  <view class="input-wrap">
+    <view class="title">
+      <text class="required-icon">*</text>
+      <text>用户数量</text>
+    </view>
+    <input class="input" type="number" value="{{userCount}}" bindinput="setStaffCount" placeholder="请输入用户数量"/>
+  </view>
+  <view class="input-wrap">
+    <view class="title">
+      <text class="required-icon">*</text>
+      <text>商家数量</text>
+    </view>
+    <input class="input" type="number" value="{{merchantCount}}" bindinput="setMerchantCount" placeholder="请输入商家数量"/>
   </view>
 </view>
 

@@ -4,9 +4,69 @@ import RegisterService from './utils/registerService'
 const registerService = new RegisterService()
 const { statusBarHeight } = getApp().globalData
 
+const categoryOptions = [
+  {
+    text: "计算机应用类平台",
+    value: 1,
+    subOptions: [
+      { text: "SAAS系统", value: 11 },
+      { text: "创新技术", value: 12 },
+      { text: "大数据", value: 13 },
+      { text: "工业互联网", value: 14 },
+      { text: "技术服务", value: 15 },
+      { text: "开发工具", value: 16 },
+      { text: "行业综合服务", value: 17 },
+      { text: "云计算", value: 18 },
+      { text: "综合类", value: 19 },
+    ],
+  },
+  {
+    text: "网络销售类平台",
+    value: 2,
+    subOptions: [
+      { text: "MCN机构", value: 21 },
+      { text: "跨境", value: 22 },
+      { text: "农业", value: 23 },
+      { text: "商品交易", value: 24 },
+      { text: "专业商品", value: 25 },
+      { text: "综合类", value: 26 },
+    ],
+  },
+  {
+    text: "生活服务类平台",
+    value: 3,
+    subOptions: [
+      { text: "交通出行", value: 31 },
+      { text: "教育培训", value: 32 },
+      { text: "配送服务", value: 33 },
+      { text: "人才服务", value: 34 },
+      { text: "技术服务", value: 35 },
+      { text: "生活服务", value: 36 },
+      { text: "市场服务", value: 37 },
+      { text: "文化旅游", value: 38 },
+      { text: "医疗健康", value: 39 },
+      { text: "运输物流", value: 310 },
+    ],
+  },
+  {
+    text: "社交娱乐类平台",
+    value: 4,
+    subOptions: [
+      { text: "社交", value: 41 },
+      { text: "视频直播", value: 42 },
+      { text: "综合类", value: 43 },
+    ],
+  },
+  { text: "金融服务类平台", value: 5 },
+  { text: "其他类", value: 7 },
+  { text: "信息资讯类平台", value: 6 },
+];
+
 Page({
   data: {
     statusBarHeight,
+    categoryOptions,
+    companyType: -1,
     companyName: '', 
     companyShortName: '', 
     region: [],
@@ -26,14 +86,14 @@ Page({
     minePopupVisible: false
   },
 
-  
-
   setCompanyName(e) {
     this.companyName = e.detail.value
   },
+
   setCompanyShortName(e) {
     this.companyShortName = e.detail.value
   },
+
   bindRegionChange(e) {
     const { value, code } = e.detail
     this.address = {
@@ -46,33 +106,49 @@ Page({
       region: value
     })
   },
+
   setWebsiteUrl(e) {
     this.websiteUrl = e.detail.value
   },
+
   setICP(e) {
     this.ICP = e.detail.value
   },
+
   setCompanyType(e) {
-    this.companyType = e.detail.value.join()
+    const companyType = Number(e.detail.value);
+    this.setData({ companyType })
+    console.log('subOptions', categoryOptions[companyType])
   },
+
+  setCompanySubType(e) {
+    this.companySubType = e.detail.value.join();
+  },
+
   setStaffCount(e) {
     this.staffCount = e.detail.value
   },
+
   setGangCount(e) {
     this.gangCount = e.detail.value
   },
+
   setTradeAmount(e) {
     this.tradeAmount = e.detail.value
   },
+
   setRevenue(e) {
     this.revenue = e.detail.value
   },
+
   setContacterName(e) {
     this.contacterName = e.detail.value
   },
+
   setContacterJobTitle(e) {
     this.contacterJobTitle = e.detail.value
   },
+
   setContacterTel(e) {
     this.contacterTel = e.detail.value
   },
