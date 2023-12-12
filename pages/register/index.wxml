@@ -59,13 +59,13 @@
         class="option" 
         wx:for="{{categoryOptions}}"
         wx:key="index"
-        >
+      >
         <radio id="{{item.value}}" value="{{item.value}}"/>
         <label class="desc" for="{{item.value}}">{{item.text}}</label>
       </view>
     </radio-group>
   </view>
-  <view class="selection-wrap" wx:if="{{categoryOptions[companyType].subOptions}}">
+  <view class="selection-wrap" wx:if="{{categoryOptions[curCategoryIdx].subOptions}}">
     <view class="title">
       <text class="required-icon">*</text>
       <text>企业二级类型（可多选）</text>
@@ -73,11 +73,11 @@
     <checkbox-group class="selection" bindchange="setCompanySubType">
       <view 
         class="option" 
-        wx:for="{{categoryOptions[companyType].subOptions}}"
+        wx:for="{{categoryOptions[curCategoryIdx].subOptions}}"
         wx:key="index"
         >
-        <checkbox id="{{index + 1}}" value="{{item.value}}"/>
-        <label class="desc" for="{{index + 1}}">{{item.text}}</label>
+        <checkbox id="{{item.value}}" value="{{item.value}}"/>
+        <label class="desc" for="{{item.value}}">{{item.text}}</label>
       </view>
     </checkbox-group>
   </view>
