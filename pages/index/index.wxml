@@ -25,14 +25,14 @@
 
   <image class="member-card" wx:if="{{certificate}}" bindtap="checkCertificate" src="/images/membership_card_illus.png" />
 
-  <view class="title-wrap" wx:if="{{courseList.length}}">
+  <view class="title-wrap" wx:if="{{courseVisible && courseList.length}}">
     <view class="title">网商课堂</view>
     <view class="more-btn" ontap="checkMoreCourse">
       <text>查看全部</text>
       <image class="right-arrow" src="./images/right-arrow.png" />
     </view>
   </view>
-  <i-course-list wx:if="{{courseList.length}}" list="{{courseList}}" />
+  <i-course-list wx:if="{{courseVisible && courseList.length}}" list="{{courseList}}" />
 
   <view class="title-wrap" wx:if="{{lowList.length}}">
     <view class="title">政策指南</view>

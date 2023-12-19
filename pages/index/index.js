@@ -14,6 +14,14 @@ Page({
     certificate: "",
     certificateModalVisible: false,
     minePopupVisible: false,
+    courseVisible: true,
+  },
+
+  onLoad() {
+    const { envVersion } = wx.getAccountInfoSync().miniProgram || {};
+    if (envVersion === "trial") {
+      this.setData({ courseVisible: false });
+    }
   },
 
   async onShow() {
