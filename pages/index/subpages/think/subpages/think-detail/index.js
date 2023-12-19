@@ -86,8 +86,8 @@ Page({
       getApp().globalData.posterAvatarUrl = path
     }
 
-    const { id, image, title } = this.data.info
-    const { path: cover } = await thinkService.getImageInfo(image)
+    const { id, head_img, title } = this.data.info
+    const { path: cover } = await thinkService.getImageInfo(head_img)
     const { app_code } = await thinkService.share({ type: 3, wisdom_library_id: id })
     const { path: qrCode } = await thinkService.getImageInfo(app_code)
 

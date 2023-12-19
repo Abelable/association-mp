@@ -121,7 +121,7 @@
       <text class="required-icon">*</text>
       <text>用户数量</text>
     </view>
-    <input class="input" type="number" value="{{userCount}}" bindinput="setStaffCount" placeholder="请输入用户数量"/>
+    <input class="input" type="number" value="{{userCount}}" bindinput="setUserCount" placeholder="请输入用户数量"/>
   </view>
   <view class="input-wrap">
     <view class="title">

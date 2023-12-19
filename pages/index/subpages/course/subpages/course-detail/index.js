@@ -134,8 +134,8 @@ Page({
       getApp().globalData.posterAvatarUrl = path
     }
 
-    const { id, image, title } = this.data.info
-    const { path: cover } = await courseService.getImageInfo(image)
+    const { id, cover_img, title } = this.data.info
+    const { path: cover } = await courseService.getImageInfo(cover_img)
     const { app_code } = await courseService.share({ type: 4, class_room_id: id })
     const { path: qrCode } = await courseService.getImageInfo(app_code)
 
