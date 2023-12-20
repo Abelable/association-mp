@@ -242,7 +242,7 @@ Page({
         return;
       }
       if (!ICP) {
-        wx.showToast({ title: "请输入ICP备案号", icon: "none" });
+        wx.showToast({ title: "请输入信用代码", icon: "none" });
         return;
       }
       if (!companyType) {
