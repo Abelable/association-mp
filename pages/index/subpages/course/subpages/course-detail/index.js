@@ -12,13 +12,13 @@ Page({
     passwordModalVisible: false,
     sharePopupVisible: false,
     posterModalVisible: false,
-    courseVisible: true,
+    courseVisible: false,
   },
 
   onLoad(options) {
     const { envVersion } = wx.getAccountInfoSync().miniProgram || {};
-    if (envVersion === "trial") {
-      this.setData({ courseVisible: false });
+    if (envVersion === "release") {
+      this.setData({ courseVisible: true });
     }
 
     const { id, scene } = options
