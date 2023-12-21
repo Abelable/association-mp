@@ -2,12 +2,11 @@ import BaseService from "../../service/baseService";
 
 const baseService = new BaseService();
 const { statusBarHeight } = getApp().globalData;
-const userInfo = wx.getStorageSync("userInfo");
 
 Component({
   data: {
     statusBarHeight,
-    userInfo,
+    userInfo: {},
     show: false,
     avatarUrl: "",
     userInfoModalVisible: false,
@@ -15,8 +14,9 @@ Component({
 
   lifetimes: {
     attached() {
+      const userInfo = wx.getStorageSync("userInfo");
       setTimeout(() => {
-        this.setData({ show: true });
+        this.setData({ userInfo, show: true });
       }, 50);
     },
   },
