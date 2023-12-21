@@ -32,7 +32,7 @@ Component({
     },
 
     setNickname(e) {
-      console.log('setNickname', e)
+      console.log("setNickname", e);
       this.nickname = e.detail.value;
     },
 
@@ -62,6 +62,7 @@ Component({
         userInfo,
         userInfoModalVisible: false,
       });
+      wx.setStorageSync("userInfo", userInfo);
     },
 
     hideUserInfoModal() {
