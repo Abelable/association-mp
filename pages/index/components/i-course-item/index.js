@@ -16,7 +16,17 @@ Component({
   },
 
   data: {
-    duration: ''
+    duration: '',
+    courseVisible: true
+  },
+
+  lifetimes: {
+    attached() {
+      const { envVersion } = wx.getAccountInfoSync().miniProgram || {};
+      if (envVersion === "trial") {
+        this.setData({ courseVisible: false });
+      }
+    },
   },
 
   methods: {

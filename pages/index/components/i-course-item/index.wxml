@@ -1,5 +1,5 @@
 <view class="course-item" ontap="navTo">
-  <view class="cover-wrap">
+  <view class="cover-wrap" wx:if="{{courseVisible}}">
     <image class="cover" src="{{item.cover_img}}" mode="aspectFill" lazy-load />
     <view class="duration">{{duration}}</view>
   </view>
