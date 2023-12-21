@@ -1,8 +1,8 @@
 <view class="mask {{show ? 'show' : ''}}" catchtap="hide" />
 <view class="popup {{show ? 'show' : ''}}" style="padding-top: {{ statusBarHeight + 16 }}px;">
-  <view class="user-info">
-    <open-data class="avatar" type="userAvatarUrl" />
-    <open-data class="name" type="userNickName" />
+  <view class="user-info" bindtap="showUserInfoModal">
+    <image class="user-info-avatar" src="{{ userInfo.avatarUrl }}" />
+    <view class="user-info-name">{{ userInfo.nickName }}</view>
   </view>
   <view class="menu-list">
     <view class="menu-item" bindtap="navToCollect">
@@ -15,5 +15,26 @@
       <view class="menu-content">申请记录</view>
       <image class="arrow" src="/images/more.png" />
     </view>
+  </view>
+</view>
+
+<view class="modal-wrap" wx:if="{{userInfoModalVisible}}" bindtap="hideUserInfoModal">
+  <view class="auth modal" catchtap="catchtap">
+    <view class="title">获取您的头像、昵称</view>
+    <view class="auth-tips">获取用户头像、昵称，主要用于向用户提供具有辨识度的用户中心界面</view>
+    <view class="auth-modal-list-wrap">
+      <view class="auth-modal-list">
+        <view class="modal-list-title">头像</view>
+        <button class="avatar-wrapper" open-type="chooseAvatar" hover-class="none" bind:chooseavatar="onChooseAvatar">
+          <image class="avatar" src="{{avatarUrl}}" />
+        </button> 
+        <image class="more-icon" src="https://img.ubo.vip/youbo_plus/new_version/more.png"/>
+      </view>
+      <view class="auth-modal-list">
+        <view class="modal-list-title">昵称</view>
+        <input class="nickname-input" bindinput="setNickname" type="nickname" placeholder="请输入昵称"/>
+      </view>
+    </view>
+    <view class="to-auth btn" bindtap="auth">保存</view>
   </view>
 </view>

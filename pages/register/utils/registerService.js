@@ -1,28 +1,6 @@
-import api from "../../../service/base/api";
 import BaseService from "../../../service/baseService";
 
 class RegisterService extends BaseService {
-  async uploadImg(filePath) {
-    wx.showLoading({ title: "图片上传中..." });
-    const _filePath = `data:image/jpeg;base64,${wx
-      .getFileSystemManager()
-      .readFileSync(filePath, "base64")}`;
-    const res = await api.request({
-      url: "https://mms.youboi.com/api/v4/user/material",
-      method: "POST",
-      data: {
-        "file[content]": _filePath,
-        wxmini: -1,
-      },
-      header: {
-        "content-type": "application/x-www-form-urlencoded",
-      },
-    });
-    wx.hideLoading();
-    if (res.statusCode === 200 && res.data.code === 1001)
-      return res.data.data[0];
-  }
-
   async submitApply(content, success, fail, id = "") {
     const {
       companyName,

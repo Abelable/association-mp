@@ -1,7 +1,29 @@
 import { cleanObject } from "../utils/util";
 import Base from "./base/index";
+import api from "./base/api";
 
 class BaseService extends Base {
+  async uploadImg(filePath) {
+    wx.showLoading({ title: "图片上传中..." });
+    const _filePath = `data:image/jpeg;base64,${wx
+      .getFileSystemManager()
+      .readFileSync(filePath, "base64")}`;
+    const res = await api.request({
+      url: "https://mms.youboi.com/api/v4/user/material",
+      method: "POST",
+      data: {
+        "file[content]": _filePath,
+        wxmini: -1,
+      },
+      header: {
+        "content-type": "application/x-www-form-urlencoded",
+      },
+    });
+    wx.hideLoading();
+    if (res.statusCode === 200 && res.data.code === 1001)
+      return res.data.data[0];
+  }
+
   async login(code) {
     return await this.post({
       url: `${this.baseUrl}/api/v1/mini-wx/openid`,
