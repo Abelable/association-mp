@@ -11,10 +11,16 @@ Page({
     limit: false,
     passwordModalVisible: false,
     sharePopupVisible: false,
-    posterModalVisible: false
+    posterModalVisible: false,
+    courseVisible: true,
   },
 
   onLoad(options) {
+    const { envVersion } = wx.getAccountInfoSync().miniProgram || {};
+    if (envVersion === "trial") {
+      this.setData({ courseVisible: false });
+    }
+
     const { id, scene } = options
     const decodedScene = scene ? decodeURIComponent(scene) : ''
     this.id = id || decodedScene.split('-')[0]
