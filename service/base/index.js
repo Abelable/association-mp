@@ -82,10 +82,6 @@ class Base {
       compressed: false 
     })
   }
-
-  async getLocation() {
-    return api.getLocation()
-  }  
   
   getUserInfo() {
     return api.getUserInfo()

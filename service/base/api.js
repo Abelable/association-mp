@@ -2,7 +2,6 @@ import promisify from './promisify'
 
 export default {
   getSetting: promisify(wx.getSetting),
-  getLocation: promisify(wx.getLocation),
   request: promisify(wx.request),
   uploadFile: promisify(wx.uploadFile),
   chooseImage: promisify(wx.chooseImage),
