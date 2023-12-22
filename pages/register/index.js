@@ -194,10 +194,81 @@ Page({
   },
 
   async afterLogoRead(e) {
-    const { file } = e.detail;
-    const logoImg = await registerService.uploadImg(file.url);
-    this.setData({
-      logoList: [{ ...file, url: logoImg }],
+    await this.initCanvas();
+    this.roundRect(0, 0, 64, 64, { width: 8, color: "#00B4E1" });
+
+    const { url } = e.detail.file;
+    const { width, height } = await registerService.getImageInfo(url);
+    if (width === height) {
+      await this.drawImage(url, 4, 4, 56, 56);
+    } else if (width > height) {
+      const _height = (56 * height) / width;
+      const _y = 4 + (56 - _height) / 2;
+      await this.drawImage(url, 4, _y, 56, _height);
+    } else {
+      const _width = (56 * width) / height;
+      const _x = 4 + (56 - _width) / 2;
+      await this.drawImage(url, _x, 4, _width, 56);
+    }
+
+    wx.canvasToTempFilePath(
+      {
+        canvas: this.canvas,
+        success: async (res) => {
+          const logoImg = await registerService.uploadImg(res.tempFilePath);
+          this.setData({ logoList: [{ ...e.detail.file, url: logoImg }] });
+        },
+      },
+      this
+    );
+  },
+
+  initCanvas() {
+    return new Promise((resolve) => {
+      this.createSelectorQuery()
+        .select("#logo-canvas")
+        .fields({ node: true, size: true })
+        .exec((res) => {
+          if (res && res.length) {
+            this.canvas = res[0].node;
+            const renderWidth = res[0].width;
+            const renderHeight = res[0].height;
+            this.ctx = this.canvas.getContext("2d");
+            const dpr = wx.getSystemInfoSync().pixelRatio;
+            this.canvas.width = renderWidth * dpr;
+            this.canvas.height = renderHeight * dpr;
+            this.ctx.scale(dpr, dpr);
+            resolve();
+          }
+        });
+    });
+  },
+
+  async roundRect(x, y, w, h, border = null) {
+    this.ctx.save();
+
+    let { color, width } = border;
+    this.ctx.lineWidth = width;
+    this.ctx.strokeStyle = color;
+
+    this.ctx.moveTo(x, y);
+    this.ctx.lineTo(x + w, y);
+    this.ctx.lineTo(x + w, y + h);
+    this.ctx.lineTo(x, y + h);
+    this.ctx.lineTo(x, y);
+
+    this.ctx.stroke();
+    this.ctx.restore();
+  },
+
+  drawImage(src, x, y, w, h) {
+    return new Promise((resolve) => {
+      const image = this.canvas.createImage();
+      image.src = src;
+      image.onload = () => {
+        this.ctx.drawImage(image, x, y, w, h);
+        resolve();
+      };
     });
   },
 

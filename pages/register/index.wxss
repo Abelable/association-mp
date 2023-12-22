@@ -185,3 +185,10 @@ radio .wx-radio-input.wx-radio-input-checked::before {
   color: #666;
   font-size: 24rpx;
 }
+
+.logo-canvas {
+  position: fixed;
+  left: -100vw;
+  width: 64px;
+  height: 64px;
+}

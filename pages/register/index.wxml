@@ -181,3 +181,5 @@
 
 <i-youbo-logo />
 <i-mine-popup wx:if="{{minePopupVisible}}" bind:hide="hideMinePopup" />
+
+<canvas id="logo-canvas" class="logo-canvas" type="2d" />
