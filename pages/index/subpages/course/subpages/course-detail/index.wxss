@@ -8,6 +8,28 @@ page {
 .player {
   width: 100%;
 }
+
+.views-tag {
+  position: absolute;
+  left: 20rpx;
+  top: 84rpx;
+  display: flex;
+  align-items: center;
+  padding-left: 10rpx;
+  padding-right: 16rpx;
+  color: #fff;
+  font-size: 24rpx;
+  font-weight: bold;
+  height: 46rpx;
+  border-radius: 23rpx;
+  background: rgba(0, 0, 0, 0.2);
+}
+.user-icon {
+  margin-right: 4rpx;
+  width: 28rpx;
+  height: 28rpx;
+}
+
 .tips {
   position: absolute;
   bottom: 50px;
