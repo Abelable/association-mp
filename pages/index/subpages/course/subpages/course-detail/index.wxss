@@ -22,7 +22,7 @@ page {
 
 .detail {
   padding: 10rpx 32rpx 160rpx;
-  min-height: calc(100vh - 200px);
+  min-height: calc(100vh - 80px);
 }
 .label {
   color: #333;
