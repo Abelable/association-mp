@@ -1,1 +1,29 @@
-<view>资源中心</view>
+<view class="header">
+  <view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">
+    <view class="nav-bar-title">资源中心</view>
+  </view>
+  <view class="menu">
+    <view 
+      class="menu-item {{curMenuIdx === index ? 'active' : ''}}" 
+      wx:for="{{['企业名录', '浙江产业带']}}" 
+      wx:key="index" 
+      bindtap="selectMenu" 
+      data-index="{{index}}"
+      >{{item}}</view>
+  </view>
+  <view class="sub-menu-wrap" wx:if="{{curMenuIdx === 0}}">
+    <scroll-view class="sub-menu" scroll-x>
+      <view 
+        class="sub-menu-item {{curSubMenuIdx === index ? 'active' : ''}}" 
+        wx:for="{{subMenuList}}" 
+        wx:key="index"
+        bindtap="selectSubMenu"
+        data-index="{{index}}"
+        >{{item}}</view>
+    </scroll-view>
+    <view class="all-sub-menu-btn">
+      <image class="filter-icon" src="./images/filter.png" />
+    </view>
+  </view>
+</view>
+
