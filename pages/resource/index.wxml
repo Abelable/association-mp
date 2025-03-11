@@ -21,9 +21,16 @@
         data-index="{{index}}"
         >{{item}}</view>
     </scroll-view>
-    <view class="all-sub-menu-btn">
+    <view class="all-sub-menu-btn" bindtap="showCategoryPickerModal">
       <image class="filter-icon" src="./images/filter.png" />
     </view>
   </view>
 </view>
 
+<category-picker-modal 
+  wx:if="{{categoryPickerModalVisible}}" 
+  options="{{subMenuList}}" 
+  pickedIdx="{{curSubMenuIdx}}" 
+  bind:confirm="confirmCategoryPick" 
+  bind:hide="hideCategoryPickerModal" 
+/>

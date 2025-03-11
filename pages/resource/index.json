@@ -1,4 +1,7 @@
 {
   "navigationStyle": "custom",
-  "navigationBarTextStyle": "white"
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "category-picker-modal": "./components/category-picker-modal/index"
+  }
 }

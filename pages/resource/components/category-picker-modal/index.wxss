@@ -1,0 +1,78 @@
+.modal-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+.category-picker-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-bottom: 39px;
+  width: 300px;
+  min-height: 320px;
+  background: #fff;
+  border-radius: 15px;
+  z-index: 100;
+}
+
+.modal-title {
+  margin-top: 15px;
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.category-options {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 15px;
+  padding-right: 0;
+}
+.category-option {
+  margin-right: 30rpx;
+  margin-bottom: 20rpx;
+  padding: 0 40rpx;
+  height: 56rpx;
+  color: #6A6F75;
+  font-size: 28rpx;
+  line-height: 54rpx;
+  background: #F1F5F7;
+  border-radius: 28rpx;
+  border: 1px solid #F1F5F7;
+}
+.category-option.picked {
+  color: #3BA0FB;
+  background: #dbeaf7;
+  border: 1px solid #3BA0FB;
+}
+
+.modal-btns {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  border-top: 1px solid #EAECEF;
+}
+.cancel-btn, .confirm-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: 43px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.cancel-btn {
+  border-right: 1px solid #EAECEF;
+  color: #B2B6C2;
+}
+.confirm-btn {
+  color: #1A2040;
+}
