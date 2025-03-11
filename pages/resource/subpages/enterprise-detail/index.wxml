@@ -1,0 +1,31 @@
+<view class="swiper-wrap">
+  <swiper class="swiper custom-dots" autoplay circular interval="5000" duration="1000" indicator-dots>
+    <swiper-item wx:for="{{banner}}" wx:key="index">
+      <image class="banner-img" src="{{item}}" mode="aspectFill" />
+    </swiper-item>
+  </swiper>
+</view>
+
+<view class="container">
+  <view class="content-wrap">
+    <view class="title">企业介绍</view>
+    <view class="content">企业介绍企业介绍企业介绍企业介绍企业介绍企业介绍企业介绍企业介绍企业介绍企业介绍企业介绍企业介绍企业介绍企业介绍企业介绍企业介绍</view>
+    <view class="title">企业地址</view>
+    <view class="content address">企业地址企业地址企业地址企业地址企业地址企业地址企业地址企业地址企业地址企业地址企业地址企业地址企业地址</view>
+  </view>
+</view>
+
+<view class="footer">
+  <view class="footer-item">
+    <image class="icon" src="./images/cs.png" />
+    <view>企业咨询</view>
+  </view>
+   <view class="footer-item">
+    <image class="icon" src="./images/mp.png" />
+    <view>企业小程序</view>
+  </view>
+   <view class="footer-item">
+    <image class="icon" src="./images/share.png" />
+    <view>分享好友</view>
+  </view>
+</view>
