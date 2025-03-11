@@ -20,11 +20,11 @@
     <image class="icon" src="./images/cs.png" />
     <view>企业咨询</view>
   </view>
-   <view class="footer-item">
+  <view class="footer-item">
     <image class="icon" src="./images/mp.png" />
     <view>企业小程序</view>
   </view>
-   <view class="footer-item">
+  <view class="footer-item">
     <image class="icon" src="./images/share.png" />
     <view>分享好友</view>
   </view>
