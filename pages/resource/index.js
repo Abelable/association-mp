@@ -64,5 +64,11 @@ Page({
 
   hideCategoryPickerModal() {
     this.setData({ categoryPickerModalVisible: false });
+  },
+
+  checkEnterpriseDetail(e) {
+    const { id } = e.currentTarget.dataset;
+    const url = `./subpages/enterprise-detail/index?id=${id}`;
+    wx.navigateTo({ url });
   }
 });

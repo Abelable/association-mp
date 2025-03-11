@@ -10,6 +10,7 @@
     "pages/index/subpages/think/index",
     "pages/index/subpages/think/subpages/think-detail/index",
     "pages/resource/index",
+    "pages/resource/subpages/enterprise-detail/index",
     "pages/activity/index",
     "pages/register/index",
     "pages/register/subpages/record/index",

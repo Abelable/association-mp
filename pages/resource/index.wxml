@@ -28,7 +28,7 @@
 </view>
 
 <view class="enterprise-list" style="margin-top: {{statusBarHeight + 132}}px" wx:if="{{curMenuIdx === 0}}">
-  <view class="enterprise-item" wx:for="{{enterpriseList}}" wx:key="index">
+  <view class="enterprise-item" wx:for="{{enterpriseList}}" wx:key="index" bindtap="checkEnterpriseDetail" data-id="{{item.id}}">
     <image class="enterprise-cover" src="{{item.cover}}" mode="aspectFit"/>
     <view class="enterprise-info">
       <view class="enterprise-name">{{item.name}}</view>
