@@ -9,6 +9,8 @@
     "pages/index/subpages/low-cate/index",
     "pages/index/subpages/think/index",
     "pages/index/subpages/think/subpages/think-detail/index",
+    "pages/resource/index",
+    "pages/activity/index",
     "pages/register/index",
     "pages/register/subpages/record/index",
     "pages/register/subpages/record-detail/index",
@@ -31,14 +33,26 @@
       {
         "pagePath": "pages/index/index",
         "text": "协会首页",
-        "iconPath": "images/home.png",
-        "selectedIconPath": "images/home-active.png"
+        "iconPath": "images/tab-bar/home.png",
+        "selectedIconPath": "images/tab-bar/home-active.png"
+      },
+      {
+        "pagePath": "pages/resource/index",
+        "text": "资源中心",
+        "iconPath": "images/tab-bar/resource.png",
+        "selectedIconPath": "images/tab-bar/resource-active.png"
+      },
+      {
+        "pagePath": "pages/activity/index",
+        "text": "协会风采",
+        "iconPath": "images/tab-bar/activity.png",
+        "selectedIconPath": "images/tab-bar/activity-active.png"
       },
       {
         "pagePath": "pages/register/index",
         "text": "入会申请",
-        "iconPath": "images/register.png",
-        "selectedIconPath": "images/register-active.png"
+        "iconPath": "images/tab-bar/register.png",
+        "selectedIconPath": "images/tab-bar/register-active.png"
       }
     ]
   },
