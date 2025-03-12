@@ -22,7 +22,7 @@
         >{{item}}</view>
     </scroll-view>
     <view class="all-sub-menu-btn" bindtap="showCategoryPickerModal">
-      <image class="filter-icon" src="./images/filter.png" />
+      <image class="filter-icon" src="/images/filter.png" />
     </view>
   </view>
 </view>
