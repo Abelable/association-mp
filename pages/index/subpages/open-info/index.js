@@ -1,0 +1,57 @@
+import IndexService from "../../utils/indexService";
+
+Page({
+  data: {
+    courseList: []
+  },
+
+  async onLoad(options) {
+    const { id, title } = options;
+    wx.setNavigationBarTitle({ title });
+    this.id = id;
+    this.title = title;
+
+    this.setCourseList(true);
+  },
+
+  selectSubMenu(e) {
+    const curSubMenuIdx = e.currentTarget.dataset.index;
+    this.setData({ curSubMenuIdx });
+  },
+
+  showCategoryPickerModal() {
+    this.setData({ categoryPickerModalVisible: true });
+  },
+
+  confirmCategoryPick(e) {
+    const curSubMenuIdx = e.detail;
+    this.setData({ curSubMenuIdx, categoryPickerModalVisible: false });
+  },
+
+  hideCategoryPickerModal() {
+    this.setData({ categoryPickerModalVisible: false });
+  },
+
+  onPullDownRefresh() {
+    this.setCourseList(true);
+    wx.stopPullDownRefresh();
+  },
+
+  onReachBottom() {
+    this.setCourseList();
+  },
+
+  async setCourseList(init = false) {
+    if (init) this.page = 0;
+    const list = (await new IndexService().getCourseList(++this.page)) || [];
+    this.setData({
+      courseList: init ? list : [...this.data.courseList, ...list]
+    });
+  },
+
+  applyCourse() {
+    wx.navigateTo({
+      url: "./subpages/course-apply/index"
+    });
+  }
+});

@@ -1,0 +1,15 @@
+<import src="/templates/i-empty-illus/index.wxml"/>
+
+<view class="open-info-list">
+  <view class="open-info-item" wx:for="{{courseList}}" wx:key="index">
+    <i-open-info-item item="{{item}}"/>
+  </view>
+
+  <view class="empty-illus-wrap" wx:if="{{!courseList.length}}">
+    <template is="i-empty-illus" data="{{desc: '暂无列表'}}" />
+  </view>
+
+  <view class="youbo-logo-wrap">
+    <i-youbo-logo />
+  </view>
+</view>

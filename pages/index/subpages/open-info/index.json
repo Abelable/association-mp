@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "信息公开",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "i-open-info-item": "../../components/i-open-info-item/index"
+  }
+}

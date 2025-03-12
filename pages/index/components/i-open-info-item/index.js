@@ -8,7 +8,7 @@ Component({
   methods: {
     navTo() {
       wx.navigateTo({
-        url: `/pages/index/subpages/course/subpages/open-info-detail/index?id=${this.properties.item.id}`
+        url: `/pages/index/subpages/open-info/subpages/open-info-detail/index?id=${this.properties.item.id}`
       })
     }
   }

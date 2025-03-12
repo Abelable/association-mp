@@ -99,6 +99,12 @@ Page({
     });
   },
 
+  checkMoreOpenInfo() {
+    wx.navigateTo({
+      url: "/pages/index/subpages/open-info/index",
+    });
+  },
+
   onPageScroll(e) {
     if (e.scrollTop >= 10 && !this.data.navBarVisible)
       this.setData({ navBarVisible: true });

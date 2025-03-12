@@ -10,6 +10,8 @@
     "pages/index/subpages/low-cate/index",
     "pages/index/subpages/think/index",
     "pages/index/subpages/think/subpages/think-detail/index",
+    "pages/index/subpages/open-info/index",
+    "pages/index/subpages/open-info/subpages/open-info-detail/index",
     "pages/resource/index",
     "pages/resource/subpages/enterprise-detail/index",
     "pages/resource/subpages/consulting/index",
