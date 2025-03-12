@@ -23,7 +23,7 @@ Component({
   lifetimes: {
     attached() {
       const { envVersion } = wx.getAccountInfoSync().miniProgram || {};
-      if (envVersion === "release") {
+      if (['develop', 'release'].includes(envVersion)) {
         this.setData({ courseVisible: true });
       }
     },
