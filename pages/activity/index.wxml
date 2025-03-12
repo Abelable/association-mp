@@ -5,11 +5,28 @@
   <view class="menu">
     <view 
       class="menu-item {{curMenuIdx === index ? 'active' : ''}}" 
-      wx:for="{{['企业名录', '浙江产业带']}}" 
+      wx:for="{{['协会活动', '协会相册']}}" 
       wx:key="index" 
       bindtap="selectMenu" 
       data-index="{{index}}"
       >{{item}}</view>
+  </view>
+  <view class="search-bar" wx:if="{{curMenuIdx === 0}}">
+    <view class="search-content row">
+      <image class="search-icon" src="https://img.ubo.vip/mp/index/search/index-search.png" />
+      <input 
+        class="search-input"
+        value="{{keywords}}" 
+        bindinput="setKeywords" 
+        bindconfirm="search" 
+        placeholder="输入你想要查询的活动" 
+        confirm-type="search" 
+      />
+      <view class="cancel-btn" wx:if="{{keywords}}" bindtap="cancelSearch">
+        <image class="cancel-icon" src="https://img.ubo.vip/mp/search/clear-search.png" />
+      </view>
+      <view class="search-btn" bindtap="search">搜索</view>
+    </view>
   </view>
   <view class="sub-menu-wrap" wx:if="{{curMenuIdx === 0}}">
     <scroll-view class="sub-menu" scroll-x>
@@ -25,4 +42,22 @@
       <image class="filter-icon" src="/images/filter.png" />
     </view>
   </view>
+  <view class="filter-menu" wx:if="{{curMenuIdx === 1}}">
+    <view class="filter-menu-item">
+      <view>地区</view>
+      <image class="down-arrow" src="/images/down-arrow.png" />
+    </view>
+    <view class="filter-menu-item">
+      <view>时间</view>
+      <image class="down-arrow" src="/images/down-arrow.png" />
+    </view>
+  </view>
 </view>
+
+<category-picker-modal 
+  wx:if="{{categoryPickerModalVisible}}" 
+  options="{{subMenuList}}" 
+  pickedIdx="{{curSubMenuIdx}}" 
+  bind:confirm="confirmCategoryPick" 
+  bind:hide="hideCategoryPickerModal" 
+/>

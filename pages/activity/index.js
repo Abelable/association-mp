@@ -4,11 +4,13 @@ Page({
   data: {
     statusBarHeight,
     curMenuIdx: 0,
+    keywords: "",
+    isSearching: false,
     subMenuList: [
-      "全部",
-      "电商",
-      "直播",
-      "农产品",
+      "推荐",
+      "培训",
+      "助农",
+      "党建",
       "AI",
       "制造业",
       "机械",
@@ -24,6 +26,27 @@ Page({
   selectMenu(e) {
     const curMenuIdx = e.currentTarget.dataset.index;
     this.setData({ curMenuIdx });
+  },
+
+  setKeywords(e) {
+    this.setData({
+      keywords: e.detail.value
+    });
+  },
+
+  search() {
+    const { keywords } = this.data;
+    if (!keywords) {
+      return;
+    }
+    this.setData({ isSearching: true });
+  },
+
+  cancelSearch() {
+    this.setData({
+      keywords: "",
+      isSearching: false
+    });
   },
 
   selectSubMenu(e) {

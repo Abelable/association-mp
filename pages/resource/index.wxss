@@ -24,6 +24,7 @@
 .menu {
   display: flex;
   background: #fff;
+  border-bottom: 1px solid #eee;
 }
 .menu-item {
   display: flex;
@@ -55,7 +56,6 @@
   display: flex;
   align-items: center;
   background: #fff;
-  border-top: 1px solid #eee;
 }
 .sub-menu {
   flex: 1;
@@ -67,7 +67,7 @@
   width: 80px;
   height: 44px;
   color: #6A6F75;
-  font-size: 12px;
+  font-size: 13px;
   text-align: center;
   line-height: 44px;
 }

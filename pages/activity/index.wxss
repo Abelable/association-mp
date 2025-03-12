@@ -24,6 +24,7 @@
 .menu {
   display: flex;
   background: #fff;
+  border-bottom: 1px solid #eee;
 }
 .menu-item {
   display: flex;
@@ -51,11 +52,60 @@
   background: #3BA0FB;
 }
 
+.search-bar {
+  padding: 9px 24rpx;
+  background: #fff;
+}
+.search-content {
+  position: relative;
+  padding-right: 120rpx;
+  height: 36px;
+  background: #fff;
+  border-radius: 18px;
+  border: 1px solid #3BA0FB;
+}
+.search-icon {
+  margin-left: 20rpx;
+  width: 30rpx;
+  height: 15px;
+}
+.search-input {
+  padding-left: 10rpx;
+  flex: 1;
+  height: 36px;
+  color: #333;
+  font-size: 13px;
+}
+.cancel-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+}
+.cancel-icon {
+  width: 16px;
+  height: 16px;
+}
+.search-btn {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120rpx;
+  height: 36px;
+  font-size: 13px;
+  color: #fff;
+  border-radius: 18px;
+  background: #3BA0FB;
+}
+
 .sub-menu-wrap {
   display: flex;
   align-items: center;
   background: #fff;
-  border-top: 1px solid #eee;
 }
 .sub-menu {
   flex: 1;
@@ -67,7 +117,7 @@
   width: 80px;
   height: 44px;
   color: #6A6F75;
-  font-size: 12px;
+  font-size: 13px;
   text-align: center;
   line-height: 44px;
 }
@@ -85,4 +135,23 @@
 .filter-icon {
   width: 14px;
   height: 14px;
+}
+
+.filter-menu {
+  display: flex;
+  background: #fff;
+}
+.filter-menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: 44px;
+  color: #6A6F75;
+  font-size: 13px;
+}
+.down-arrow {
+  margin-left: 6px;
+  width: 16px;
+  height: 16px;
 }
