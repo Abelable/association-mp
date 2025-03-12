@@ -1,4 +1,6 @@
 <view class="navigation-bar" style="padding-top: {{statusBarHeight}}px;">
-  <i-back-icon custom="true" bind:navigateBack="navigateBack" />
-  <view class="navigation-title">{{title}}</view>
+  <view class="navigation-bar-inner">
+    <i-back-icon custom="true" bind:navigateBack="navigateBack" />
+    <view class="navigation-title">{{title}}</view>
+  </view>
 </view>

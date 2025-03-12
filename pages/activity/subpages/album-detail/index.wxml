@@ -1,1 +1,7 @@
 <i-navigation-bar title="协会相册详情" />
+
+<scroll-view style="padding-top: {{statusBarHeight + 44}}px; width: 100%; height: 100%;" scroll-y type="custom">
+  <grid-view type="masonry" cross-axis-count="2" cross-axis-gap="4" main-axis-gap="4">
+    <image style="width: 100%" wx:for="{{imageList}}" wx:key="index" src="{{item}}" mode="widthFix" lazy-load />
+  </grid-view>
+</scroll-view>
