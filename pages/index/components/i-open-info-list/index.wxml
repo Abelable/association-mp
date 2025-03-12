@@ -1,0 +1,5 @@
+<view class="open-info-list">
+  <view class="open-info-item" wx:for="{{list}}" wx:key="id">
+    <i-open-info-item item="{{item}}"/>
+  </view>
+</view>

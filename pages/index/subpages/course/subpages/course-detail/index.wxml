@@ -36,10 +36,10 @@
     <image class="icon" src="{{info.is_collect ? '/images/collected.png' : '/images/collect.png'}}" />
     <view class="desc">收藏</view>
   </view>
-  <view class="btn" ontap="togglePraise">
+  <!-- <view class="btn" ontap="togglePraise">
     <image class="icon" src="{{info.is_like ? '/images/praise-active.png' : '/images/praise.png'}}" />
     <view class="desc">点赞</view>
-  </view>
+  </view> -->
   <view class="btn" ontap="showSharePopup">
     <image class="icon" src="./images/share.png" />
     <view class="desc">分享</view>
