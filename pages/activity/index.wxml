@@ -74,7 +74,7 @@
 </view>
 
 <view class="album-list" style="margin-top: {{statusBarHeight + 132}}px" wx:if="{{curMenuIdx === 1}}">
-  <view class="album-item" wx:for="{{albumList}}" wx:key="index">
+  <view class="album-item" wx:for="{{albumList}}" wx:key="index" bindtap="checkAlbum">
     <view class="album-title">{{item.title}}</view>
     <view class="album-time-wrap">
       <image class="position-icon" src="./images/position.png" />

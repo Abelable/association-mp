@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "i-back-icon": "/components/back-icon/index"
+  }
+}

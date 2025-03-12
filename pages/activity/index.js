@@ -100,5 +100,11 @@ Page({
 
   hideCategoryPickerModal() {
     this.setData({ categoryPickerModalVisible: false });
+  },
+
+  checkAlbum() {
+    wx.navigateTo({
+      url: "./subpages/album-detail/index"
+    });
   }
 });

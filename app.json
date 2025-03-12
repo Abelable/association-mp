@@ -13,6 +13,7 @@
     "pages/resource/subpages/enterprise-detail/index",
     "pages/resource/subpages/consulting/index",
     "pages/activity/index",
+    "pages/activity/subpages/album-detail/index",
     "pages/register/index",
     "pages/register/subpages/record/index",
     "pages/register/subpages/record-detail/index",
