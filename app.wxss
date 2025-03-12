@@ -65,3 +65,9 @@ button::after {
   display: flex;
   align-items: center;
 }
+.row.center {
+  justify-content: center;
+}
+.row.between {
+  justify-content: space-between;
+}

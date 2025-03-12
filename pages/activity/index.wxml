@@ -54,6 +54,25 @@
   </view>
 </view>
 
+<view class="activity-list" style="margin-top: {{statusBarHeight + 186}}px" wx:if="{{curMenuIdx === 0}}">
+  <view class="activity-item" wx:for="{{activityList}}" wx:key="index">
+    <view class="activity-main row">
+      <image class="activity-cover" src="{{item.cover}}" mode="aspectFill" />
+      <view class="activity-info">
+        <view class="activity-title">{{item.title}}</view>
+        <view class="activity-time">
+          <text class="activity-status {{item.status === 1 ? 'active' : ''}}">{{item.status === 1 ? '报名中' : '已结束'}}</text>
+          <text> · 2025年1月1日</text>
+        </view>
+      </view>
+    </view>
+    <view class="activity-footer row between">
+      <view class="activity-limit">限{{item.limit}}人报名参加</view>
+      <view class="activity-btn row center">进入活动</view>
+    </view>
+  </view>
+</view>
+
 <category-picker-modal 
   wx:if="{{categoryPickerModalVisible}}" 
   options="{{subMenuList}}" 

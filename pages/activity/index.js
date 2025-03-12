@@ -18,10 +18,25 @@ Page({
     ],
     curSubMenuIdx: 0,
     categoryPickerModalVisible: false,
+    activityList: [
+      {
+        cover:
+          "https://img-oss.zjseca.com/government/20231013/1697188126318.png",
+        title: "“之江数据安全治理”系列活动——“助力数据跨境，护航企业出海”交流会",
+        status: 1,
+        limit: 100
+      },
+      {
+        cover:
+          "https://img-oss.zjseca.com/government/20231013/1697188126318.png",
+        title: "美妆行业“绿色直播间”助力品牌发展论坛",
+        status: 2,
+        limit: 100
+      }
+    ]
   },
 
-  onLoad(options) {
-  },
+  onLoad(options) {},
 
   selectMenu(e) {
     const curMenuIdx = e.currentTarget.dataset.index;
@@ -65,5 +80,5 @@ Page({
 
   hideCategoryPickerModal() {
     this.setData({ categoryPickerModalVisible: false });
-  },
-})
+  }
+});

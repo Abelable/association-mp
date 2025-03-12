@@ -155,3 +155,58 @@
   width: 16px;
   height: 16px;
 }
+
+.activity-list {
+  padding: 24rpx;
+}
+.activity-item {
+  margin-bottom: 24rpx;
+  padding: 24rpx;
+  background: #fff;
+  border-radius: 24rpx;
+}
+.activity-cover {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 24rpx;
+}
+.activity-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 24rpx;
+  flex: 1;
+  height: 190rpx;
+}
+.activity-title {
+  color: #333;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.activity-time {
+  padding-bottom: 10rpx;
+  color: #333;
+  font-size: 26rpx;
+}
+.activity-status {
+  color: #999;
+}
+.activity-status.active {
+  color: #00AA5A;
+}
+.activity-footer {
+  margin-top: 12rpx;
+}
+.activity-limit {
+  padding-left: 6rpx;
+  color: #999;
+  font-size: 24rpx;
+}
+.activity-btn {
+  width: 180rpx;
+  height: 60rpx;
+  color: #fff;
+  font-size: 24rpx;
+  background: #317BFF;
+  border-radius: 30rpx;
+}
