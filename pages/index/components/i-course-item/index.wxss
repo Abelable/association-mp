@@ -46,6 +46,12 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
+
+.author-info-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .author-info {
   display: flex;
   align-items: center;
@@ -59,4 +65,11 @@
   margin-left: 8rpx;
   color: #666;
   font-size: 24rpx;
+}
+.watch-status {
+  color: #A1A9B3;
+  font-size: 24rpx;
+}
+.watch-status.active {
+  color: #00AA5A;
 }

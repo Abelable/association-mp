@@ -5,9 +5,12 @@
   </view>
   <view class="content-wrap">
     <view class="title">{{item.title}}</view>
-    <view class="author-info">
-      <image class="avatar" src="{{item.author.head_img}}" />
-      <view class="name">{{item.author.author_name}}</view>
+    <view class="author-info-wrap">
+      <view class="author-info">
+        <image class="avatar" src="{{item.author.head_img}}" />
+        <view class="name">{{item.author.author_name}}</view>
+      </view>
+      <view class="watch-status {{isFinished ? '' : 'active'}}">{{isFinished ? '已看完' : '未观看'}}</view>
     </view>
   </view>
 </view>

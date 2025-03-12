@@ -5,19 +5,25 @@ Component({
     item: {
       type: Object,
       observer(info) {
-        const { duration } = info || {}
+        const { duration, is_try, try_time } = info || {}
+
         const minute = formatNumber(Math.floor(duration / 60))
         const second = formatNumber(duration % 60)
         this.setData({ 
           duration: `${minute}:${second}`
         })
+
+        if (is_try == 1 && duration - try_time <= 0) {
+          this.setData({ isFinished: true })
+        }
       }
     }
   },
 
   data: {
     duration: '',
-    courseVisible: false
+    isFinished: false,
+    courseVisible: false,
   },
 
   lifetimes: {
