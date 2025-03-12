@@ -33,6 +33,26 @@ Page({
         status: 2,
         limit: 100
       }
+    ],
+    albumList: [
+      {
+        title: "美妆行业“绿色直播间”助力品牌发展论坛",
+        imageList: [
+          "https://img-oss.zjseca.com/government/20231013/1697188126318.png",
+          "https://img-oss.zjseca.com/government/20231013/1697188126318.png",
+          "https://img-oss.zjseca.com/government/20231013/1697188126318.png",
+          "https://img-oss.zjseca.com/government/20231013/1697188126318.png"
+        ]
+      },
+      {
+        title: "美妆行业“绿色直播间”助力品牌发展论坛",
+        imageList: [
+          "https://img-oss.zjseca.com/government/20231013/1697188126318.png",
+          "https://img-oss.zjseca.com/government/20231013/1697188126318.png",
+          "https://img-oss.zjseca.com/government/20231013/1697188126318.png",
+          "https://img-oss.zjseca.com/government/20231013/1697188126318.png"
+        ]
+      }
     ]
   },
 
