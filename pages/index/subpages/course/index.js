@@ -1,4 +1,4 @@
-import IndexService from '../../utils/indexService'
+import IndexService from "../../utils/indexService";
 
 Page({
   data: {
@@ -14,16 +14,16 @@ Page({
     ],
     curSubMenuIdx: 0,
     categoryPickerModalVisible: false,
-    courseList: [],
+    courseList: []
   },
 
   async onLoad(options) {
-    const { id, title } = options
-    wx.setNavigationBarTitle({ title })
-    this.id = id
-    this.title = title
+    const { id, title } = options;
+    wx.setNavigationBarTitle({ title });
+    this.id = id;
+    this.title = title;
 
-    this.setCourseList(true)
+    this.setCourseList(true);
   },
 
   selectSubMenu(e) {
@@ -43,21 +43,27 @@ Page({
   hideCategoryPickerModal() {
     this.setData({ categoryPickerModalVisible: false });
   },
-  
+
   onPullDownRefresh() {
-    this.setCourseList(true)
-    wx.stopPullDownRefresh() 
+    this.setCourseList(true);
+    wx.stopPullDownRefresh();
   },
 
   onReachBottom() {
-    this.setCourseList()
+    this.setCourseList();
   },
 
-  async setCourseList(init= false) {
-    if (init) this.page = 0
-    const list = await new IndexService().getCourseList(++this.page) || []
+  async setCourseList(init = false) {
+    if (init) this.page = 0;
+    const list = (await new IndexService().getCourseList(++this.page)) || [];
     this.setData({
       courseList: init ? list : [...this.data.courseList, ...list]
-    })
+    });
+  },
+
+  applyCourse() {
+    wx.navigateTo({
+      url: "./subpages/course-apply/index"
+    });
   }
-})
+});

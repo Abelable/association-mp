@@ -43,7 +43,7 @@
     <template is="i-empty-illus" data="{{desc: '暂无列表'}}" />
   </view>
 
-  <view class="apply-tips">
+  <view class="apply-tips" bindtap="applyCourse">
     <text>还想学习其他课程？</text>
     <text style="color: #0670FF">点击申请</text>
   </view>
