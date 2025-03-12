@@ -60,3 +60,8 @@ button::after {
 .omit.single {
   -webkit-line-clamp: 1;
 }
+
+.row {
+  display: flex;
+  align-items: center;
+}

@@ -16,7 +16,7 @@
 </view>
 
 <view class="footer">
-  <view class="footer-item">
+  <view class="footer-item" bindtap="navToConsulting">
     <image class="icon" src="./images/cs.png" />
     <view>企业咨询</view>
   </view>

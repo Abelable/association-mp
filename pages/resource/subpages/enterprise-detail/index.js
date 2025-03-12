@@ -4,5 +4,11 @@ Page({
   },
 
   onLoad(options) {
+  },
+
+  navToConsulting() {
+    wx.navigateTo({
+      url: '../consulting/index'
+    });
   }
 })
