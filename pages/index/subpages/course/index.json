@@ -2,6 +2,7 @@
   "navigationBarTitleText": "网商课堂",
   "enablePullDownRefresh": true,
   "usingComponents": {
+    "category-picker-modal": "/components/category-picker-modal/index",
     "i-course-item": "../../components/i-course-item/index"
   }
 }

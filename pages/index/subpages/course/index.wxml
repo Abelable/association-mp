@@ -1,5 +1,39 @@
 <import src="/templates/i-empty-illus/index.wxml"/>
 
+<view class="menu-wrap">
+  <view class="search-bar">
+    <view class="search-content row">
+      <image class="search-icon" src="https://img.ubo.vip/mp/index/search/index-search.png" />
+      <input 
+        class="search-input"
+        value="{{keywords}}" 
+        bindinput="setKeywords" 
+        bindconfirm="search" 
+        placeholder="输入你想要查询的课程" 
+        confirm-type="search" 
+      />
+      <view class="cancel-btn" wx:if="{{keywords}}" bindtap="cancelSearch">
+        <image class="cancel-icon" src="https://img.ubo.vip/mp/search/clear-search.png" />
+      </view>
+      <view class="search-btn" bindtap="search">搜索</view>
+    </view>
+  </view>
+  <view class="sub-menu-wrap">
+    <scroll-view class="sub-menu" scroll-x>
+      <view 
+        class="sub-menu-item {{curSubMenuIdx === index ? 'active' : ''}}" 
+        wx:for="{{subMenuList}}" 
+        wx:key="index"
+        bindtap="selectSubMenu"
+        data-index="{{index}}"
+        >{{item}}</view>
+    </scroll-view>
+    <view class="all-sub-menu-btn" bindtap="showCategoryPickerModal">
+      <image class="filter-icon" src="/images/filter.png" />
+    </view>
+  </view>
+</view>
+
 <view class="course-list">
   <view class="course-item" wx:for="{{courseList}}" wx:key="index">
     <i-course-item item="{{item}}"/>
@@ -9,9 +43,20 @@
     <template is="i-empty-illus" data="{{desc: '暂无列表'}}" />
   </view>
 
+  <view class="apply-tips">
+    <text>还想学习其他课程？</text>
+    <text style="color: #0670FF">点击申请</text>
+  </view>
+
   <view class="youbo-logo-wrap">
     <i-youbo-logo />
   </view>
 </view>
 
-
+<category-picker-modal 
+  wx:if="{{categoryPickerModalVisible}}" 
+  options="{{subMenuList}}" 
+  pickedIdx="{{curSubMenuIdx}}" 
+  bind:confirm="confirmCategoryPick" 
+  bind:hide="hideCategoryPickerModal" 
+/>
