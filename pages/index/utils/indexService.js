@@ -16,6 +16,10 @@ class IndexService extends BaseService {
   async checkArticle(class_id, article_id) {
     return await this.post({ url: `${this.baseUrl}/api/v1/article/article-look`, data: { class_id, article_id } })
   }
+
+  async getOpenInfoList(page, page_size = 10) {
+    return await this.get({ url: `${this.baseUrl}/api/v1/open-info/list`, data: { page, page_size } })
+  }
 }
 
 export default IndexService

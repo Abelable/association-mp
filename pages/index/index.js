@@ -11,15 +11,14 @@ Page({
     banner: [],
     lowList: [],
     thinkList: [],
+    openInfoList: [],
     certificate: "",
     certificateModalVisible: false,
-    minePopupVisible: false,
+    minePopupVisible: false
   },
 
   async onShow() {
-    wx.showLoading({
-      title: "加载中...",
-    });
+    wx.showLoading({ title: "加载中..." });
     await this.setBanner();
     if (wx.getStorageSync("openid")) {
       this.getCertificate();
@@ -27,13 +26,14 @@ Page({
     await this.setCourseList();
     await this.setLowList();
     await this.setThinkList();
+    await this.setOpenInfoList();
     wx.hideLoading();
   },
 
   async setBanner() {
     const introItem = {
       img: "https://img.ubo.vip/mp/association/intro-banner.png",
-      link_type: 0,
+      link_type: 0
     };
     const banner = (await indexService.getBanner()) || [];
     this.setData({ banner: [...banner, introItem] });
@@ -54,6 +54,11 @@ Page({
     this.setData({ thinkList });
   },
 
+  async setOpenInfoList() {
+    const { list: openInfoList } = await indexService.getOpenInfoList(1, 3);
+    this.setData({ openInfoList });
+  },
+
   navTo(e) {
     const { link_type, article_id, redirect_url } =
       this.data.banner[e.currentTarget.dataset.index];
@@ -63,17 +68,17 @@ Page({
         break;
       case 1:
         wx.navigateTo({
-          url: `/pages/index/subpages/course/subpages/course-detail/index?id=${article_id}`,
+          url: `/pages/index/subpages/course/subpages/course-detail/index?id=${article_id}`
         });
         break;
       case 2:
         wx.navigateTo({
-          url: `/pages/index/subpages/low/subpages/low-detail/index?id=${article_id}`,
+          url: `/pages/index/subpages/low/subpages/low-detail/index?id=${article_id}`
         });
         break;
       case 3:
         wx.navigateTo({
-          url: `/pages/index/subpages/think/subpages/think-detail/index?id=${article_id}`,
+          url: `/pages/index/subpages/think/subpages/think-detail/index?id=${article_id}`
         });
         break;
       case 4:
@@ -81,7 +86,7 @@ Page({
           url: `/pages/common/webview/index?url=${redirect_url.replace(
             "?",
             "&"
-          )}`,
+          )}`
         });
         break;
     }
@@ -89,19 +94,19 @@ Page({
 
   checkMoreCourse() {
     wx.navigateTo({
-      url: "/pages/index/subpages/course/index",
+      url: "/pages/index/subpages/course/index"
     });
   },
 
   checkMoreLow() {
     wx.navigateTo({
-      url: "/pages/index/subpages/low-cate/index",
+      url: "/pages/index/subpages/low-cate/index"
     });
   },
 
   checkMoreOpenInfo() {
     wx.navigateTo({
-      url: "/pages/index/subpages/open-info/index",
+      url: "/pages/index/subpages/open-info/index"
     });
   },
 
@@ -114,22 +119,23 @@ Page({
 
   async onPullDownRefresh() {
     wx.showLoading({
-      title: "加载中...",
+      title: "加载中..."
     });
     await this.setBanner();
     await this.setCourseList();
     await this.setLowList();
     await this.setThinkList();
+    await this.setOpenInfoList();
     wx.hideLoading();
     wx.stopPullDownRefresh();
   },
 
   async getCertificate() {
     const { list = [] } = (await indexService.getApplyList(1, 100)) || {};
-    list.map((item) => {
+    list.map(item => {
       if (item.certificate_status == 1) {
         this.setData({
-          certificate: item.url,
+          certificate: item.url
         });
       }
     });
@@ -137,7 +143,7 @@ Page({
 
   checkCertificate() {
     this.setData({
-      certificateModalVisible: true,
+      certificateModalVisible: true
     });
   },
 
@@ -149,26 +155,26 @@ Page({
       filePath,
       success: () => {
         this.setData({
-          certificateModalVisible: false,
+          certificateModalVisible: false
         });
         wx.showToast({ title: "成功保存", icon: "success" });
-      },
+      }
     });
   },
 
   showMinePopup() {
     checkLogin(() => {
       this.setData({
-        minePopupVisible: true,
+        minePopupVisible: true
       });
     });
   },
 
   hideMinePopup() {
     this.setData({
-      minePopupVisible: false,
+      minePopupVisible: false
     });
   },
 
-  onShareAppMessage() {},
+  onShareAppMessage() {}
 });

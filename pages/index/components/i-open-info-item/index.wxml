@@ -1,7 +1,7 @@
 <wxs module="TIME" src="/utils/filters/time.wxs" />
 
 <view class="open-info-item" ontap="navTo">
-  <image class="cover" src="{{item.cover_img}}" mode="aspectFill" lazy-load />
+  <image class="cover" src="{{item.cover}}" mode="aspectFill" lazy-load />
   <view class="content-wrap">
     <view class="title">{{item.title}}</view>
     <view class="time">{{TIME.transform(item.created_at).year + '-' + TIME.transform(item.created_at).month + '-' + TIME.transform(item.created_at).date + ' ' + TIME.transform(item.created_at).hours + ':' + TIME.transform(item.created_at).minutes}}</view>
