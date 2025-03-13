@@ -25,7 +25,7 @@ Page({
     const { list = [] } =
       (await openInfoService.getOpenInfoList(++this.page)) || {};
     this.setData({
-      openInfoList: init ? [...list, ...list, ...list, ...list, ...list, ...list, ...list] : [...this.data.openInfoList, ...list]
+      openInfoList: init ? list : [...this.data.openInfoList, ...list]
     });
   }
 });
