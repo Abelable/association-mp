@@ -21,13 +21,6 @@
   width: fit-content;
 }
 
-.apply-tips {
-  margin-top: 32rpx;
-  color: #3C3F42;
-  font-size: 24rpx;
-  text-align: center;
-}
-
 .youbo-logo-wrap {
   margin-top: 100rpx;
 }
