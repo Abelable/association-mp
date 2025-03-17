@@ -1,3 +1,6 @@
+import ResourceService from "./utils/resourceService";
+
+const resourceService = new ResourceService();
 const { statusBarHeight } = getApp().globalData;
 
 Page({
@@ -41,7 +44,29 @@ Page({
     ]
   },
 
-  onLoad(options) {},
+  async onLoad() {
+    await this.setSubMenuList();
+    this.setEnterpriseList(true);
+  },
+
+  async setSubMenuList() {
+    const list = await resourceService.getEnterpriseCategoryList();
+    this.setData({ subMenuList: [{ id: 0, name: "全部" }, ...list] });
+  },
+
+  async setEnterpriseList(init = false) {
+    if (init) {
+      this.page = 0;
+    }
+    const { subMenuList, curSubMenuIdx, enterpriseList } = this.data;
+    const list = await resourceService.getEnterpriseList(
+      subMenuList[curSubMenuIdx].id,
+      ++this.page
+    );
+    this.setData({
+      enterpriseList: init ? list : [...enterpriseList, ...list]
+    });
+  },
 
   selectMenu(e) {
     const curMenuIdx = e.currentTarget.dataset.index;
@@ -64,6 +89,16 @@ Page({
 
   hideCategoryPickerModal() {
     this.setData({ categoryPickerModalVisible: false });
+  },
+
+  async onPullDownRefresh() {
+    await this.setSubMenuList();
+    this.setEnterpriseList(true);
+    wx.stopPullDownRefresh();
+  },
+
+  onReachBottom() {
+    this.setEnterpriseList();
   },
 
   checkEnterpriseDetail(e) {
