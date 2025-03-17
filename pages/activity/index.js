@@ -1,3 +1,6 @@
+import ActivityService from "./utils/activityService";
+
+const activityService = new ActivityService();
 const { statusBarHeight } = getApp().globalData;
 
 Page({
@@ -56,7 +59,16 @@ Page({
     ]
   },
 
-  onLoad(options) {},
+  async onLoad() {
+    await this.setSubMenuList();
+  },
+
+  async setSubMenuList() {
+    const list = await activityService.getActivityCategoryList();
+    this.setData({
+      subMenuList: [{ id: 0, name: "推荐" }, ...list]
+    });
+  },
 
   selectMenu(e) {
     const curMenuIdx = e.currentTarget.dataset.index;

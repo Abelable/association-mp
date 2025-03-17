@@ -36,7 +36,7 @@
         wx:key="index"
         bindtap="selectSubMenu"
         data-index="{{index}}"
-        >{{item}}</view>
+        >{{item.name}}</view>
     </scroll-view>
     <view class="all-sub-menu-btn" bindtap="showCategoryPickerModal">
       <image class="filter-icon" src="/images/filter.png" />
