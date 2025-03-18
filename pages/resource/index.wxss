@@ -87,6 +87,56 @@
   height: 14px;
 }
 
+.search-bar {
+  padding: 9px 24rpx;
+  background: #fff;
+}
+.search-content {
+  position: relative;
+  padding-right: 120rpx;
+  height: 36px;
+  background: #fff;
+  border-radius: 18px;
+  border: 1px solid #3BA0FB;
+}
+.search-icon {
+  margin-left: 20rpx;
+  width: 30rpx;
+  height: 15px;
+}
+.search-input {
+  padding-left: 10rpx;
+  flex: 1;
+  height: 36px;
+  color: #333;
+  font-size: 13px;
+}
+.cancel-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+}
+.cancel-icon {
+  width: 16px;
+  height: 16px;
+}
+.search-btn {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120rpx;
+  height: 36px;
+  font-size: 13px;
+  color: #fff;
+  border-radius: 18px;
+  background: #3BA0FB;
+}
+
 .enterprise-list {
   padding: 24rpx;
 }

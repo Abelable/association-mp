@@ -7,16 +7,8 @@ Page({
   data: {
     statusBarHeight,
     curMenuIdx: 0,
-    subMenuList: [
-      "全部",
-      "电商",
-      "直播",
-      "农产品",
-      "AI",
-      "制造业",
-      "机械",
-      "汽车"
-    ],
+    keywords: "",
+    subMenuList: [],
     curSubMenuIdx: 0,
     categoryPickerModalVisible: false,
     enterpriseList: [
@@ -49,6 +41,27 @@ Page({
     this.setEnterpriseList(true);
   },
 
+  setKeywords(e) {
+    this.setData({
+      keywords: e.detail.value
+    });
+  },
+
+  search() {
+    const { keywords } = this.data;
+    if (!keywords) {
+      return;
+    }
+    this.setEnterpriseList(true);
+  },
+
+  cancelSearch() {
+    this.setData({
+      keywords: ""
+    });
+    this.setEnterpriseList(true);
+  },
+
   async setSubMenuList() {
     const list = await resourceService.getEnterpriseCategoryList();
     this.setData({ subMenuList: [{ id: 0, name: "全部" }, ...list] });
@@ -58,11 +71,12 @@ Page({
     if (init) {
       this.page = 0;
     }
-    const { subMenuList, curSubMenuIdx, enterpriseList } = this.data;
-    const list = await resourceService.getEnterpriseList(
-      subMenuList[curSubMenuIdx].id,
-      ++this.page
-    );
+    const { subMenuList, curSubMenuIdx, keywords, enterpriseList } = this.data;
+    const list = await resourceService.getEnterpriseList({
+      category_id: subMenuList[curSubMenuIdx].id,
+      company_name: keywords,
+      page: ++this.page
+    });
     this.setData({
       enterpriseList: init ? list : [...enterpriseList, ...list]
     });
@@ -76,6 +90,7 @@ Page({
   selectSubMenu(e) {
     const curSubMenuIdx = e.currentTarget.dataset.index;
     this.setData({ curSubMenuIdx });
+    this.setEnterpriseList(true);
   },
 
   showCategoryPickerModal() {

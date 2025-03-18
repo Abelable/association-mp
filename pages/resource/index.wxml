@@ -11,6 +11,23 @@
       data-index="{{index}}"
       >{{item}}</view>
   </view>
+  <view class="search-bar" wx:if="{{curMenuIdx === 0}}">
+    <view class="search-content row">
+      <image class="search-icon" src="https://img.ubo.vip/mp/index/search/index-search.png" />
+      <input 
+        class="search-input"
+        value="{{keywords}}" 
+        bindinput="setKeywords" 
+        bindconfirm="search" 
+        placeholder="输入你想要查询的企业" 
+        confirm-type="search" 
+      />
+      <view class="cancel-btn" wx:if="{{keywords}}" bindtap="cancelSearch">
+        <image class="cancel-icon" src="https://img.ubo.vip/mp/search/clear-search.png" />
+      </view>
+      <view class="search-btn" bindtap="search">搜索</view>
+    </view>
+  </view>
   <view class="sub-menu-wrap" wx:if="{{curMenuIdx === 0}}">
     <scroll-view class="sub-menu" scroll-x>
       <view 
@@ -27,7 +44,7 @@
   </view>
 </view>
 
-<view class="enterprise-list" style="margin-top: {{statusBarHeight + 132}}px" wx:if="{{curMenuIdx === 0}}">
+<view class="enterprise-list" style="margin-top: {{statusBarHeight + 186}}px" wx:if="{{curMenuIdx === 0}}">
   <view class="enterprise-item" wx:for="{{enterpriseList}}" wx:key="index" bindtap="checkEnterpriseDetail" data-id="{{item.id}}">
     <image class="enterprise-cover" src="{{item.logo || '/images/img-empty.png'}}" mode="aspectFit"/>
     <view class="enterprise-info">
