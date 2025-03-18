@@ -75,16 +75,17 @@ Page({
   selectSubMenu(e) {
     const curSubMenuIdx = e.currentTarget.dataset.index;
     this.setData({ curSubMenuIdx });
+    this.setActivityList(true);
   },
 
   async setActivityList(init = false) {
     if (init) {
       this.activityPage = 0;
     }
-    const { subMenuList, curMenuIdx, activityList, keywords } = this.data;
+    const { subMenuList, curSubMenuIdx, activityList, keywords } = this.data;
     const { list = [] } =
       (await activityService.getActivityList({
-        categoryId: subMenuList[curMenuIdx].id,
+        category_id: subMenuList[curSubMenuIdx].id,
         title: keywords,
         page: ++this.activityPage
       })) || {};
