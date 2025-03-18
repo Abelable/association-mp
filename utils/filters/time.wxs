@@ -1,16 +1,34 @@
+function format(timeStamp, statement) {
+  if (timeStamp) {
+    var year = _format(getDate(timeStamp * 1000).getFullYear());
+    var month = _format(getDate(timeStamp * 1000).getMonth() + 1);
+    var day = _format(getDate(timeStamp * 1000).getDate());
+    var hours = _format(getDate(timeStamp * 1000).getHours());
+    var minutes = _format(getDate(timeStamp * 1000).getMinutes());
+    var seconds = _format(getDate(timeStamp * 1000).getSeconds());
+    return statement
+      .replace("YYYY", year)
+      .replace("MM", month)
+      .replace("DD", day)
+      .replace("hh", hours)
+      .replace("mm", minutes)
+      .replace("ss", seconds);
+  }
+}
+
 function transform(timeStamp) {
   return {
-    year: format(getDate(timeStamp * 1000).getFullYear()),
-    month: format(getDate(timeStamp * 1000).getMonth() + 1),
-    date: format(getDate(timeStamp * 1000).getDate()),
-    day: format(getDate(timeStamp * 1000).getDay()),
-    hours: format(getDate(timeStamp * 1000).getHours()),
-    minutes: format(getDate(timeStamp * 1000).getMinutes()),
-    seconds: format(getDate(timeStamp * 1000).getSeconds())
+    year: _format(getDate(timeStamp * 1000).getFullYear()),
+    month: _format(getDate(timeStamp * 1000).getMonth() + 1),
+    date: _format(getDate(timeStamp * 1000).getDate()),
+    day: _format(getDate(timeStamp * 1000).getDay()),
+    hours: _format(getDate(timeStamp * 1000).getHours()),
+    minutes: _format(getDate(timeStamp * 1000).getMinutes()),
+    seconds: _format(getDate(timeStamp * 1000).getSeconds())
   };
 }
 
-function format(time) {
+function _format(time) {
   time = time.toString();
   return time[1] ? time : '0' + time;
 }

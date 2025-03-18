@@ -1,0 +1,18 @@
+<wxs module="TIME" src="/utils/filters/time.wxs" />
+
+<view class="activity-item" bindtap="checkActivity">
+  <view class="activity-main row">
+    <image class="activity-cover" src="{{info.cover || '/images/img-empty.png'}}" mode="aspectFit" />
+    <view class="activity-info">
+      <view class="activity-title">{{info.title}}</view>
+      <view class="activity-time">
+        <text class="activity-status {{status === 1 ? 'active' : ''}}">{{['未开始', '报名中', '已结束'][status]}}</text>
+        <text> · {{TIME.format(info.start_time, 'YYYY.MM.DD')}} - {{TIME.format(info.end_time, 'YYYY.MM.DD')}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="activity-footer row between">
+    <view class="activity-limit">限{{info.enter_num}}人报名参加</view>
+    <view class="activity-btn row center">进入活动</view>
+  </view>
+</view>

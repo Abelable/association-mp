@@ -3,6 +3,7 @@
   "navigationBarTextStyle": "white",
   "usingComponents": {
     "category-picker-modal": "/components/category-picker-modal/index",
-    "real-image-grid": "./components/real-image-grid/index"
+    "real-image-grid": "./components/real-image-grid/index",
+    "activity-item": "./components/activity-item/index"
   }
 }

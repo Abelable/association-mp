@@ -61,6 +61,7 @@ Page({
 
   async onLoad() {
     await this.setSubMenuList();
+    this.setActivityList(true);
   },
 
   async setSubMenuList() {
@@ -99,6 +100,20 @@ Page({
   selectSubMenu(e) {
     const curSubMenuIdx = e.currentTarget.dataset.index;
     this.setData({ curSubMenuIdx });
+  },
+
+  async setActivityList(init = false) {
+    if (init) {
+      this.activityPage = 0;
+    }
+    const { subMenuList, curMenuIdx, activityList, keywords } = this.data;
+    const { list = [] } =
+      (await activityService.getActivityList({
+        categoryId: subMenuList[curMenuIdx].id,
+        title: keywords,
+        page: ++this.activityPage
+      })) || {};
+    this.setData({ activityList: init ? list : [...activityList, ...list] });
   },
 
   showCategoryPickerModal() {

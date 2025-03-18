@@ -55,7 +55,7 @@
 </view>
 
 <view class="activity-list" style="margin-top: {{statusBarHeight + 186}}px" wx:if="{{curMenuIdx === 0}}">
-  <view class="activity-item" wx:for="{{activityList}}" wx:key="index">
+  <!-- <view class="activity-item" wx:for="{{activityList}}" wx:key="index">
     <view class="activity-main row">
       <image class="activity-cover" src="{{item.cover}}" mode="aspectFill" />
       <view class="activity-info">
@@ -70,7 +70,8 @@
       <view class="activity-limit">限{{item.limit}}人报名参加</view>
       <view class="activity-btn row center">进入活动</view>
     </view>
-  </view>
+  </view> -->
+  <activity-item wx:for="{{activityList}}" wx:key="index" info="{{item}}" />
 </view>
 
 <view class="album-list" style="margin-top: {{statusBarHeight + 132}}px" wx:if="{{curMenuIdx === 1}}">
