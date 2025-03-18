@@ -1,3 +1,5 @@
+@import "/templates/i-empty-illus/index.wxss";
+
 .swiper-wrap {
   position: relative;
 }
@@ -55,4 +57,9 @@
   margin-right: 12rpx;
   width: 42rpx;
   height: 42rpx;
+}
+
+.empty-illus-wrap {
+  margin: 80rpx auto;
+  width: fit-content;
 }

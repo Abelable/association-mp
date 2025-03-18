@@ -14,6 +14,14 @@ class ResourceService extends BaseService {
       loadingTitle: "加载中..."
     });
   }
+
+  async getEnterpriseDetail(id) {
+    return await this.get({
+      url: `${this.baseUrl}/api/v1/enter-apply/detail`,
+      data: { id },
+      loadingTitle: "加载中..."
+    });
+  }
 }
 
 export default ResourceService;

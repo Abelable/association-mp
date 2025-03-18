@@ -52,7 +52,7 @@
       <view class="enterprise-type">
         {{item.member_level ? ['普通会员单位', '副会长单位', '会长单位', '理事', '常务理事单位'][item.member_level - 1] : ''}}
       </view>
-      <view class="enterprise-business">主营业务：{{item.business || '暂无'}}</view>
+      <view class="enterprise-business">主营业务：{{item.main_business || '暂无'}}</view>
     </view>
   </view>
 </view>

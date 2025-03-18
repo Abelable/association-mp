@@ -1,4 +1,6 @@
-<view class="swiper-wrap">
+<import src="/templates/i-empty-illus/index.wxml"/>
+
+<view class="swiper-wrap" wx:if="{{banner.length}}">
   <swiper class="swiper custom-dots" autoplay circular interval="5000" duration="1000" indicator-dots>
     <swiper-item wx:for="{{banner}}" wx:key="index">
       <image class="banner-img" src="{{item}}" mode="aspectFill" />
@@ -9,9 +11,15 @@
 <view class="container">
   <view class="content-wrap">
     <view class="title">企业介绍</view>
-    <view class="content">企业介绍企业介绍企业介绍企业介绍企业介绍企业介绍企业介绍企业介绍企业介绍企业介绍企业介绍企业介绍企业介绍企业介绍企业介绍企业介绍</view>
+    <view class="content" wx:if="{{info.introduction}}">{{info.introduction}}</view>
+    <view class="empty-illus-wrap" wx:if="{{!info.introduction}}">
+      <template is="i-empty-illus" data="{{desc: '暂无企业介绍'}}" />
+    </view>
     <view class="title">企业地址</view>
-    <view class="content address">企业地址企业地址企业地址企业地址企业地址企业地址企业地址企业地址企业地址企业地址企业地址企业地址企业地址</view>
+    <view class="content address" wx:if="{{info.address_detail}}">{{info.address_detail}}</view>
+    <view class="empty-illus-wrap" wx:if="{{!info.address_detail}}">
+      <template is="i-empty-illus" data="{{desc: '暂无企业地址'}}" />
+    </view>
   </view>
 </view>
 
@@ -20,12 +28,12 @@
     <image class="icon" src="./images/cs.png" />
     <view>企业咨询</view>
   </view>
-  <view class="footer-item">
+  <view class="footer-item" wx:if="{{info.mp_app_id}}" bindtap="checkMp">
     <image class="icon" src="./images/mp.png" />
     <view>企业小程序</view>
   </view>
-  <view class="footer-item">
+  <button class="footer-item" open-type='share' hover-class="none">
     <image class="icon" src="./images/share.png" />
     <view>分享好友</view>
-  </view>
+  </button>
 </view>
