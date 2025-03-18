@@ -8,35 +8,10 @@ Page({
     statusBarHeight,
     curMenuIdx: 0,
     keywords: "",
-    isSearching: false,
-    subMenuList: [
-      "推荐",
-      "培训",
-      "助农",
-      "党建",
-      "AI",
-      "制造业",
-      "机械",
-      "汽车"
-    ],
+    subMenuList: [],
     curSubMenuIdx: 0,
     categoryPickerModalVisible: false,
-    activityList: [
-      {
-        cover:
-          "https://img-oss.zjseca.com/government/20231013/1697188126318.png",
-        title: "“之江数据安全治理”系列活动——“助力数据跨境，护航企业出海”交流会",
-        status: 1,
-        limit: 100
-      },
-      {
-        cover:
-          "https://img-oss.zjseca.com/government/20231013/1697188126318.png",
-        title: "美妆行业“绿色直播间”助力品牌发展论坛",
-        status: 2,
-        limit: 100
-      }
-    ],
+    activityList: [],
     albumList: [
       {
         title: "美妆行业“绿色直播间”助力品牌发展论坛",
@@ -87,14 +62,14 @@ Page({
     if (!keywords) {
       return;
     }
-    this.setData({ isSearching: true });
+    this.setActivityList(true);
   },
 
   cancelSearch() {
     this.setData({
-      keywords: "",
-      isSearching: false
+      keywords: ""
     });
+    this.setActivityList(true);
   },
 
   selectSubMenu(e) {
@@ -114,6 +89,22 @@ Page({
         page: ++this.activityPage
       })) || {};
     this.setData({ activityList: init ? list : [...activityList, ...list] });
+  },
+
+  async onPullDownRefresh() {
+    if (this.data.curMenuIdx === 0) {
+      await this.setSubMenuList();
+      this.setActivityList(true);
+    } else {
+    }
+    wx.stopPullDownRefresh();
+  },
+
+  onReachBottom() {
+    if (this.data.curMenuIdx === 0) {
+      this.setActivityList();
+    } else {
+    }
   },
 
   showCategoryPickerModal() {
