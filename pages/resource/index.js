@@ -11,29 +11,7 @@ Page({
     subMenuList: [],
     curSubMenuIdx: 0,
     categoryPickerModalVisible: false,
-    enterpriseList: [
-      {
-        cover:
-          "https://img-oss.zjseca.com/government/20221122/1669105837384.png",
-        name: "杭州艺福堂茶叶有限公司",
-        type: "普通会员单位",
-        business: "茶叶销售、茶叶制品"
-      },
-      {
-        cover:
-          "https://img-oss.zjseca.com/government/20221122/1669105837384.png",
-        name: "杭州艺福堂茶叶有限公司",
-        type: "普通会员单位",
-        business: "茶叶销售、茶叶制品"
-      },
-      {
-        cover:
-          "https://img-oss.zjseca.com/government/20221122/1669105837384.png",
-        name: "杭州艺福堂茶叶有限公司",
-        type: "普通会员单位",
-        business: "茶叶销售、茶叶制品"
-      }
-    ]
+    enterpriseList: []
   },
 
   async onLoad() {
@@ -107,13 +85,17 @@ Page({
   },
 
   async onPullDownRefresh() {
-    await this.setSubMenuList();
-    this.setEnterpriseList(true);
+    if (this.data.curMenuIdx === 0) {
+      await this.setSubMenuList();
+      this.setEnterpriseList(true);
+    }
     wx.stopPullDownRefresh();
   },
 
   onReachBottom() {
-    this.setEnterpriseList();
+    if (this.data.curMenuIdx === 0) {
+      this.setEnterpriseList();
+    }
   },
 
   checkEnterpriseDetail(e) {
