@@ -16,7 +16,7 @@
       <template is="i-empty-illus" data="{{desc: '暂无企业介绍'}}" />
     </view>
     <view class="title">企业地址</view>
-    <view class="content address" wx:if="{{info.address_detail}}">{{info.address_detail}}</view>
+    <view class="content address" wx:if="{{info.address_detail}}" bindtap="navigation">{{info.address_detail}}</view>
     <view class="empty-illus-wrap" wx:if="{{!info.address_detail}}">
       <template is="i-empty-illus" data="{{desc: '暂无企业地址'}}" />
     </view>

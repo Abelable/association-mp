@@ -14,10 +14,11 @@ Page({
   },
 
   async setInfo() {
-    const { banner, company_name, ...info } =
-      await resourceService.getEnterpriseDetail(this.id);
+    const { banner, ...info } = await resourceService.getEnterpriseDetail(
+      this.id
+    );
     wx.setNavigationBarTitle({
-      title: company_name
+      title: info.company_name
     });
     this.setData({ banner: JSON.parse(banner), info });
   },
@@ -28,9 +29,24 @@ Page({
     });
   },
 
+  navigation() {
+    const {
+      company_name: name,
+      address_detail: address,
+      latitude,
+      longitude
+    } = this.data.info;
+    wx.openLocation({
+      latitude: +latitude,
+      longitude: +longitude,
+      name,
+      address
+    });
+  },
+
   checkMp() {
     wx.navigateToMiniProgram({
       appId: this.data.info.mp_app_id
-    })
+    });
   }
 });
