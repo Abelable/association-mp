@@ -22,6 +22,14 @@ class ResourceService extends BaseService {
       loadingTitle: "加载中..."
     });
   }
+
+  async submitConsulting(enterprise_id, name, mobile, company_name, content, success) { 
+    return await this.post({
+      url: `${this.baseUrl}/api/v1/enterprise-consulting/save`,
+      data: { enterprise_id, name, mobile, company_name, content },
+      success
+    });
+  }
 }
 
 export default ResourceService;

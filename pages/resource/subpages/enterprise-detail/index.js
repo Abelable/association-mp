@@ -24,9 +24,8 @@ Page({
   },
 
   navToConsulting() {
-    wx.navigateTo({
-      url: "../consulting/index"
-    });
+    const url = `../consulting/index?id=${this.id}`
+    wx.navigateTo({ url });
   },
 
   navigation() {
