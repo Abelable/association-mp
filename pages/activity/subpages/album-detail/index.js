@@ -20,5 +20,11 @@ Page({
       (await activityService.getAlbumDetail(this.id)) || {};
     const photoList = JSON.parse(photo_list);
     this.setData({ photoList });
+  },
+
+  previewImage(e) {
+    const { current } = e.currentTarget.dataset;
+    const urls = this.data.photoList;
+    wx.previewImage({ current, urls });
   }
 });
