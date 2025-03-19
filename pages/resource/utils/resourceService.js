@@ -30,6 +30,13 @@ class ResourceService extends BaseService {
       success
     });
   }
+
+  async getIndustryList() {
+    return await this.get({
+      url: `${this.baseUrl}/api/v1/industry/list`,
+      loadingTitle: "加载中..."
+    });
+  }
 }
 
 export default ResourceService;

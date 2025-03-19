@@ -175,6 +175,33 @@
   font-size: 24rpx;
 }
 
+.map-wrap {
+  position: relative;
+  width: 100vw;
+  height: 50vh;
+}
+ec-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.industrial-content-wrap {
+  margin: 24rpx;
+  padding: 24rpx;
+  background: #fff;
+  border-radius: 24rpx;
+}
+.city-name {
+  color: #333;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.industrial-content {
+  margin-top: 12rpx;
+  color: #333;
+  font-size: 26rpx;
+}
+
 .empty-illus-wrap {
   margin: 240rpx auto 0;
   width: fit-content;

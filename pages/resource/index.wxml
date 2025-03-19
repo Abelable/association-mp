@@ -67,6 +67,25 @@
   </view>
 </view>
 
+<view class="industrial-belt" style="margin-top: {{statusBarHeight + 88}}px" wx:if="{{curMenuIdx === 1}}">
+  <view class="map-wrap">
+    <ec-canvas id="mychart-dom-area" canvas-id="mychart-area" ec="{{ ec }}" />
+  </view>
+  <view class="industrial-content-wrap">
+    <view class="city-name">{{industryList[curCityIdx].city_name}}</view>
+    <view class="industrial-content">
+      <view>
+        <text style="font-weight: bold;">核心产业带：</text>
+        <text>{{industryList[curCityIdx].main}}</text>
+      </view>
+      <view style="margin-top: 8rpx;">
+        <text style="font-weight: bold;">核心TOP行业：</text>
+        <text>{{industryList[curCityIdx].top}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+
 <category-picker-modal 
   wx:if="{{categoryPickerModalVisible}}" 
   options="{{subMenuList}}" 

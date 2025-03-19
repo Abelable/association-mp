@@ -3,6 +3,7 @@
   "navigationBarTextStyle": "white",
   "enablePullDownRefresh": true,
   "usingComponents": {
+    "ec-canvas": "/components/ec-canvas/ec-canvas",
     "category-picker-modal": "/components/category-picker-modal/index"
   }
 }

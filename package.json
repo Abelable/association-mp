@@ -5,7 +5,9 @@
   "main": "app.js",
   "dependencies": {
     "@vant/weapp": "^1.8.4",
-    "mp-html": "^2.1.5"
+    "mp-html": "^2.1.5",
+     "mobx-miniprogram": "^4.13.2",
+    "mobx-miniprogram-bindings": "^2.1.5"
   },
   "devDependencies": {},
   "scripts": {
