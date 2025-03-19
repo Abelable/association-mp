@@ -3,6 +3,7 @@
   "navigationBarTextStyle": "white",
   "enablePullDownRefresh": true,
   "usingComponents": {
+    "van-calendar": "@vant/weapp/calendar/index",
     "category-picker-modal": "/components/category-picker-modal/index",
     "activity-item": "./components/activity-item/index",
     "album-item": "./components/album-item/index"

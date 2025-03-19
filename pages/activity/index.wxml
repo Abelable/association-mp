@@ -1,3 +1,5 @@
+<wxs module="TIME" src="/utils/filters/time.wxs" />
+
 <view class="header">
   <view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">
     <view class="nav-bar-title">协会风采</view>
@@ -47,9 +49,13 @@
       <view>地区</view>
       <image class="down-arrow" src="./images/down-arrow.png" />
     </view>
-    <view class="filter-menu-item">
-      <view>时间</view>
-      <image class="down-arrow" src="./images/down-arrow.png" />
+    <view class="filter-menu-item" bindtap="showCalendarPopup">
+      <view wx:if="{{!startTime}}">时间</view>
+      <view wx:if="{{startTime}}">{{TIME.format(startTime, 'YYYY.MM.DD')}}-{{TIME.format(endTime, 'YYYY.MM.DD')}}</view>
+      <image class="down-arrow" wx:if="{{!startTime}}" src="./images/down-arrow.png" />
+       <view class="cancel-btn" wx:if="{{startTime}}" catchtap="cancelCalendarPick">
+        <image class="cancel-icon" src="https://img.ubo.vip/mp/search/clear-search.png" />
+      </view>
     </view>
   </view>
 </view>
@@ -68,4 +74,14 @@
   pickedIdx="{{curSubMenuIdx}}" 
   bind:confirm="confirmCategoryPick" 
   bind:hide="hideCategoryPickerModal" 
+/>
+
+<van-calendar
+  show="{{calendarPopupVisibel}}"
+  minDate="{{minDate}}"
+  maxDate="{{maxDate}}"
+  type="range"
+  bind:close="hideCalendarPopup"
+  bind:confirm="setCalendar"
+  color="#3BA0FB" 
 />

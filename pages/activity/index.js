@@ -12,7 +12,12 @@ Page({
     curSubMenuIdx: 0,
     categoryPickerModalVisible: false,
     activityList: [],
-    albumList: []
+    albumList: [],
+    minDate: new Date(2010, 0, 1).getTime(),
+    maxDate: new Date().getTime(),
+    startTime: "",
+    endTime: "",
+    calendarPopupVisibel: false
   },
 
   async onLoad() {
@@ -31,7 +36,7 @@ Page({
     const curMenuIdx = e.currentTarget.dataset.index;
     this.setData({ curMenuIdx });
     if (curMenuIdx === 1 && !this.data.albumList.length) {
-      this.setAlbumList(true)
+      this.setAlbumList(true);
     }
   },
 
@@ -62,6 +67,38 @@ Page({
     this.setActivityList(true);
   },
 
+  showCalendarPopup() {
+    this.setData({
+      calendarPopupVisibel: true
+    });
+  },
+
+  hideCalendarPopup() {
+    this.setData({
+      calendarPopupVisibel: false
+    });
+  },
+
+  cancelCalendarPick() {
+    this.setData({
+      startTime: "",
+      endTime: ""
+    });
+    this.setAlbumList(true);
+  },
+
+  setCalendar(e) {
+    const [start, end] = e.detail;
+    const startTime = `${start.getTime()}`.slice(0, -3);
+    const endTime = `${end.getTime() + 86400000}`.slice(0, -3);
+    this.setData({
+      startTime,
+      endTime,
+      calendarPopupVisibel: false
+    });
+    this.setAlbumList(true);
+  },
+
   async setActivityList(init = false) {
     if (init) {
       this.activityPage = 0;
@@ -80,9 +117,11 @@ Page({
     if (init) {
       this.albumPage = 0;
     }
-    const { albumList } = this.data;
+    const { albumList, startTime, endTime } = this.data;
     const { list = [] } =
       (await activityService.getAlbumList({
+        start_time: startTime,
+        end_time: endTime,
         page: ++this.albumPage
       })) || {};
     this.setData({ albumList: init ? list : [...albumList, ...list] });
@@ -93,7 +132,7 @@ Page({
       await this.setSubMenuList();
       this.setActivityList(true);
     } else {
-      this.setAlbumList(true)
+      this.setAlbumList(true);
     }
     wx.stopPullDownRefresh();
   },
@@ -102,7 +141,7 @@ Page({
     if (this.data.curMenuIdx === 0) {
       this.setActivityList();
     } else {
-      this.setAlbumList()
+      this.setAlbumList();
     }
   },
 
