@@ -55,35 +55,11 @@
 </view>
 
 <view class="activity-list" style="margin-top: {{statusBarHeight + 186}}px" wx:if="{{curMenuIdx === 0}}">
-  <!-- <view class="activity-item" wx:for="{{activityList}}" wx:key="index">
-    <view class="activity-main row">
-      <image class="activity-cover" src="{{item.cover}}" mode="aspectFill" />
-      <view class="activity-info">
-        <view class="activity-title">{{item.title}}</view>
-        <view class="activity-time">
-          <text class="activity-status {{item.status === 1 ? 'active' : ''}}">{{item.status === 1 ? '报名中' : '已结束'}}</text>
-          <text> · 2025年1月1日</text>
-        </view>
-      </view>
-    </view>
-    <view class="activity-footer row between">
-      <view class="activity-limit">限{{item.limit}}人报名参加</view>
-      <view class="activity-btn row center">进入活动</view>
-    </view>
-  </view> -->
   <activity-item wx:for="{{activityList}}" wx:key="index" info="{{item}}" />
 </view>
 
 <view class="album-list" style="margin-top: {{statusBarHeight + 132}}px" wx:if="{{curMenuIdx === 1}}">
-  <view class="album-item" wx:for="{{albumList}}" wx:key="index" bindtap="checkAlbum">
-    <view class="album-title">{{item.title}}</view>
-    <view class="album-time-wrap">
-      <image class="position-icon" src="./images/position.png" />
-      <text class="album-position">杭州</text>
-      <text class="album-time"> · 2025年2月3日</text>
-    </view>
-    <real-image-grid images="{{item.imageList}}" />
-  </view>
+  <album-item wx:for="{{albumList}}" wx:key="index" info="{{item}}" />
 </view>
 
 <category-picker-modal 

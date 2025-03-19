@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "real-image-grid": "/components/real-image-grid/index"
+  }
+}

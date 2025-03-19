@@ -12,26 +12,7 @@ Page({
     curSubMenuIdx: 0,
     categoryPickerModalVisible: false,
     activityList: [],
-    albumList: [
-      {
-        title: "美妆行业“绿色直播间”助力品牌发展论坛",
-        imageList: [
-          "https://img-oss.zjseca.com/government/20231013/1697188126318.png",
-          "https://img-oss.zjseca.com/government/20231013/1697188126318.png",
-          "https://img-oss.zjseca.com/government/20231013/1697188126318.png",
-          "https://img-oss.zjseca.com/government/20231013/1697188126318.png"
-        ]
-      },
-      {
-        title: "美妆行业“绿色直播间”助力品牌发展论坛",
-        imageList: [
-          "https://img-oss.zjseca.com/government/20231013/1697188126318.png",
-          "https://img-oss.zjseca.com/government/20231013/1697188126318.png",
-          "https://img-oss.zjseca.com/government/20231013/1697188126318.png",
-          "https://img-oss.zjseca.com/government/20231013/1697188126318.png"
-        ]
-      }
-    ]
+    albumList: []
   },
 
   async onLoad() {
@@ -49,6 +30,9 @@ Page({
   selectMenu(e) {
     const curMenuIdx = e.currentTarget.dataset.index;
     this.setData({ curMenuIdx });
+    if (curMenuIdx === 1 && !this.data.albumList.length) {
+      this.setAlbumList(true)
+    }
   },
 
   setKeywords(e) {
@@ -92,11 +76,24 @@ Page({
     this.setData({ activityList: init ? list : [...activityList, ...list] });
   },
 
+  async setAlbumList(init = false) {
+    if (init) {
+      this.albumPage = 0;
+    }
+    const { albumList } = this.data;
+    const { list = [] } =
+      (await activityService.getAlbumList({
+        page: ++this.albumPage
+      })) || {};
+    this.setData({ albumList: init ? list : [...albumList, ...list] });
+  },
+
   async onPullDownRefresh() {
     if (this.data.curMenuIdx === 0) {
       await this.setSubMenuList();
       this.setActivityList(true);
     } else {
+      this.setAlbumList(true)
     }
     wx.stopPullDownRefresh();
   },
@@ -105,6 +102,7 @@ Page({
     if (this.data.curMenuIdx === 0) {
       this.setActivityList();
     } else {
+      this.setAlbumList()
     }
   },
 
@@ -119,11 +117,5 @@ Page({
 
   hideCategoryPickerModal() {
     this.setData({ categoryPickerModalVisible: false });
-  },
-
-  checkAlbum() {
-    wx.navigateTo({
-      url: "./subpages/album-detail/index"
-    });
   }
 });

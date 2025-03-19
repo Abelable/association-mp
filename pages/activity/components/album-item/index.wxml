@@ -1,0 +1,12 @@
+<wxs module="TIME" src="/utils/filters/time.wxs" />
+
+<view class="album-item" bindtap="checkAlbum">
+  <view class="album-title">{{info.title}}</view>
+  <view class="album-time-wrap">
+    <image class="position-icon" src="./images/position.png" />
+    <text class="album-position">{{cityName}}</text>
+    <text class="album-time"> · {{TIME.format(info.created_at, 'YYYY年MM月DD日')}}</text>
+  </view>
+  <real-image-grid images="{{photoList}}" />
+</view>
+
