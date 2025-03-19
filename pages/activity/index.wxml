@@ -45,15 +45,18 @@
     </view>
   </view>
   <view class="filter-menu" wx:if="{{curMenuIdx === 1}}">
-    <view class="filter-menu-item">
-      <view>地区</view>
-      <image class="down-arrow" src="./images/down-arrow.png" />
+    <view class="filter-menu-item" bindtap="showCityPickPopup">
+      <view>{{curCityIdx === -1 ? '地区' : cityList[curCityIdx]}}</view>
+      <image class="down-arrow" wx:if="{{curCityIdx === -1}}" src="./images/down-arrow.png" />
+      <view class="cancel-btn" wx:if="{{curCityIdx !== -1}}" catchtap="cancelCityPick">
+        <image class="cancel-icon" src="https://img.ubo.vip/mp/search/clear-search.png" />
+      </view>
     </view>
     <view class="filter-menu-item" bindtap="showCalendarPopup">
       <view wx:if="{{!startTime}}">时间</view>
       <view wx:if="{{startTime}}">{{TIME.format(startTime, 'YYYY.MM.DD')}}-{{TIME.format(endTime, 'YYYY.MM.DD')}}</view>
       <image class="down-arrow" wx:if="{{!startTime}}" src="./images/down-arrow.png" />
-       <view class="cancel-btn" wx:if="{{startTime}}" catchtap="cancelCalendarPick">
+      <view class="cancel-btn" wx:if="{{startTime}}" catchtap="cancelCalendarPick">
         <image class="cancel-icon" src="https://img.ubo.vip/mp/search/clear-search.png" />
       </view>
     </view>
@@ -75,6 +78,21 @@
   bind:confirm="confirmCategoryPick" 
   bind:hide="hideCategoryPickerModal" 
 />
+
+<van-popup
+  show="{{cityPickPopupVisible}}"
+  round
+  position="bottom"
+  bind:close="hideCityPickPopup"
+>
+  <van-picker 
+    show-toolbar
+    title="选择地区"
+    columns="{{cityList}}" 
+    bind:cancel="hideCityPickPopup"
+    bind:confirm="setCity" 
+  />
+</van-popup>
 
 <van-calendar
   show="{{calendarPopupVisibel}}"

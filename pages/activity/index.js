@@ -13,6 +13,21 @@ Page({
     categoryPickerModalVisible: false,
     activityList: [],
     albumList: [],
+    cityList: [
+      "杭州",
+      "宁波",
+      "温州",
+      "绍兴",
+      "湖州",
+      "嘉兴",
+      "金华",
+      "衢州",
+      "台州",
+      "丽水",
+      "舟山"
+    ],
+    curCityIdx: -1,
+    cityPickPopupVisible: false,
     minDate: new Date(2010, 0, 1).getTime(),
     maxDate: new Date().getTime(),
     startTime: "",
@@ -67,6 +82,29 @@ Page({
     this.setActivityList(true);
   },
 
+  showCityPickPopup() {
+    this.setData({
+      cityPickPopupVisible: true
+    });
+  },
+
+  hideCityPickPopup() {
+    this.setData({
+      cityPickPopupVisible: false
+    });
+  },
+
+  setCity(e) {
+    const curCityIdx = e.detail.index;
+    this.setData({ curCityIdx, cityPickPopupVisible: false });
+    this.setAlbumList(true);
+  },
+
+  cancelCityPick() {
+    this.setData({ curCityIdx: -1 });
+    this.setAlbumList(true);
+  },
+
   showCalendarPopup() {
     this.setData({
       calendarPopupVisibel: true
@@ -117,9 +155,10 @@ Page({
     if (init) {
       this.albumPage = 0;
     }
-    const { albumList, startTime, endTime } = this.data;
+    const { albumList, curCityIdx, startTime, endTime } = this.data;
     const { list = [] } =
       (await activityService.getAlbumList({
+        city_id: curCityIdx === -1 ? "" : curCityIdx + 1,
         start_time: startTime,
         end_time: endTime,
         page: ++this.albumPage
