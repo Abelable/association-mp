@@ -22,6 +22,14 @@ class ActivityService extends BaseService {
       loadingTitle: "加载中..."
     });
   }
+
+  async getAlbumDetail(id) {
+    return await this.get({
+      url: `${this.baseUrl}/api/v1/album/detail`,
+      data: { id },
+      loadingTitle: "加载中..."
+    });
+  }
 }
 
 export default ActivityService;
