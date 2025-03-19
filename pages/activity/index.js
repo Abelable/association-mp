@@ -203,6 +203,7 @@ Page({
   confirmCategoryPick(e) {
     const curSubMenuIdx = e.detail;
     this.setData({ curSubMenuIdx, categoryPickerModalVisible: false });
+    this.setActivityList(true);
   },
 
   hideCategoryPickerModal() {

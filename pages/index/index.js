@@ -40,7 +40,7 @@ Page({
   },
 
   async setCourseList() {
-    const courseList = await indexService.getCourseList(1, 3);
+    const courseList = await indexService.getCourseList({ page: 1, page_size: 3 });
     this.setData({ courseList });
   },
 

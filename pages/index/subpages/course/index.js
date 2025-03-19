@@ -1,34 +1,53 @@
 import IndexService from "../../utils/indexService";
 
+const indexService = new IndexService();
+
 Page({
   data: {
-    subMenuList: [
-      "推荐",
-      "培训",
-      "助农",
-      "党建",
-      "AI",
-      "制造业",
-      "机械",
-      "汽车"
-    ],
+    subMenuList: [],
     curSubMenuIdx: 0,
+    keywords: "",
     categoryPickerModalVisible: false,
     courseList: []
   },
 
-  async onLoad(options) {
-    const { id, title } = options;
-    wx.setNavigationBarTitle({ title });
-    this.id = id;
-    this.title = title;
-
+  async onLoad() {
+    await this.setSubMenuList();
     this.setCourseList(true);
+  },
+
+  setKeywords(e) {
+    this.setData({
+      keywords: e.detail.value
+    });
+  },
+
+  search() {
+    const { keywords } = this.data;
+    if (!keywords) {
+      return;
+    }
+    this.setCourseList(true);
+  },
+
+  cancelSearch() {
+    this.setData({
+      keywords: ""
+    });
+    this.setCourseList(true);
+  },
+
+  async setSubMenuList() {
+    const list = await indexService.getCourseCategoryList();
+    this.setData({
+      subMenuList: [{ id: 0, name: "推荐" }, ...list]
+    });
   },
 
   selectSubMenu(e) {
     const curSubMenuIdx = e.currentTarget.dataset.index;
     this.setData({ curSubMenuIdx });
+    this.setCourseList(true);
   },
 
   showCategoryPickerModal() {
@@ -38,6 +57,7 @@ Page({
   confirmCategoryPick(e) {
     const curSubMenuIdx = e.detail;
     this.setData({ curSubMenuIdx, categoryPickerModalVisible: false });
+    this.setCourseList(true);
   },
 
   hideCategoryPickerModal() {
@@ -55,9 +75,14 @@ Page({
 
   async setCourseList(init = false) {
     if (init) this.page = 0;
-    const list = (await new IndexService().getCourseList(++this.page)) || [];
+    const { subMenuList, curSubMenuIdx, courseList, keywords } = this.data;
+    const list = (await indexService.getCourseList({
+      category_id: subMenuList[curSubMenuIdx].id || "",
+      title: keywords,
+      page: ++this.page
+    })) || [];
     this.setData({
-      courseList: init ? list : [...this.data.courseList, ...list]
+      courseList: init ? list : [...courseList, ...list]
     });
   },
 
