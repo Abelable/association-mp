@@ -41,4 +41,4 @@
   <view class="download-btn" bindtap="saveImageToPhotosAlbum">点击保存</view>
 </view>
 
-<i-youbo-logo />
+<i-cxxq-logo />

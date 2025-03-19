@@ -170,5 +170,5 @@
   
   <view class="submit-btn" wx:if="{{status !== 1}}" ontap="submit">修改</view>
   
-  <i-youbo-logo />
+  <i-cxxq-logo />
 </view>

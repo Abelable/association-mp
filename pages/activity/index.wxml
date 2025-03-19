@@ -71,8 +71,8 @@
     <template is="i-empty-illus" data="{{desc: '暂无活动'}}" />
   </view>
 
-  <view class="youbo-logo-wrap" wx:if="{{activityListFinished}}">
-    <i-youbo-logo />
+  <view class="cxxq-logo-wrap" wx:if="{{activityListFinished}}">
+    <i-cxxq-logo />
   </view>
 </view>
 
@@ -83,8 +83,8 @@
     <template is="i-empty-illus" data="{{desc: '暂无相册'}}" />
   </view>
 
-  <view class="youbo-logo-wrap" wx:if="{{albumListFinished}}">
-    <i-youbo-logo />
+  <view class="cxxq-logo-wrap" wx:if="{{albumListFinished}}">
+    <i-cxxq-logo />
   </view>
 </view>
 

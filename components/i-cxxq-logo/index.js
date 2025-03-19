@@ -2,7 +2,7 @@ Component({
   methods: { 
     navToYouboMp() {
       wx.navigateToMiniProgram({
-        appId: 'wx4950d08503654b33'
+        appId: 'wxde9c8f2bdda63aeb'
       })
     }
   }

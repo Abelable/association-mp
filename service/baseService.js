@@ -9,7 +9,7 @@ class BaseService extends Base {
       .getFileSystemManager()
       .readFileSync(filePath, "base64")}`;
     const res = await api.request({
-      url: "https://mms.youboi.com/api/v4/user/material",
+      url: "https://mms.cxxqi.com/api/v4/user/material",
       method: "POST",
       data: {
         "file[content]": _filePath,

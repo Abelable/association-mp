@@ -1,0 +1,4 @@
+<view class="cxxq-logo-wrap" bindtap="navToYouboMp">
+  <image class="cxxq-logo" src="/images/cxxq-logo.png" mode="widthFix" />
+  <view class="cxxq-logo-tips">诚信星球提供技术支持</view>
+</view>

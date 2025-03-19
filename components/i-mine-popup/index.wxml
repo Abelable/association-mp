@@ -28,7 +28,7 @@
         <button class="avatar-wrapper" open-type="chooseAvatar" hover-class="none" bind:chooseavatar="onChooseAvatar">
           <image class="avatar" src="{{avatarUrl}}" />
         </button> 
-        <image class="more-icon" src="https://img.ubo.vip/youbo_plus/new_version/more.png"/>
+        <image class="more-icon" src="https://img.ubo.vip/cxxq_plus/new_version/more.png"/>
       </view>
       <view class="auth-modal-list">
         <view class="modal-list-title">昵称</view>

@@ -63,7 +63,7 @@
     ]
   },
   "usingComponents": {
-    "i-youbo-logo": "/components/i-youbo-logo/index"
+    "i-cxxq-logo": "/components/i-cxxq-logo/index"
   },
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents",

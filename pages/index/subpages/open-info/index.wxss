@@ -21,7 +21,7 @@
   width: fit-content;
 }
 
-.youbo-logo-wrap {
+.cxxq-logo-wrap {
   position: absolute;
   left: 50%;
   bottom: 0;

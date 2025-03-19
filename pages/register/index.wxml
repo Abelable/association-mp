@@ -179,7 +179,7 @@
   <view class="notice-detail-content">邮编：310005</view>
 </view>
 
-<i-youbo-logo />
+<i-cxxq-logo />
 <i-mine-popup wx:if="{{minePopupVisible}}" bind:hide="hideMinePopup" />
 
 <canvas id="logo-canvas" class="logo-canvas" type="2d" />

@@ -29,7 +29,7 @@
   <mp-html content="{{info.introduction || ''}}" bind:ready="load" />
 </view>
 
-<i-youbo-logo />
+<i-cxxq-logo />
 
 <view class="btn-wrap">
   <view class="btn" ontap="toggleCollect">

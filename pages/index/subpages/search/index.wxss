@@ -129,13 +129,13 @@
   width: fit-content;
 }
 
-.youbo-logo-wrap {
+.cxxq-logo-wrap {
   position: absolute;
   bottom: 10rpx;
   width: calc(100vw -  60rpx);
 }
 
-.youbo-logo-out-wrap {
+.cxxq-logo-out-wrap {
   position: absolute;
   bottom: 10rpx;
   width: 100%;

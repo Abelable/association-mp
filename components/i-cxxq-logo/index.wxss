@@ -1,0 +1,14 @@
+.cxxq-logo-wrap {
+  padding: 30rpx 0;
+  font-size: 0;
+  text-align: center;
+}
+.cxxq-logo {
+  margin-left: -16rpx;
+  margin-bottom: -4rpx;
+  width: 180rpx;
+}
+.cxxq-logo-tips {
+  color: #999;
+  font-size: 18rpx;
+}
