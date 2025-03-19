@@ -1,3 +1,4 @@
+<import src="/templates/i-empty-illus/index.wxml"/>
 <wxs module="TIME" src="/utils/filters/time.wxs" />
 
 <view class="header">
@@ -65,10 +66,26 @@
 
 <view class="activity-list" style="margin-top: {{statusBarHeight + 186}}px" wx:if="{{curMenuIdx === 0}}">
   <activity-item wx:for="{{activityList}}" wx:key="index" info="{{item}}" />
+
+  <view class="empty-illus-wrap" wx:if="{{!activityList.length}}">
+    <template is="i-empty-illus" data="{{desc: '暂无活动'}}" />
+  </view>
+
+  <view class="youbo-logo-wrap" wx:if="{{activityListFinished}}">
+    <i-youbo-logo />
+  </view>
 </view>
 
-<view class="album-list" style="margin-top: {{statusBarHeight + 132}}px" wx:if="{{curMenuIdx === 1}}">
+<view class="album-list" style="margin-top: {{statusBarHeight + 132}}px; min-height: calc(100vh - {{statusBarHeight + 132}}px)" wx:if="{{curMenuIdx === 1}}">
   <album-item wx:for="{{albumList}}" wx:key="index" info="{{item}}" />
+
+  <view class="empty-illus-wrap" wx:if="{{!albumList.length}}">
+    <template is="i-empty-illus" data="{{desc: '暂无相册'}}" />
+  </view>
+
+  <view class="youbo-logo-wrap" wx:if="{{albumListFinished}}">
+    <i-youbo-logo />
+  </view>
 </view>
 
 <category-picker-modal 

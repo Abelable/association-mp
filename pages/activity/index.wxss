@@ -1,3 +1,5 @@
+@import "/templates/i-empty-illus/index.wxss";
+
 .header {
   position: fixed;
   top: 0;
@@ -157,9 +159,24 @@
 }
 
 .activity-list {
-  padding: 24rpx;
+  position: relative;
+  padding: 24rpx 24rpx 120rpx;
 }
 
 .album-list {
-  padding: 24rpx;
+  position: relative;
+  padding: 24rpx 24rpx 120rpx;
 }
+
+.empty-illus-wrap {
+  margin: 240rpx auto 0;
+  width: fit-content;
+}
+
+.youbo-logo-wrap {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+

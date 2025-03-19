@@ -11,7 +11,8 @@ Page({
     subMenuList: [],
     curSubMenuIdx: 0,
     categoryPickerModalVisible: false,
-    enterpriseList: []
+    enterpriseList: [],
+    enterpriseListFinished: false
   },
 
   async onLoad() {
@@ -48,6 +49,7 @@ Page({
   async setEnterpriseList(init = false) {
     if (init) {
       this.page = 0;
+      this.setData({ enterpriseListFinished: false });
     }
     const { subMenuList, curSubMenuIdx, keywords, enterpriseList } = this.data;
     const list = await resourceService.getEnterpriseList({
@@ -58,6 +60,9 @@ Page({
     this.setData({
       enterpriseList: init ? list : [...enterpriseList, ...list]
     });
+    if (!list.length) {
+      this.setData({ enterpriseListFinished: true });
+    }
   },
 
   selectMenu(e) {

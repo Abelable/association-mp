@@ -12,7 +12,9 @@ Page({
     curSubMenuIdx: 0,
     categoryPickerModalVisible: false,
     activityList: [],
+    activityListFinished: false,
     albumList: [],
+    albumListFinished: false,
     cityList: [
       "杭州",
       "宁波",
@@ -140,6 +142,7 @@ Page({
   async setActivityList(init = false) {
     if (init) {
       this.activityPage = 0;
+      this.setData({ activityListFinished: false });
     }
     const { subMenuList, curSubMenuIdx, activityList, keywords } = this.data;
     const { list = [] } =
@@ -149,11 +152,15 @@ Page({
         page: ++this.activityPage
       })) || {};
     this.setData({ activityList: init ? list : [...activityList, ...list] });
+    if (!list.length) {
+      this.setData({ activityListFinished: true });
+    }
   },
 
   async setAlbumList(init = false) {
     if (init) {
       this.albumPage = 0;
+      this.setData({ albumListFinished: false });
     }
     const { albumList, curCityIdx, startTime, endTime } = this.data;
     const { list = [] } =
@@ -164,6 +171,9 @@ Page({
         page: ++this.albumPage
       })) || {};
     this.setData({ albumList: init ? list : [...albumList, ...list] });
+    if (!list.length) {
+      this.setData({ albumListFinished: true });
+    }
   },
 
   async onPullDownRefresh() {
