@@ -6,6 +6,7 @@ const { statusBarHeight } = getApp().globalData;
 Page({
   data: {
     statusBarHeight,
+    vantComponentVisible: false,
     curMenuIdx: 0,
     keywords: "",
     subMenuList: [],
@@ -49,11 +50,12 @@ Page({
     });
   },
 
-  selectMenu(e) {
+  async selectMenu(e) {
     const curMenuIdx = e.currentTarget.dataset.index;
     this.setData({ curMenuIdx });
     if (curMenuIdx === 1 && !this.data.albumList.length) {
-      this.setAlbumList(true);
+      await this.setAlbumList(true);
+      this.setData({ vantComponentVisible: true });
     }
   },
 
@@ -171,7 +173,7 @@ Page({
         page: ++this.albumPage
       })) || {};
     this.setData({ albumList: init ? list : [...albumList, ...list] });
-    if (!list.length) {
+    if (list.length < 10) {
       this.setData({ albumListFinished: true });
     }
   },

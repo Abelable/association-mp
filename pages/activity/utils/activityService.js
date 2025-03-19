@@ -3,7 +3,8 @@ import BaseService from "../../../service/baseService";
 class ActivityService extends BaseService {
   async getActivityCategoryList() {
     return await this.get({
-      url: `${this.baseUrl}/api/v1/activity-category/list`
+      url: `${this.baseUrl}/api/v1/activity-category/list`,
+      loadingTitle: "加载中..."
     });
   }
 

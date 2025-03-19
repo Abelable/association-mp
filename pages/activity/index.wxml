@@ -64,7 +64,7 @@
   </view>
 </view>
 
-<view class="activity-list" style="margin-top: {{statusBarHeight + 186}}px" wx:if="{{curMenuIdx === 0}}">
+<view class="activity-list" style="margin-top: {{statusBarHeight + 186}}px; min-height: calc(100vh - {{statusBarHeight + 186}}px)" wx:if="{{curMenuIdx === 0}}">
   <activity-item wx:for="{{activityList}}" wx:key="index" info="{{item}}" />
 
   <view class="empty-illus-wrap" wx:if="{{!activityList.length}}">
@@ -97,6 +97,7 @@
 />
 
 <van-popup
+  wx:if="{{vantComponentVisible}}"
   show="{{cityPickPopupVisible}}"
   round
   position="bottom"
@@ -112,6 +113,7 @@
 </van-popup>
 
 <van-calendar
+  wx:if="{{vantComponentVisible}}"
   show="{{calendarPopupVisibel}}"
   minDate="{{minDate}}"
   maxDate="{{maxDate}}"
