@@ -40,7 +40,8 @@ Page({
 
   async onLoad() {
     await this.setSubMenuList();
-    this.setActivityList(true);
+    await this.setActivityList(true);
+    this.setData({ vantComponentVisible: true });
   },
 
   async setSubMenuList() {
@@ -50,12 +51,11 @@ Page({
     });
   },
 
-  async selectMenu(e) {
+  selectMenu(e) {
     const curMenuIdx = e.currentTarget.dataset.index;
     this.setData({ curMenuIdx });
     if (curMenuIdx === 1 && !this.data.albumList.length) {
-      await this.setAlbumList(true);
-      this.setData({ vantComponentVisible: true });
+      this.setAlbumList(true);
     }
   },
 

@@ -84,6 +84,9 @@
       </view>
     </view>
   </view>
+  <view class="cxxq-logo-wrap">
+    <i-cxxq-logo />
+  </view>
 </view>
 
 <category-picker-modal 
