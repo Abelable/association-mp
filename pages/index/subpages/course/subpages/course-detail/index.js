@@ -17,7 +17,7 @@ Page({
 
   onLoad(options) {
     const { envVersion } = wx.getAccountInfoSync().miniProgram || {};
-    if (["develop", "release"].includes(envVersion)) {
+    if (envVersion === "release") {
       this.setData({ courseVisible: true });
     }
 
