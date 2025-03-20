@@ -2,9 +2,9 @@
   <view class="form">
     <view class="form-item">
       <view class="form-label">课程描述：</view>
-      <textarea class="form-textarea" bindinput="textInput" rows="5" cols="40" placeholder="请输入您想学习的课程内容" />
+      <textarea class="form-textarea" bindinput="setContent" rows="5" cols="40" placeholder="请输入您想学习的课程内容" />
     </view>
   </view>
   
-  <view class="submit-btn">提交</view>
+  <view class="submit-btn" bindtap="submit">提交</view>
 </view>

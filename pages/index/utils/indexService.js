@@ -42,6 +42,14 @@ class IndexService extends BaseService {
       loadingTitle: "加载中..."
     });
   }
+
+  async submitCourseApply(content, success) { 
+    return await this.post({
+      url: `${this.baseUrl}/api/v1/class-room-apply/save`,
+      data: { content },
+      success
+    });
+  }
 }
 
 export default IndexService;
