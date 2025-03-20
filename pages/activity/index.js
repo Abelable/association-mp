@@ -41,8 +41,8 @@ Page({
   async onLoad() {
     await this.setSubMenuList();
     await this.setActivityList(true);
-    this.setData({ vantComponentVisible: true });
     this.setAlbumList(true);
+    this.setData({ vantComponentVisible: true });
   },
 
   async setSubMenuList() {
