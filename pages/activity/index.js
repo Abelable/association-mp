@@ -41,8 +41,6 @@ Page({
   async onLoad() {
     await this.setSubMenuList();
     await this.setActivityList(true);
-    this.setAlbumList(true);
-    this.setData({ vantComponentVisible: true });
   },
 
   async setSubMenuList() {
@@ -52,9 +50,14 @@ Page({
     });
   },
 
-  selectMenu(e) {
+  async selectMenu(e) {
     const curMenuIdx = e.currentTarget.dataset.index;
     this.setData({ curMenuIdx });
+    if (curMenuIdx === 1 && !this.data.vantComponentVisible) {
+      wx.showLoading({ title: '加载中...' });
+      this.setData({ vantComponentVisible: true });
+      await this.setAlbumList(true);
+    }
   },
 
   setKeywords(e) {
