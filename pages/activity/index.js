@@ -42,6 +42,7 @@ Page({
     await this.setSubMenuList();
     await this.setActivityList(true);
     this.setData({ vantComponentVisible: true });
+    this.setAlbumList(true);
   },
 
   async setSubMenuList() {
@@ -54,9 +55,6 @@ Page({
   selectMenu(e) {
     const curMenuIdx = e.currentTarget.dataset.index;
     this.setData({ curMenuIdx });
-    if (curMenuIdx === 1 && !this.data.albumList.length) {
-      this.setAlbumList(true);
-    }
   },
 
   setKeywords(e) {

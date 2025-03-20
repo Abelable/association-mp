@@ -3,8 +3,17 @@ import ResourceService from "../../utils/resourceService";
 const resourceService = new ResourceService();
 
 Page({
+  data: {
+    visible: false
+  },
+
   onLoad({ id }) {
     this.id = id;
+
+    const { envVersion } = wx.getAccountInfoSync().miniProgram || {};
+    if (envVersion === "release") {
+      this.setData({ visible: true });
+    }
   },
 
   setName(e) {
@@ -24,26 +33,28 @@ Page({
   },
 
   submit() {
-    if (!this.name) {
-      wx.showToast({
-        title: "请输入您的姓名",
-        icon: "none"
-      });
-      return;
-    }
-    if (!this.mobile) {
-      wx.showToast({
-        title: "请输入您的手机号",
-        icon: "none"
-      });
-      return;
-    }
-    if (!this.companyName) {
-      wx.showToast({
-        title: "请输入您的单位名称",
-        icon: "none"
-      });
-      return;
+    if (this.data.visible) {
+      if (!this.name) {
+        wx.showToast({
+          title: "请输入您的姓名",
+          icon: "none"
+        });
+        return;
+      }
+      if (!this.mobile) {
+        wx.showToast({
+          title: "请输入您的手机号",
+          icon: "none"
+        });
+        return;
+      }
+      if (!this.companyName) {
+        wx.showToast({
+          title: "请输入您的单位名称",
+          icon: "none"
+        });
+        return;
+      }
     }
     if (!this.content) {
       wx.showToast({

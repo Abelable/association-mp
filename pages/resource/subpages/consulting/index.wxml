@@ -1,14 +1,14 @@
 <view class="container">
   <view class="form">
-    <view class="form-item row">
+    <view class="form-item row" wx:if="{{visible}}">
       <view class="form-label">联系姓名：</view>
       <input class="form-input" bindinput="setName" placeholder="请输入您的姓名" />
     </view>
-    <view class="form-item row">
+    <view class="form-item row" wx:if="{{visible}}">
       <view class="form-label">联系方式：</view>
       <input class="form-input" bindinput="setMobile" placeholder="请输入您的手机号" />
     </view>
-    <view class="form-item row">
+    <view class="form-item row" wx:if="{{visible}}">
       <view class="form-label">单位名称：</view>
       <input class="form-input" bindinput="setCompanyName" placeholder="请输入您的单位名称" />
     </view>
