@@ -54,9 +54,8 @@ Page({
     const curMenuIdx = e.currentTarget.dataset.index;
     this.setData({ curMenuIdx });
     if (curMenuIdx === 1 && !this.data.vantComponentVisible) {
-      wx.showLoading({ title: '加载中...' });
-      this.setData({ vantComponentVisible: true });
       await this.setAlbumList(true);
+      this.setData({ vantComponentVisible: true });
     }
   },
 
