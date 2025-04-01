@@ -5,6 +5,7 @@
 
 <view class="upload-wrap" style="margin-top: {{statusBarHeight + 44}}px">
   <view class="title">
+    <text class="required-icon">*</text>
     <text>企业logo</text>
     <text class="upload-tips"> 图片大小不能超过10MB</text>
   </view>
@@ -37,14 +38,12 @@
   </view>
   <view class="input-wrap">
     <view class="title">
-      <text class="required-icon">*</text>
       <text>网站（app）名称</text>
     </view>
     <input class="input" type="text" value="{{websiteUrl}}" bindinput="setWebsiteUrl" placeholder="请输入网站（app）名称"/>
   </view>
   <view class="input-wrap">
     <view class="title">
-      <text class="required-icon">*</text>
       <text>信用代码</text>
     </view>
     <input class="input" type="text" value="{{ICP}}" bindinput="setICP" placeholder="请输入信用代码"/>
@@ -118,14 +117,12 @@
   </view>
   <view class="input-wrap">
     <view class="title">
-      <text class="required-icon">*</text>
       <text>用户数量</text>
     </view>
     <input class="input" type="number" value="{{userCount}}" bindinput="setUserCount" placeholder="请输入用户数量"/>
   </view>
   <view class="input-wrap">
     <view class="title">
-      <text class="required-icon">*</text>
       <text>商家数量</text>
     </view>
     <input class="input" type="number" value="{{merchantCount}}" bindinput="setMerchantCount" placeholder="请输入商家数量"/>

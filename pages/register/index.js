@@ -312,6 +312,10 @@ Page({
       } = this;
       const { fileList, logoList, curCategoryIdx } = this.data;
 
+      if (!logoList.length) {
+        wx.showToast({ title: "请上传企业logo", icon: "none" });
+        return;
+      }
       if (!companyName) {
         wx.showToast({ title: "请输入企业名称", icon: "none" });
         return;
@@ -322,14 +326,6 @@ Page({
       }
       if (!address) {
         wx.showToast({ title: "请选择企业所在地区", icon: "none" });
-        return;
-      }
-      if (!websiteUrl) {
-        wx.showToast({ title: "网站（app）名称", icon: "none" });
-        return;
-      }
-      if (!ICP) {
-        wx.showToast({ title: "请输入信用代码", icon: "none" });
         return;
       }
       if (!companyType) {
@@ -358,14 +354,6 @@ Page({
       }
       if (!gangCount) {
         wx.showToast({ title: "请输入党员人数", icon: "none" });
-        return;
-      }
-      if (!userCount) {
-        wx.showToast({ title: "请输入用户数量", icon: "none" });
-        return;
-      }
-      if (!merchantCount) {
-        wx.showToast({ title: "请输入商家数量", icon: "none" });
         return;
       }
       if (!contacterName) {
