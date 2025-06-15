@@ -17,8 +17,8 @@ const categoryOptions = [
       { text: "开发工具", value: 16 },
       { text: "行业综合服务", value: 17 },
       { text: "云计算", value: 18 },
-      { text: "综合类", value: 19 },
-    ],
+      { text: "综合类", value: 19 }
+    ]
   },
   {
     text: "网络销售类平台",
@@ -29,8 +29,8 @@ const categoryOptions = [
       { text: "农业", value: 23 },
       { text: "商品交易", value: 24 },
       { text: "专业商品", value: 25 },
-      { text: "综合类", value: 26 },
-    ],
+      { text: "综合类", value: 26 }
+    ]
   },
   {
     text: "生活服务类平台",
@@ -44,8 +44,8 @@ const categoryOptions = [
       { text: "市场服务", value: 36 },
       { text: "文化旅游", value: 37 },
       { text: "医疗健康", value: 38 },
-      { text: "运输物流", value: 39 },
-    ],
+      { text: "运输物流", value: 39 }
+    ]
   },
   {
     text: "社交娱乐类平台",
@@ -53,8 +53,8 @@ const categoryOptions = [
     subOptions: [
       { text: "社交", value: 41 },
       { text: "视频直播", value: 42 },
-      { text: "综合类", value: 43 },
-    ],
+      { text: "综合类", value: 43 }
+    ]
   },
   {
     text: "金融服务类平台",
@@ -62,8 +62,8 @@ const categoryOptions = [
     subOptions: [
       { text: "消费金融", value: 51 },
       { text: "证券投资", value: 52 },
-      { text: "综合类", value: 53 },
-    ],
+      { text: "综合类", value: 53 }
+    ]
   },
   {
     text: "信息资讯类平台",
@@ -72,9 +72,9 @@ const categoryOptions = [
       { text: "内容生成", value: 61 },
       { text: "视听资讯", value: 62 },
       { text: "搜索引擎", value: 63 },
-      { text: "新闻门户", value: 64 },
-    ],
-  },
+      { text: "新闻门户", value: 64 }
+    ]
+  }
 ];
 
 Page({
@@ -87,13 +87,13 @@ Page({
     region: [],
     websiteUrl: "",
     ICP: "",
+    tradeAmount: "",
+    revenue: "",
+    taxAmount: "",
     staffCount: "",
     gangCount: "",
     userCount: "",
     merchantCount: "",
-    tradeAmount: "",
-    revenue: "",
-    taxAmount: "",
     name: "",
     contacterName: "",
     contacterJobTitle: "",
@@ -101,15 +101,19 @@ Page({
     licenseImg: "",
     fileList: [],
     logoList: [],
-    minePopupVisible: false,
+    minePopupVisible: false
   },
 
   setCompanyName(e) {
-    this.companyName = e.detail.value;
+    this.setData({
+      companyName: e.detail.value
+    });
   },
 
   setCompanyShortName(e) {
-    this.companyShortName = e.detail.value;
+    this.setData({
+      companyShortName: e.detail.value
+    });
   },
 
   bindRegionChange(e) {
@@ -118,10 +122,10 @@ Page({
       province: value[0],
       city: value[1],
       area: value[2],
-      region: [code[2].slice(0, 2), code[2].slice(0, 4), code[2]],
+      region: [code[2].slice(0, 2), code[2].slice(0, 4), code[2]]
     };
     this.setData({
-      region: value,
+      region: value
     });
   },
 
@@ -136,7 +140,7 @@ Page({
   setCompanyType(e) {
     this.companyType = Number(e.detail.value);
     const curCategoryIdx = categoryOptions.findIndex(
-      (item) => item.value === this.companyType
+      item => item.value === this.companyType
     );
     this.setData({ curCategoryIdx });
   },
@@ -145,12 +149,34 @@ Page({
     this.companySubType = e.detail.value.join();
   },
 
+  setTradeAmount(e) {
+    this.setData({
+      tradeAmount: e.detail.value
+    });
+  },
+
+  setRevenue(e) {
+    this.setData({
+      revenue: e.detail.value
+    });
+  },
+
+  setTaxAmount(e) {
+    this.setData({
+      taxAmount: e.detail.value
+    });
+  },
+
   setStaffCount(e) {
-    this.staffCount = e.detail.value;
+    this.setData({
+      staffCount: e.detail.value
+    });
   },
 
   setGangCount(e) {
-    this.gangCount = e.detail.value;
+    this.setData({
+      gangCount: e.detail.value
+    });
   },
 
   setUserCount(e) {
@@ -159,18 +185,6 @@ Page({
 
   setMerchantCount(e) {
     this.merchantCount = e.detail.value;
-  },
-
-  setTradeAmount(e) {
-    this.tradeAmount = e.detail.value;
-  },
-
-  setTaxAmount(e) {
-    this.taxAmount = e.detail.value;
-  },
-
-  setRevenue(e) {
-    this.revenue = e.detail.value;
   },
 
   setContacterName(e) {
@@ -189,7 +203,7 @@ Page({
     const { file } = e.detail;
     const licenseImg = await registerService.uploadImg(file.url);
     this.setData({
-      fileList: [...this.data.fileList, { ...file, url: licenseImg }],
+      fileList: [...this.data.fileList, { ...file, url: licenseImg }]
     });
   },
 
@@ -214,21 +228,21 @@ Page({
     wx.canvasToTempFilePath(
       {
         canvas: this.canvas,
-        success: async (res) => {
+        success: async res => {
           const logoImg = await registerService.uploadImg(res.tempFilePath);
           this.setData({ logoList: [{ ...e.detail.file, url: logoImg }] });
-        },
+        }
       },
       this
     );
   },
 
   initCanvas() {
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       this.createSelectorQuery()
         .select("#logo-canvas")
         .fields({ node: true, size: true })
-        .exec((res) => {
+        .exec(res => {
           if (res && res.length) {
             this.canvas = res[0].node;
             const renderWidth = res[0].width;
@@ -262,7 +276,7 @@ Page({
   },
 
   drawImage(src, x, y, w, h) {
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       const image = this.canvas.createImage();
       image.src = src;
       image.onload = () => {
@@ -294,21 +308,23 @@ Page({
       const {
         companyName,
         companyShortName,
+        tradeAmount,
+        revenue,
+        taxAmount,
+        staffCount,
+        gangCount
+      } = this.data;
+      const {
         address,
         websiteUrl,
         ICP,
         companyType,
         companySubType,
-        staffCount,
-        gangCount,
         userCount,
         merchantCount,
-        tradeAmount,
-        revenue,
-        taxAmount,
         contacterName,
         contacterJobTitle,
-        contacterTel,
+        contacterTel
       } = this;
       const { fileList, logoList, curCategoryIdx } = this.data;
 
@@ -324,10 +340,6 @@ Page({
         wx.showToast({ title: "请输入企业简称", icon: "none" });
         return;
       }
-      if (!address) {
-        wx.showToast({ title: "请选择企业所在地区", icon: "none" });
-        return;
-      }
       if (!companyType) {
         wx.showToast({ title: "请选择企业类型", icon: "none" });
         return;
@@ -336,24 +348,28 @@ Page({
         wx.showToast({ title: "请选择企业二级类型", icon: "none" });
         return;
       }
-      if (!tradeAmount) {
+      if (tradeAmount === "") {
         wx.showToast({ title: "请输入上年度GMV", icon: "none" });
         return;
       }
-      if (!revenue) {
-        wx.showToast({ title: "请输入上年度应收", icon: "none" });
+      if (revenue === "") {
+        wx.showToast({ title: "请输入上年度营收", icon: "none" });
         return;
       }
-      if (!taxAmount) {
+      if (taxAmount === "") {
         wx.showToast({ title: "请输入上年度纳税额", icon: "none" });
         return;
       }
-      if (!staffCount) {
+      if (staffCount === "") {
         wx.showToast({ title: "请输入员工人数", icon: "none" });
         return;
       }
-      if (!gangCount) {
+      if (gangCount === "") {
         wx.showToast({ title: "请输入党员人数", icon: "none" });
+        return;
+      }
+      if (!address) {
+        wx.showToast({ title: "请选择企业所在地区", icon: "none" });
         return;
       }
       if (!contacterName) {
@@ -375,7 +391,7 @@ Page({
       }
 
       const licenseImgs = [];
-      fileList.forEach((item) => {
+      fileList.forEach(item => {
         licenseImgs.push(item.url);
       });
 
@@ -398,7 +414,7 @@ Page({
         contacterJobTitle,
         contacterTel,
         licenseImg: licenseImgs.join(),
-        logoImg: logoList.length ? logoList[0].url : "",
+        logoImg: logoList.length ? logoList[0].url : ""
       };
       registerService.submitApply(
         content,
@@ -432,21 +448,21 @@ Page({
       licenseImg: "",
       fileList: [],
       logoList: [],
-      region: [],
+      region: []
     });
   },
 
   showMinePopup() {
     checkLogin(() => {
       this.setData({
-        minePopupVisible: true,
+        minePopupVisible: true
       });
     });
   },
 
   hideMinePopup() {
     this.setData({
-      minePopupVisible: false,
+      minePopupVisible: false
     });
-  },
+  }
 });

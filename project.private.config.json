@@ -3,50 +3,7 @@
     "compileHotReLoad": true,
     "skylineRenderEnable": false
   },
-  "condition": {
-    "miniprogram": {
-      "list": [
-        {
-          "name": "入会申请",
-          "pathName": "pages/register/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "\b新闻详情",
-          "pathName": "pages/index/subpages/news/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "申请记录",
-          "pathName": "pages/register/subpages/record/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "编辑入会申请",
-          "pathName": "pages/register/subpages/record-detail/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "搜索",
-          "pathName": "pages/index/subpages/search/index",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "网商课堂",
-          "pathName": "pages/index/subpages/course/subpages/course-detail/index",
-          "query": "id=17",
-          "launchMode": "default",
-          "scene": null
-        }
-      ]
-    }
-  },
+  "condition": {},
   "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
   "projectname": "mp",
   "libVersion": "3.8.7"

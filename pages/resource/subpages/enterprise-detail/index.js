@@ -20,11 +20,11 @@ Page({
     wx.setNavigationBarTitle({
       title: info.company_name
     });
-    this.setData({ banner: JSON.parse(banner), info });
+    this.setData({ banner: banner ? JSON.parse(banner) : [], info });
   },
 
   navToConsulting() {
-    const url = `../consulting/index?id=${this.id}`
+    const url = `../consulting/index?id=${this.id}`;
     wx.navigateTo({ url });
   },
 

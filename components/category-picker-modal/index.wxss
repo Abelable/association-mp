@@ -35,9 +35,9 @@
   padding-right: 0;
 }
 .category-option {
-  margin-right: 30rpx;
-  margin-bottom: 20rpx;
-  padding: 0 40rpx;
+  margin-right: 24rpx;
+  margin-bottom: 24rpx;
+  padding: 0 24rpx;
   height: 56rpx;
   color: #6A6F75;
   font-size: 28rpx;
