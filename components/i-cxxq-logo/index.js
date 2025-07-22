@@ -1,6 +1,6 @@
 Component({ 
   methods: { 
-    navToYouboMp() {
+    navToYCXXQMp() {
       wx.navigateToMiniProgram({
         appId: 'wxde9c8f2bdda63aeb'
       })
