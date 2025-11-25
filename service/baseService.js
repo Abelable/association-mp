@@ -44,10 +44,11 @@ class BaseService extends Base {
     class_room_id = "",
     legal_id = "",
     wisdom_library_id = "",
+    open_info_id = ""
   }) {
     return await this.post({
       url: `${this.baseUrl}/api/v1/share/mini-share`,
-      data: { type, article_id, class_room_id, legal_id, wisdom_library_id },
+      data: { type, article_id, class_room_id, legal_id, wisdom_library_id, open_info_id },
     });
   }
 

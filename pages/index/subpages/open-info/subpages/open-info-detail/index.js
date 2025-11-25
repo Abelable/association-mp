@@ -78,7 +78,7 @@ Page({
 
     const { id, cover: image, title } = this.data.info;
     const { path: cover } = await openInfoService.getImageInfo(image);
-    const { app_code } = await openInfoService.share({ type: 2, legal_id: id });
+    const { app_code } = await openInfoService.share({ type: 5, open_info_id: id });
     const { path: qrCode } = await openInfoService.getImageInfo(app_code);
 
     const posterInfo = {
