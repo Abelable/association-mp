@@ -101,7 +101,8 @@ Page({
     licenseImg: "",
     fileList: [],
     logoList: [],
-    minePopupVisible: false
+    minePopupVisible: false,
+    agree: false
   },
 
   setCompanyName(e) {
@@ -326,8 +327,12 @@ Page({
         contacterJobTitle,
         contacterTel
       } = this;
-      const { fileList, logoList, curCategoryIdx } = this.data;
+      const { fileList, logoList, curCategoryIdx, agree } = this.data;
 
+      if (!agree) {
+        wx.showToast({ title: "请阅读并同意用户服务协议", icon: "none" });
+        return;
+      }
       if (!logoList.length) {
         wx.showToast({ title: "请上传企业logo", icon: "none" });
         return;
@@ -449,6 +454,18 @@ Page({
       fileList: [],
       logoList: [],
       region: []
+    });
+  },
+
+  toggleAgree() {
+    this.setData({
+      agree: !this.data.agree
+    });
+  },
+
+  checkAgreement() {
+    wx.navigateTo({
+      url: "/pages/common/agreement/index"
     });
   },
 

@@ -140,7 +140,7 @@ radio .wx-radio-input.wx-radio-input-checked::before {
 }
 
 .submit-btn {
-  margin: 50rpx 88rpx;
+  margin: 50rpx 88rpx 0;
   height: 96rpx;
   color: #fff;
   font-size: 36rpx;
@@ -191,4 +191,18 @@ radio .wx-radio-input.wx-radio-input-checked::before {
   left: -100vw;
   width: 64px;
   height: 64px;
+}
+
+.agreement-tips {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 32rpx 0;
+  color: #999;
+  font-size: 24rpx;
+}
+.checkbox {
+  margin-right: 12rpx;
+  width: 30rpx;
+  height: 30rpx;
 }

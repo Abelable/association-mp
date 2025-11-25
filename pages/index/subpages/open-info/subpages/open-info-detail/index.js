@@ -76,7 +76,7 @@ Page({
       getApp().globalData.posterAvatarUrl = path;
     }
 
-    const { id, image, title } = this.data.info;
+    const { id, cover: image, title } = this.data.info;
     const { path: cover } = await openInfoService.getImageInfo(image);
     const { app_code } = await openInfoService.share({ type: 2, legal_id: id });
     const { path: qrCode } = await openInfoService.getImageInfo(app_code);

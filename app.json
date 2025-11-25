@@ -22,7 +22,8 @@
     "pages/register/subpages/record-detail/index",
     "pages/register/subpages/collect/index",
     "pages/common/intro/index",
-    "pages/common/webview/index"
+    "pages/common/webview/index",
+    "pages/common/agreement/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

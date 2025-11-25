@@ -166,6 +166,12 @@
 
 <view class="submit-btn" ontap="submit">提交</view>
 
+ <view class="agreement-tips" bindtap="toggleAgree">
+  <image class="checkbox" src="https://static.tiddler.cn/mp/register/select{{agree ? 'ed' : ''}}.png" />
+  <text>阅读并同意</text>
+  <text style="color: #3BA0FB;" catchtap="checkAgreement">《用户服务协议》</text>
+</view>
+
 <view class="notice-title">填表须知</view>
 <view class="notice">
   <view class="notice-detail-title">1.申请入会需如实完整填写此表</view>
